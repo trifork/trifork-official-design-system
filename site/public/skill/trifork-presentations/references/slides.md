@@ -18,7 +18,7 @@ Generated from content/brand-system.mjs. Do not edit by hand.
 - Slides are flat: no drop shadows, glows, or bevels on cards, rules, images, text, or the logo. Separation comes from colour, fill, and whitespace.
 - Keep at least 32 px between a slide title and the next element below it.
 - Do not put a horizontal rule across the top of, or between, a multi-column content row, and never put a rule under a title or sub-heading.
-- Lists use one of two markers: an orange Medium numeral (01, 02, 03) or a short orange dash rule. Body text stays ink (white on dark). Do not use dots, ticks, arrows, or emoji, and never colour list body text orange.
+- Lists use one of two markers: an orange Medium numeral (01, 02, 03) or a short orange line bullet (a 2px rule, not a character). Body text stays ink (white on dark). Do not use dots, ticks, chevrons, arrows, or emoji as a bullet, and never colour list body text orange.
 - Columns scale from two to five (five only when copy is short). Each column may carry a line icon, a rounded image, or an orange step number above its title.
 - Use an 80 px outer margin on a 1920 x 1080 canvas; titles, label, and footer sit at the 80 px margin, while ledes, columns, and body indent to 144 px.
 - Title and body type scale with slide width: cover title ~5.5%, slide title ~4.2%, lede ~1.5%, body ~1.25%, card/stat label ~1%, chrome label ~0.75% (8 pt floor). Slide titles read clearly smaller than the cover.

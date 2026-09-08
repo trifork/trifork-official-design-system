@@ -12,7 +12,10 @@ Generated from content/brand-system.mjs. Do not edit by hand.
 - Do not put orange inside the title.
 - Do not use gradients.
 - Do not use emoji or exclamation marks.
+- The positions list uses a short orange line bullet (a 2px rule, not a character) per item. Never a dot or a chevron.
 - Logo is off by default because LinkedIn already shows the company avatar.
+- Never render more than one Trifork logo on the same graphic.
+- Logo placement is automatic, not a payload field: it sits in the corner opposite the title's vertical anchor for visual balance (title anchored bottom puts the logo top; title anchored top or center puts the logo bottom).
 - After creating a social graphic, provide a playground link with base64url-encoded JSON.
 
 ## Formats
