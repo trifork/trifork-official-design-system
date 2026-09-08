@@ -1,0 +1,218 @@
+# Trifork Design System
+
+> Source of truth: https://brand.trifork.com/system/
+> Tokens: https://brand.trifork.com/system/tokens.css
+> Skills: https://brand.trifork.com/system/skill/skills.json (trifork-brand-core, trifork-presentations, trifork-social-graphics)
+> Install guide: https://brand.trifork.com/system/install/
+> Generated: 2026-06-09
+
+Trifork's brand and design system: voice, Poppins type, the ink/blue/orange palette, spacing, iconography, components, slide layouts, and social post templates.
+
+---
+
+## Core Rules
+
+### Voice
+- Calm, structured, expert. Trifork explains rather than sells.
+- Use UK English: colour, organisation, centre.
+- Use short, concrete sentences. Specifics beat adjectives.
+- Use 'we' when speaking from inside Trifork and 'Trifork' externally.
+- Say customers or partners, never clients.
+- Say engagement or programme, not project. Say build or platform, not solution.
+- Say the team, engineers, or consultants, never resources.
+- Avoid exclamation marks, emoji, em dashes, and superlatives such as revolutionary, world-class, or cutting-edge.
+
+### Capitalisation
+- Use sentence case for headlines and titles.
+- Use Title Case only for proper nouns and named offerings.
+- Use ALL CAPS only for labels, such as eyebrow labels, slide labels, and section labels.
+
+### Type
+- Use Poppins only.
+- Display and H1 use Regular 400.
+- Medium 500 is for smaller headlines, labels, numeric callouts, and UI.
+- Do not use bold or black weights. Rewrite the sentence instead.
+- Use tight tracking on display and headline sizes only. Use default tracking elsewhere.
+
+### Colour
+- Use ink 950 (#2C3A42) for titles, body ink, and any title or paragraph text on a light background.
+- Use orange 500 (#FF6600) sparingly: a slide label, one numeric callout, the wordmark dot, or a single button.
+- Do not colour words inside a title or paragraph orange.
+- Do not end a title with an orange period.
+- Use icons in blue 900 (#3C4C54), never orange.
+- Use white as a surface or on dark backgrounds. Do not use white as a slide background.
+
+### Slides
+- Slide backgrounds are only blue 100 (#D5E5ED) or ink 950 (#2C3A42). Never white.
+- Photo overlays are flat ink 950 at 90 percent opacity: rgba(44, 58, 66, 0.90). No gradients and no other tints.
+- Cards are white on light slides and rgba(0, 0, 0, 0.10) on dark slides.
+- Line separators are blue 200 (#C1D7E5) on light slides and rgba(255, 255, 255, 0.30) on dark slides. Use rules sparingly, only to separate stacked list or table rows.
+- Slides are flat: no drop shadows, glows, or bevels on cards, rules, images, text, or the logo. Separation comes from colour, fill, and whitespace.
+- Keep at least 32 px between a slide title and the next element below it.
+- Do not put a horizontal rule across the top of, or between, a multi-column content row, and never put a rule under a title or sub-heading.
+- Lists use one of two markers: an orange Medium numeral (01, 02, 03) or a short orange dash rule. Body text stays ink (white on dark). Do not use dots, ticks, arrows, or emoji, and never colour list body text orange.
+- Columns scale from two to five (five only when copy is short). Each column may carry a line icon, a rounded image, or an orange step number above its title.
+- Use an 80 px outer margin on a 1920 x 1080 canvas; titles, label, and footer sit at the 80 px margin, while ledes, columns, and body indent to 144 px.
+- Title and body type scale with slide width: cover title ~5.5%, slide title ~4.2%, lede ~1.5%, body ~1.25%, card/stat label ~1%, chrome label ~0.75% (8 pt floor). Slide titles read clearly smaller than the cover.
+- The slide label sits top-left in orange tracked caps, Poppins Medium (500), 0.16em tracking. Never bold (700) anywhere.
+- The footer carries the page number, a slash, and the slide name at bottom-left. The Trifork logo anchors bottom-right.
+- Cover slides carry the deck name and year bottom-left, set slightly larger than the content footer, and never show a page number.
+- Title, lede, and content flow vertically: when a title wraps to more than one line, the description and the content below start beneath it with a consistent gap, never overlapping or crammed against it. Leave generous space between blocks; content should never feel cramped.
+- Use a variety of layouts across a deck and avoid repeating the same layout on consecutive slides.
+- Keep decks visual: use image-based slides (cover-card or cover-photo, image-slide, columns-images, content and image splits, customer-case) so a photographic or visual slide appears every few slides, not only text.
+- Use the logo asset for the standalone Trifork wordmark; keep its 495:52 (about 9.52:1) aspect ratio. Scale by one dimension and let the other follow. Never stretch, squeeze, retype, or recolour it.
+
+### Spacing And Radius
+- Use the 8 px grid for gaps, padding, and offsets.
+- Use generous spacing between blocks: 48 to 80 px on slides.
+- Use 8 to 24 px inside dense components.
+- Use 12 px radius for elements up to 199 px wide and 24 px for larger elements.
+
+### Iconography
+- Use single-stroke, monochromatic, geometric line icons.
+- Use a 24 x 24 grid, 2 px stroke, round caps, and round joins.
+- Use blue 900 (#3C4C54) for icons. Do not tint icons orange.
+- Use Streamline 3.0 Regular Line as the production source. The bundled SVGs are Lucide stand-ins with matching construction.
+
+### Imagery
+- Use real photography from Trifork offices and engagements.
+- Do not use stock photography of strangers or handshake cliches.
+- Check https://brand.trifork.com/system/assets/imagery/index.json before choosing a hosted image.
+
+### Wordmark
+- When the Trifork name stands alone, use the logo asset.
+- Use the dark logo on light backgrounds and the light logo on dark backgrounds.
+- The wordmark has a fixed 495:52 (about 9.52:1) aspect ratio. Scale it by one dimension and let the other follow. Never stretch or squeeze it into a box of another ratio.
+- Keep the wordmark flat with no shadow, and never recolour the orange dot.
+- Type the name only inside running content, such as labels, titles, and sentences.
+- Never typeset Trifork by itself as a standalone logo or corner mark.
+
+---
+
+## Tokens
+
+Link the token sheet directly:
+
+```html
+<link rel="stylesheet" href="https://brand.trifork.com/system/tokens.css">
+```
+
+| Token | Value | Role |
+| --- | --- | --- |
+| --tf-ink-950 | #2C3A42 | Titles, body ink, dark slide background |
+| --tf-ink-800 | #566168 | Body text where lower contrast is explicitly allowed |
+| --tf-ink-500 | #959CA0 | Muted text, captions, metadata, chrome |
+| --tf-ink-100 | #EAEBEC | Rules and dividers |
+| --tf-blue-900 | #3C4C54 | Icons and secondary ink |
+| --tf-blue-200 | #C1D7E5 | Slide separator on light slides |
+| --tf-blue-100 | #D5E5ED | Light slide background |
+| --tf-blue-50 | #EAF2F6 | Soft web background |
+| --tf-orange-500 | #FF6600 | Single accent |
+| --tf-white | #FFFFFF | White surface and text on dark backgrounds |
+
+### Type Scale
+| Token | Value | Role |
+| --- | --- | --- |
+| --tf-fs-display | 96px | Cover title, Regular 400 |
+| --tf-fs-h1 | 72px | Section title, Regular 400 |
+| --tf-fs-h2 | 40px | Slide title, Medium 500 |
+| --tf-fs-h3 | 28px | Small headline, Medium 500 |
+| --tf-fs-lead | 28px | Slide deck lede |
+| --tf-fs-body | 20px | Body floor for slides |
+| --tf-fs-caption | 16px | Caption |
+| --tf-fs-label | 13px | Tracked label, Medium 500 |
+
+### Spacing
+| Token | Value |
+| --- | --- |
+| --tf-s-1 | 4px |
+| --tf-s-2 | 8px |
+| --tf-s-3 | 16px |
+| --tf-s-4 | 24px |
+| --tf-s-5 | 32px |
+| --tf-s-6 | 48px |
+| --tf-s-7 | 64px |
+| --tf-s-8 | 80px |
+| --tf-s-9 | 120px |
+| --tf-s-10 | 160px |
+
+### Radii
+| Token | Value | Role |
+| --- | --- | --- |
+| --tf-r-sm | 8px |  |
+| --tf-r-md | 12px | Default for elements up to 199 px wide |
+| --tf-r-lg | 24px | Default for larger surfaces |
+| --tf-r-pill | 999px | Actions and tags |
+
+---
+
+## Machine-Readable Files
+
+- Full LLM index: https://brand.trifork.com/system/llms/index.md
+- Brand: https://brand.trifork.com/system/llms/brand.md
+- Type: https://brand.trifork.com/system/llms/type.md
+- Colour: https://brand.trifork.com/system/llms/colour.md
+- Spacing: https://brand.trifork.com/system/llms/spacing.md
+- Iconography: https://brand.trifork.com/system/llms/iconography.md
+- Components: https://brand.trifork.com/system/llms/components.md
+- Slides: https://brand.trifork.com/system/llms/slides.md
+- Slide visual templates: https://brand.trifork.com/system/llms/slide-kit-visual.md
+- Social: https://brand.trifork.com/system/llms/social.md
+- Assets: https://brand.trifork.com/system/llms/assets.md
+- Validation: https://brand.trifork.com/system/llms/validation.md
+- Social post schema: https://brand.trifork.com/system/schemas/social-post.schema.json
+- Slide schema: https://brand.trifork.com/system/schemas/slide.schema.json
+- Slide template manifest: https://brand.trifork.com/system/templates/slides/index.json
+- Slide template CSS: https://brand.trifork.com/system/templates/slides/trifork-slide.css
+- Icon manifest: https://brand.trifork.com/system/assets/icons/index.json
+- Imagery manifest: https://brand.trifork.com/system/assets/imagery/index.json
+
+---
+
+## Pages
+
+- [Brand](https://brand.trifork.com/system/brand/) - Voice, editorial principles, naming, and wordmark rules.
+- [Type](https://brand.trifork.com/system/type/) - Poppins roles, weights, scale, and usage.
+- [Colour](https://brand.trifork.com/system/colors/) - Ink, blue, orange, and usage rules.
+- [Spacing](https://brand.trifork.com/system/spacing/) - 8 px scale, radii, and slide chrome.
+- [Iconography](https://brand.trifork.com/system/iconography/) - Line icon rules and the icon set.
+- [Components](https://brand.trifork.com/system/components/) - Slide-level UI patterns.
+- [Slide kit](https://brand.trifork.com/system/slide-kit/) - Master slide layouts on the 1920 x 1080 canvas.
+- [Social](https://brand.trifork.com/system/social/) - LinkedIn post system and templates.
+- [Social playground](https://brand.trifork.com/system/social/playground/) - Build, deep-link, and export posts.
+- [Use with AI](https://brand.trifork.com/system/install/) - Install the skill or use the machine-readable files.
+
+---
+
+## Use With AI Tools
+
+- Install the skills from https://brand.trifork.com/system/install/: trifork-brand-core (foundation), trifork-presentations, and trifork-social-graphics. Each is self-contained; brand-core is the base.
+- In dedicated Trifork projects, add https://brand.trifork.com/system/skill/trifork-brand-core/CLAUDE.md so the brand is always loaded.
+- For tools without skill support, paste this file or https://brand.trifork.com/system/llms/index.md into the tool instructions.
+- The skill prefers live files from this site when online and falls back to the bundled references when offline.
+
+---
+
+## Always Avoid
+
+- White or any colour other than blue 100 or ink 950 as a slide background.
+- Bold body copy.
+- Orange tints on icons.
+- Orange as emphasis inside a title or paragraph.
+- Orange periods at the end of titles.
+- ALL CAPS in titles or paragraph copy.
+- A separator rule above a multi-column content row.
+- Title or paragraph text on light backgrounds in any colour other than ink 950.
+- Emoji, exclamation marks, superlatives, em dashes, stock-photo handshakes, Title Case headlines, and US spellings.
+- The Trifork name set in plain type as a standalone logo or corner mark.
+
+---
+
+## Generating Artefacts
+
+- HTML graphics must include a "Download asset" button outside the captured node.
+- Social posts must include an "Open in the Trifork playground" link.
+- Social playground links use: https://brand.trifork.com/system/social/playground/?post=<payload>
+- The payload is base64url-encoded JSON shaped as { "format": "1:1", "pages": [page] }.
+- Validate social payloads against https://brand.trifork.com/system/schemas/social-post.schema.json.
+- Validate slide specifications against https://brand.trifork.com/system/schemas/slide.schema.json.

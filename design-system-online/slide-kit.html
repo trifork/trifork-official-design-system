@@ -1,0 +1,771 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Slide kit" subtitle="Rebuilt to Trifork presentation template" -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Trifork. Slide kit</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  html, body { margin: 0; background: var(--tf-ink-100); color: var(--tf-text); font-family: var(--tf-font); }
+  body > .page { padding: 64px 48px; max-width: 1400px; margin: 0 auto; }
+  .topline { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 24px; border-bottom: 1px solid var(--tf-rule-strong); margin-bottom: 48px; }
+  .wordmark img { height: 28px; }
+  .intro { max-width: 880px; margin-bottom: 56px; }
+  .intro h1 { font: 400 56px/1.1 var(--tf-font); margin: 0 0 16px; letter-spacing: -0.02em; }
+  .intro p { font: 400 22px/1.45 var(--tf-font); color: var(--tf-text-body); margin: 0; }
+
+  .deck { display: flex; flex-direction: column; gap: 56px; }
+  .slide-meta {
+    display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px;
+    font-size: 13px; color: var(--tf-text-body);
+  }
+  .slide-meta b { color: var(--tf-text); font-weight: 500; font-size: 16px; letter-spacing: -0.005em; }
+  .slide-meta code { font-size: 12px; background: var(--tf-white); padding: 4px 10px; border-radius: var(--tf-r-sm); border: 1px solid var(--tf-rule); }
+
+  .slide {
+    aspect-ratio: 16/9;
+    background: var(--tf-blue-100);
+    /* Line separators inside slides: blue-200 on light slides, 30% white on dark. */
+    --tf-rule: var(--tf-blue-200);
+    border-radius: var(--tf-r-md);
+    overflow: hidden;
+    /* GALLERY CHROME ONLY — lifts the slide thumbnails off this documentation
+       page. Slides are flat: never reproduce this shadow inside a deck. */
+    box-shadow: 0 24px 60px -32px rgba(44,58,66,0.25), 0 1px 0 rgba(0,0,0,0.04);
+    position: relative;
+    container-type: inline-size;
+  }
+  .slide.on-dark { --tf-rule: rgba(255, 255, 255, 0.30); }
+  .slide-inner { position: absolute; inset: 0; }
+
+  /* ====== Reusable slide chrome ====== */
+  /* Orange section label: always top-left, 50px from top and 50px from left.
+     Poppins Medium (500) for the orange uppercase labels. */
+  .s-label {
+    position: absolute; top: 50px; left: 50px;
+    font: 500 0.75cqw/1 var(--tf-font); letter-spacing: 0.16em; color: var(--tf-orange-500); text-transform: uppercase;
+  }
+  /* Footer text (page number + deck name) on the left.
+     Mirrors the logo's offset on the opposite side: same distance from bottom & left edges. */
+  .s-foot {
+    position: absolute; bottom: 50px; left: 50px;
+    display: flex; align-items: center; gap: 1.6cqw;
+    font: 400 0.7cqw/1 var(--tf-font); color: var(--tf-text-body);
+  }
+  .s-foot .left { display: flex; align-items: baseline; gap: 1.6cqw; }
+  .s-foot .left .page { color: var(--tf-text); font-weight: 400; font-variant-numeric: tabular-nums; }
+  .s-foot .left .deck { color: var(--tf-text-body); }
+
+  /* Trifork wordmark: ALWAYS bottom-right of the slide,
+     and ALWAYS at the same distance from the right edge as from the bottom edge. */
+  .s-logo {
+    position: absolute; bottom: 50px; right: 50px;
+    display: flex; align-items: center; height: 1cqw;
+  }
+  .s-logo img { height: 100%; width: auto; display: block; }
+
+  /* Back-compat: any legacy .logo still nested inside .s-foot is hidden;
+     the canonical wordmark lives in its own .s-logo at the corner. */
+  .s-foot .logo { display: none; }
+
+  .on-dark .s-foot { color: rgba(255,255,255,0.55); }
+  .on-dark .s-foot .left .page { color: rgba(255,255,255,0.9); }
+  .on-dark .s-foot .left .deck { color: rgba(255,255,255,0.65); }
+
+  /* ====== Cover (light) ====== */
+  .cover { background: var(--tf-blue-100); }
+  .cover .label-block {
+    position: absolute; left: 4cqw; top: 11cqw;
+    font: 500 0.75cqw/1.6 var(--tf-font); letter-spacing: 0.16em; color: var(--tf-orange-500); text-transform: uppercase;
+  }
+  .cover h1 {
+    position: absolute; left: 4cqw; right: 4cqw; top: 16cqw;
+    font: 400 5.5cqw/1.05 var(--tf-font); letter-spacing: -0.022em; margin: 0; max-width: 75cqw;
+    color: var(--tf-text);
+  }
+  .cover .lede {
+    position: absolute; left: 4cqw; right: 4cqw; top: 33cqw;
+    font: 400 1.4cqw/1.5 var(--tf-font); color: var(--tf-text); max-width: 60cqw; margin: 0;
+  }
+
+  /* ====== Cover with photo ====== */
+  .cover-photo { background: var(--tf-ink-950); color: var(--tf-white); }
+  .cover-photo .photo-bg { position: absolute; inset: 0; }
+  .cover-photo .photo-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .cover-photo .photo-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: rgba(44, 58, 66, 0.90); /* ink 950 @ 90% */
+  }
+  .cover-photo .label-block {
+    position: absolute; left: 4cqw; top: 11cqw;
+    font: 500 0.75cqw/1 var(--tf-font); letter-spacing: 0.16em; color: var(--tf-orange-500); text-transform: uppercase;
+  }
+  .cover-photo h1 {
+    position: absolute; left: 4cqw; right: 4cqw; top: 16cqw;
+    font: 400 5.5cqw/1.05 var(--tf-font); letter-spacing: -0.022em; margin: 0; max-width: 80cqw;
+    color: var(--tf-white);
+  }
+  .cover-photo .lede {
+    position: absolute; left: 4cqw; right: 4cqw; top: 33cqw;
+    font: 400 1.4cqw/1.5 var(--tf-font); color: rgba(255,255,255,0.85); max-width: 60cqw; margin: 0;
+  }
+
+  /* ====== Cover, image card (PDF-derived variation) ======
+     A floating rounded image card on a calm-blue slide background. Title sits
+     inside the card at its bottom-left, in white; the Trifork wordmark sits
+     inside the card's top-right corner. The lower strip carries the deck
+     label · year on the left and the lede on the right, in ink 950. No
+     separate slide-corner logo or page-chrome: the wordmark inside the card
+     is the brand mark for this cover. */
+  .cover-card { background: var(--tf-blue-100); color: var(--tf-text); }
+  .cover-card .photo-card {
+    position: absolute; top: 50px; left: 50px; right: 50px; bottom: 16cqw;
+    border-radius: 48px; overflow: hidden; background: var(--tf-ink-950);
+  }
+  .cover-card .photo-card > img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  }
+  .cover-card .photo-card::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+    background: rgba(44, 58, 66, 0.90); /* ink 950 @ 90% */
+  }
+  .cover-card .card-mark {
+    position: absolute; top: 64px; right: 64px; z-index: 2;
+    height: 1.6cqw; display: flex; align-items: center;
+  }
+  .cover-card .card-mark img { height: 100%; width: auto; display: block; }
+  .cover-card .photo-card h1 {
+    position: absolute; left: 64px; right: 3.5cqw; bottom: 64px; z-index: 2;
+    font: 400 6cqw/1.02 var(--tf-font); letter-spacing: -0.022em; margin: 0;
+    color: var(--tf-white); max-width: 86%;
+  }
+  .cover-card .lower-left {
+    position: absolute; bottom: 50px; left: 50px;
+    font: 400 1cqw/1 var(--tf-font); color: var(--tf-text);
+    display: flex; align-items: center; gap: 1.2cqw;
+  }
+  .cover-card .lower-left .sep { color: var(--tf-ink-400); }
+  .cover-card .lower-right {
+    position: absolute; bottom: 50px; right: 50px;
+    max-width: 42cqw;
+    font: 400 1.2cqw/1.45 var(--tf-font); color: var(--tf-text);
+    margin: 0; text-wrap: pretty;
+  }
+
+  /* ====== Cover, typographic split ======
+     Type-led cover. Label sits 24px above the title; Trifork wordmark moves
+     to the top-left (dark variant on light background). Tall image card on
+     the right is anchored top-right, runs from the top edge to 64px above
+     the slide bottom, with a single 80px round on the bottom-left corner. */
+  .cover-split { background: var(--tf-blue-100); color: var(--tf-text); }
+  .cover-split .s-logo {
+    top: 50px; left: 50px; right: auto; bottom: auto;
+  }
+  .cover-split .left-col {
+    position: absolute; left: 50px; right: 44cqw;
+    top: 50%; transform: translateY(-50%);
+  }
+  .cover-split .label-block {
+    font: 500 0.75cqw/1 var(--tf-font); letter-spacing: 0.16em;
+    color: var(--tf-orange-500); text-transform: uppercase;
+    margin: 0 0 24px;
+  }
+  .cover-split h1 {
+    font: 400 5.4cqw/1.04 var(--tf-font); letter-spacing: -0.022em;
+    margin: 0 0 max(32px, 2cqw); color: var(--tf-text); text-wrap: balance;
+  }
+  .cover-split .lede {
+    font: 400 1.4cqw/1.5 var(--tf-font); color: var(--tf-text);
+    margin: 0; max-width: 40cqw; text-wrap: pretty;
+  }
+  .cover-split .image-card {
+    position: absolute; top: 0; bottom: 64px; right: 0; width: 45cqw;
+    border-radius: 0 0 0 80px; overflow: hidden; background: var(--tf-ink-950);
+  }
+  .cover-split .image-card img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ====== Agenda ====== */
+  .agenda h2 {
+    position: absolute; top: calc(100px + 0.75cqw); left: 4cqw;
+    font: 400 4cqw/1 var(--tf-font); letter-spacing: -0.022em; margin: 0;
+  }
+  .agenda ol { list-style: none; padding: 0; margin: 0;
+    position: absolute; top: 11cqw; left: 48cqw; right: 4cqw; }
+  .agenda li {
+    display: grid; grid-template-columns: 4.5cqw 1fr; gap: 2cqw; align-items: baseline;
+    padding: 1.4cqw 0; border-top: 1px solid var(--tf-rule);
+    font: 400 1.7cqw/1.2 var(--tf-font);
+    color: var(--tf-text);
+  }
+  .agenda li:last-child { border-bottom: 1px solid var(--tf-rule); }
+  .agenda li b { color: #ff6600; font-weight: 400; font-variant-numeric: tabular-nums; }
+
+  /* ====== Section starter ====== */
+  .section-start { background: var(--tf-ink-950); color: var(--tf-white); }
+  .section-start .num {
+    position: absolute; top: 11cqw; left: 4cqw;
+    font: 400 12cqw/1 var(--tf-font); color: var(--tf-orange-500); letter-spacing: -0.04em;
+  }
+  .section-start h1 {
+    position: absolute; left: 4cqw; right: 4cqw; top: 28cqw;
+    font: 400 5cqw/1 var(--tf-font); color: var(--tf-white); letter-spacing: -0.022em; margin: 0;
+  }
+  .section-start p {
+    position: absolute; left: 4cqw; right: 30cqw; top: 38cqw;
+    font: 400 1.4cqw/1.45 var(--tf-font); color: rgba(255,255,255,0.78); margin: 0; max-width: 50cqw;
+  }
+
+  /* ====== Title + body ====== */
+  .text-slide h2 {
+    position: absolute; top: calc(100px + 0.75cqw); left: 4cqw;
+    font: 400 3.6cqw/1 var(--tf-font); letter-spacing: -0.022em; margin: 0;
+  }
+  .text-slide .body {
+    position: absolute; left: 4cqw; right: 4cqw; top: calc(150px + 4.35cqw);
+    column-count: 1; max-width: 76cqw;
+    display: flex; flex-direction: column; gap: 1.1cqw;
+  }
+  .text-slide .body p { font: 400 1.25cqw/1.55 var(--tf-font); color: var(--tf-text); margin: 0; }
+
+  /* ====== Large image ====== */
+  .image-slide { background: var(--tf-ink-950); }
+  .image-slide .frame { position: absolute; inset: 0; }
+  .image-slide .frame img { width: 100%; height: 100%; object-fit: cover; }
+  .image-slide .frame::after {
+    content: ""; position: absolute; inset: 0;
+    background: rgba(44, 58, 66, 0.90); /* ink 950 @ 90% */
+  }
+  .image-slide .caption {
+    position: absolute; bottom: 7cqw; left: 4cqw; right: 4cqw;
+    color: var(--tf-white);
+    font: 400 2.2cqw/1.2 var(--tf-font); letter-spacing: -0.018em;
+    max-width: 70cqw;
+  }
+
+  /* ====== Numeric callouts ====== */
+  .nums h2 { position: absolute; top: calc(100px + 0.75cqw); left: 4cqw; font: 400 3.6cqw/1 var(--tf-font); letter-spacing: -0.022em; margin: 0; }
+  .nums .lede { position: absolute; top: calc(150px + 4.35cqw); left: 4cqw; right: 30cqw; font: 400 1.25cqw/1.55 var(--tf-font); color: var(--tf-text); margin: 0; }
+  .nums .group-label {
+    position: absolute; top: 30cqw; left: 4cqw;
+    font: 500 0.85cqw/1 var(--tf-font); letter-spacing: 0.16em; color: var(--tf-orange-500); text-transform: uppercase;
+  }
+  .nums .grid {
+    position: absolute; left: 4cqw; right: 4cqw; top: 36cqw;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5cqw;
+  }
+  .nums .item { display: flex; flex-direction: column; gap: 0.5cqw; }
+  /* Numeric callouts. No top separator rule across the column row — multi-column
+     content rows do not share a header line. */
+  .nums .num {
+    font: 400 5cqw/1 var(--tf-font); color: var(--tf-text); letter-spacing: -0.04em;
+  }
+  .nums .label { font: 400 1cqw/1.35 var(--tf-font); color: var(--tf-text); }
+
+  /* ====== Two columns ====== */
+  .two-col h2 { position: absolute; top: calc(100px + 0.75cqw); left: 4cqw; font: 400 3.6cqw/1 var(--tf-font); letter-spacing: -0.022em; margin: 0; }
+  .two-col .lede { position: absolute; top: calc(150px + 4.35cqw); left: 4cqw; right: 30cqw; font: 400 1.25cqw/1.55 var(--tf-font); color: var(--tf-text); margin: 0; }
+  .two-col .cols { position: absolute; left: 4cqw; right: 4cqw; top: 26cqw; display: grid; grid-template-columns: 1fr 1fr; gap: 4cqw; }
+  .two-col .col h3 { font: 500 1.6cqw/1.2 var(--tf-font); margin: 0 0 0.8cqw; color: var(--tf-text); letter-spacing: -0.01em; }
+  .two-col .col p { font: 400 1.15cqw/1.55 var(--tf-font); color: var(--tf-text); margin: 0 0 0.7cqw; }
+
+  /* ====== Card grid ====== */
+  .cards-slide { background: var(--tf-blue-100); }
+  .cards-slide h2 { position: absolute; top: calc(100px + 0.75cqw); left: 4cqw; font: 400 3.6cqw/1 var(--tf-font); letter-spacing: -0.022em; margin: 0; }
+  .cards-slide .lede { position: absolute; top: calc(150px + 4.35cqw); left: 4cqw; right: 30cqw; font: 400 1.25cqw/1.55 var(--tf-font); color: var(--tf-text); margin: 0; }
+  .cards-slide .grid { position: absolute; left: 4cqw; right: 4cqw; top: 23cqw; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2cqw 2cqw; }
+  .cards-slide .card { display: flex; flex-direction: column; padding: 1.4cqw 1.4cqw 1.6cqw; background: var(--tf-white); border-radius: var(--tf-r-md); border-top: 0; }
+  .cards-slide .card h3 { font: 500 1.4cqw/1.25 var(--tf-font); margin: 0 0 0.7cqw; letter-spacing: -0.01em; }
+  .cards-slide .card p { font: 400 1cqw/1.5 var(--tf-font); color: var(--tf-text); margin: 0; }
+
+  /* ====== Quote ====== */
+  .quote-slide { background: var(--tf-blue-100); color: var(--tf-text); }
+  .quote-slide .quote-block {
+    position: absolute; left: 4cqw; right: 4cqw;
+    top: 11cqw; bottom: 17cqw;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .quote-slide q {
+    font: 400 3cqw/1.3 var(--tf-font); letter-spacing: -0.022em; color: var(--tf-text);
+    quotes: none; max-width: 84cqw; display: block; margin: 0;
+    text-wrap: pretty;
+  }
+  .quote-slide q::before { content: "\201C"; }
+  .quote-slide q::after { content: "\201D"; }
+  .quote-slide.is-long q { font-size: 2.4cqw; line-height: 1.32; }
+  .quote-slide.is-very-long q { font-size: 1.9cqw; line-height: 1.4; }
+  .quote-slide .attr {
+    position: absolute; left: 4cqw; right: 4cqw; bottom: 9cqw;
+    display: flex; align-items: center; gap: 1.2cqw;
+  }
+  .quote-slide .attr .portrait {
+    flex: 0 0 56px; width: 56px; height: 56px;
+    border-radius: 50%; overflow: hidden; background: var(--tf-blue-200);
+  }
+  .quote-slide .attr .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .quote-slide .attr .who { display: flex; flex-direction: column; }
+  .quote-slide .attr b { display: block; font: 500 1.2cqw/1.2 var(--tf-font); color: var(--tf-text); margin-bottom: 0.6cqw; }
+  .quote-slide .attr span { font: 400 1cqw/1.4 var(--tf-font); color: var(--tf-text-body); }
+
+  /* ====== Customer case ====== */
+  .case-slide h2 { position: absolute; top: calc(100px + 0.75cqw); left: 4cqw; font: 400 3.6cqw/1 var(--tf-font); letter-spacing: -0.022em; margin: 0; }
+  .case-slide .photo {
+    position: absolute; top: calc(150px + 4.35cqw); left: 4cqw; width: 42cqw; aspect-ratio: 4/3;
+    border-radius: var(--tf-r-md); overflow: hidden;
+  }
+  .case-slide .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .case-slide .meta { position: absolute; top: calc(150px + 4.35cqw); left: 50cqw; right: 4cqw; display: flex; flex-direction: column; gap: 1.2cqw; }
+  .case-slide .meta .row { display: grid; grid-template-columns: 8cqw 1fr; gap: 1cqw; padding: 1cqw 0; border-top: 1px solid var(--tf-rule); align-items: baseline; }
+  .case-slide .meta .row:last-of-type { border-bottom: 1px solid var(--tf-rule); }
+  .case-slide .meta .key { font: 500 0.78cqw/1.2 var(--tf-font); color: var(--tf-text-muted); letter-spacing: 0.16em; text-transform: uppercase; }
+  .case-slide .meta .val { font: 400 1.3cqw/1.3 var(--tf-font); color: var(--tf-text); }
+  .case-slide .meta .lede { font: 400 1.2cqw/1.5 var(--tf-font); color: var(--tf-text); margin-top: 1cqw; }
+
+  /* ====== Closing ======
+     Dark slide with a photo in the background and a flat 90% ink-950 overlay
+     (consistent with cover-photo and image-slide). Title sits centred-left,
+     with the contact person stack 48px below. No page number or deck label
+     on the closing slide. */
+  .closing { background: var(--tf-ink-950); color: var(--tf-white); }
+  .closing .photo-bg { position: absolute; inset: 0; }
+  .closing .photo-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .closing .photo-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: rgba(44, 58, 66, 0.90); /* ink 950 @ 90% */
+  }
+  .closing h1 {
+    position: absolute; left: 50px; right: 50px; top: 50%; transform: translateY(-50%);
+    font: 400 8cqw/1 var(--tf-font); letter-spacing: -0.025em; margin: 0;
+    color: var(--tf-white);
+  }
+  .closing .person {
+    position: absolute; left: 50px; right: 50px; bottom: 120px;
+    display: flex; flex-direction: column;
+  }
+  .closing .role {
+    font: 500 0.85cqw/1 var(--tf-font); letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.80); text-transform: uppercase;
+    margin: 0 0 0.5cqw;
+  }
+  .closing .name {
+    font: 400 1.9cqw/1.2 var(--tf-font); color: var(--tf-white);
+    margin: 0 0 16px;
+  }
+  .closing .contact {
+    font: 400 1.15cqw/1.4 var(--tf-font); color: rgba(255,255,255,0.7);
+    display: flex; gap: 2cqw;
+  }
+
+  /* ====== Closing, logo only ======
+     Alternative closing: same dark photo background, just the negative Trifork
+     wordmark centred vertically and horizontally. No chrome of any kind. */
+  .closing-logo { background: var(--tf-ink-950); color: var(--tf-white); }
+  .closing-logo .photo-bg { position: absolute; inset: 0; }
+  .closing-logo .photo-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .closing-logo .photo-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: rgba(44, 58, 66, 0.90); /* ink 950 @ 90% */
+  }
+  .closing-logo .mark {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 280px;
+  }
+  .closing-logo .mark img { width: 100%; height: auto; display: block; }
+
+  .nav { display: flex; gap: 16px; flex-wrap: wrap; padding-top: 56px; }
+  .nav a { font-size: 14px; color: var(--tf-text-body); text-decoration: none; padding: 10px 16px; border: 1px solid var(--tf-rule); border-radius: var(--tf-r-pill); background: var(--tf-white); }
+  .nav a:hover { border-color: var(--tf-accent); color: var(--tf-accent); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topline">
+    <div class="tf-label-spaced">SLIDE KIT</div>
+    <div class="wordmark"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+  </div>
+
+  <div class="intro">
+    <h1>The slide kit.</h1>
+    <p>Twelve master slides modelled directly on the Trifork presentation template. The label tracks at 0.16em in <b>Orange&nbsp;500</b>; titles are Regular weight; the page footer carries the page number, deck name and Trifork wordmark, set close to the bottom edge. The wordmark dot is always orange &mdash; it appears nowhere else in slide chrome.</p>
+  </div>
+
+  <div class="deck">
+    <div>
+      <div class="slide-meta"><b>01, Cover</b><code>.slide.cover</code></div>
+      <div class="slide cover">
+        <div class="slide-inner">
+          <div class="label-block">CAPITAL MARKETS</div>
+          <h1>Banking infrastructure that holds.</h1>
+          <p class="lede">How we re-platformed Nordic Bank's settlement engine without a single missed window.</p>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">01</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>02, Cover with photo</b><code>.slide.cover-photo</code></div>
+      <div class="slide cover-photo on-dark">
+        <div class="slide-inner">
+          <div class="photo-bg"><img src="assets/imagery/trifork-aarhus-1.jpg" alt="" /></div>
+          <div class="label-block">CASE STUDY</div>
+          <h1>Software that ships, then keeps shipping.</h1>
+          <p class="lede">Fourteen months from kickoff. A platform now operated by the bank's own SREs.</p>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">02</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_neg_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>02b, Cover, image card</b><code>.slide.cover-card</code></div>
+      <div class="slide cover-card">
+        <div class="slide-inner">
+          <div class="photo-card">
+            <img src="assets/imagery/trifork-people-1.jpg" alt="" />
+            <div class="card-mark"><img src="assets/logo/Trifork_logo_neg_RGB.svg" alt="Trifork" /></div>
+            <h1>Presentation title.</h1>
+          </div>
+          <div class="lower-left">
+            <span>Presentation label</span>
+            <span class="sep">/</span>
+            <span>2025</span>
+          </div>
+          <p class="lower-right">Consectetur eligendi dolorem illo quaerat voluptatibus facilis earum quibusdam sint hic non doloribus ullam ad. Qui dolor aut velit iusto quia consectetur sit aut.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>02c, Cover, split</b><code>.slide.cover-split</code></div>
+      <div class="slide cover-split">
+        <div class="slide-inner">
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+          <div class="left-col">
+            <div class="label-block">CAPITAL MARKETS</div>
+            <h1>Banking infrastructure that holds.</h1>
+            <p class="lede">How we re-platformed Nordic Bank's settlement engine, fourteen months from kickoff, without a single missed window.</p>
+          </div>
+          <div class="image-card"><img src="assets/imagery/trifork-aarhus-4.jpg" alt="" /></div>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">01</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>03, Agenda</b><code>.slide.agenda</code></div>
+      <div class="slide agenda">
+        <div class="slide-inner">
+          <div class="s-label">AGENDA</div>
+          <h2>What we'll cover.</h2>
+          <ol>
+            <li><b>01</b><span>Where we started, the legacy settlement engine</span></li>
+            <li><b>02</b><span>Architecture: distributed by design</span></li>
+            <li><b>03</b><span>Migration: the four-week production slice</span></li>
+            <li><b>04</b><span>Operating model and handover</span></li>
+            <li><b>05</b><span>Outcomes and what we'd do differently</span></li>
+          </ol>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">03</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>04, Section starter</b><code>.slide.section-start</code></div>
+      <div class="slide section-start on-dark">
+        <div class="slide-inner">
+          <div class="s-label">SECTION</div>
+          <div class="num">02</div>
+          <h1>Architecture: distributed by design.</h1>
+          <p>Why we picked partition tolerance over a tighter consistency model, and the trade-offs we made along the way.</p>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">04</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_neg_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>05, Title + body</b><code>.slide.text-slide</code></div>
+      <div class="slide text-slide">
+        <div class="slide-inner">
+          <div class="s-label">APPROACH</div>
+          <h2>Production-shaped from week one.</h2>
+          <div class="body">
+            <p>The legacy engine had run unchanged for eleven years, every change had become a quarterly project. Our brief was to replace it without taking down the bank's ability to settle in any of twelve currencies.</p>
+            <p>We chose to ship a production-shaped slice within four weeks: a single instrument type, end-to-end, on the new platform. Not a prototype, not a parallel run, a real path through the regulator-facing audit trail.</p>
+            <p>That early slice forced every late-cycle question to the surface early: observability, runbook ownership, key rotation, and the regulatory event log. By month three, the new architecture was no longer hypothetical.</p>
+          </div>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">05</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>06, Large image</b><code>.slide.image-slide</code></div>
+      <div class="slide image-slide on-dark">
+        <div class="slide-inner">
+          <div class="frame"><img src="assets/imagery/trifork-aarhus-2.jpg" alt="" /></div>
+          <div class="caption">The platform team, mid-rebuild, autumn 2024.</div>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">06</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_neg_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>07, Numeric callouts</b><code>.slide.nums</code></div>
+      <div class="slide nums">
+        <div class="slide-inner">
+          <div class="s-label">OUTCOMES</div>
+          <h2>What we measured.</h2>
+          <p class="lede">Four numbers the operating team agreed to before kickoff. All four moved in the right direction by the end of quarter four.</p>
+          <div class="group-label">IMPORTANT NUMBERS</div>
+          <div class="grid">
+            <div class="item"><div class="num">14</div><div class="label">Weeks to first production slice. From kickoff to a regulator-visible audit trail.</div></div>
+            <div class="item"><div class="num">3&times;</div><div class="label">Throughput at peak window. Measured against the legacy benchmark.</div></div>
+            <div class="item"><div class="num">99.99</div><div class="label">% uptime over four quarters, across both EU and UK regions.</div></div>
+            <div class="item"><div class="num">&minus;42</div><div class="label">% on-call interruptions year over year, after handover.</div></div>
+          </div>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">07</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>08, Two columns</b><code>.slide.two-col</code></div>
+      <div class="slide two-col">
+        <div class="slide-inner">
+          <div class="s-label">APPROACH</div>
+          <h2>How we worked.</h2>
+          <p class="lede">Two principles that shaped every architecture review and every sprint plan.</p>
+          <div class="cols">
+            <div class="col">
+              <h3>Distributed by design</h3>
+              <p>Every service was multi-region from day one. Cross-region failover ran continuously in pre-production; we never built it as a feature.</p>
+              <p>The trade-off, eventual consistency on read paths, was negotiated with the operations desk before the first line of code.</p>
+            </div>
+            <div class="col">
+              <h3>Built to be operated</h3>
+              <p>Observability, runbooks, and on-call tooling were part of the brief. Every feature merged with its alerts, dashboards, and SLO already wired in.</p>
+              <p>By handover, the bank's own SREs had been on rotation for ten weeks alongside our team.</p>
+            </div>
+          </div>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">08</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>09, Card grid</b><code>.slide.cards-slide</code></div>
+      <div class="slide cards-slide">
+        <div class="slide-inner">
+          <div class="s-label">CAPABILITIES</div>
+          <h2>What we bring.</h2>
+          <p class="lede">Six capabilities that show up across every long-running engagement we run.</p>
+          <div class="grid">
+            <div class="card"><h3>Software craftsmanship</h3><p>Long-running engineering teams that own systems through their full lifecycle, not just the build phase.</p></div>
+            <div class="card"><h3>Applied AI</h3><p>Models that ship to production where they meet real users, measured against business outcomes.</p></div>
+            <div class="card"><h3>Fintech</h3><p>Regulated payments, settlement, and capital-markets platforms across the Nordic and DACH regions.</p></div>
+            <div class="card"><h3>Smart buildings</h3><p>Building-management systems for healthcare estates, public infrastructure, and commercial portfolios.</p></div>
+            <div class="card"><h3>Trifork Labs</h3><p>An incubator for ventures we co-build with our customers, backed by the same engineering bench.</p></div>
+            <div class="card"><h3>Platform engineering</h3><p>Internal developer platforms for organisations operating dozens of regulated services.</p></div>
+          </div>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">09</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>10, Quote</b><code>.slide.quote-slide</code></div>
+      <div class="slide quote-slide" data-autosize-quote>
+        <div class="slide-inner">
+          <div class="s-label">CUSTOMER VOICE</div>
+          <div class="quote-block">
+            <q>Trifork's team understood our regulatory environment from the first workshop. We shipped the first release a quarter ahead of plan, and the platform now belongs to us, not to a vendor.</q>
+          </div>
+          <div class="attr">
+            <div class="portrait"><img src="assets/imagery/trifork-people-1.jpg" alt="" /></div>
+            <div class="who">
+              <b>Mette Lindholm</b>
+              <span>Head of Platform, Nordic Bank</span>
+            </div>
+          </div>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">10</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>10b, Quote &mdash; long variant</b><code>.slide.quote-slide.is-long</code></div>
+      <div class="slide quote-slide" data-autosize-quote>
+        <div class="slide-inner">
+          <div class="s-label">CUSTOMER VOICE</div>
+          <div class="quote-block">
+            <q>What I value about Trifork isn't just that they shipped the platform on schedule, it's that they shipped a platform our own engineers could pick up and run with on day one. The runbooks were written, the alerts were tuned, and the operating model was already proven by the time the contract closed. That's a different kind of engagement, and it's the only kind that survives a regulator's stress test.</q>
+          </div>
+          <div class="attr">
+            <div class="portrait"><img src="assets/imagery/trifork-people-1.jpg" alt="" /></div>
+            <div class="who">
+              <b>Mette Lindholm</b>
+              <span>Head of Platform, Nordic Bank</span>
+            </div>
+          </div>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">10</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>11, Customer case</b><code>.slide.case-slide</code></div>
+      <div class="slide case-slide">
+        <div class="slide-inner">
+          <div class="s-label">CASE STUDY</div>
+          <h2>Nordic Bank, settlement.</h2>
+          <div class="photo"><img src="assets/imagery/trifork-aarhus-3.jpg" alt="" /></div>
+          <div class="meta">
+            <div class="row"><div class="key">Industry</div><div class="val">Capital markets</div></div>
+            <div class="row"><div class="key">Engagement</div><div class="val">14 months, platform team of 11</div></div>
+            <div class="row"><div class="key">Stack</div><div class="val">Kubernetes, Kafka, PostgreSQL, OpenTelemetry</div></div>
+            <div class="row"><div class="key">Outcome</div><div class="val">Settlement engine replaced; ops handed to in-house SREs</div></div>
+            <p class="lede">A long engagement with a regulated customer. The platform now runs without us, exactly as we designed it to.</p>
+          </div>
+          <div class="s-foot">
+            <div class="left">
+              <span class="page">11</span>
+              <span class="deck">Capital markets, 2025</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>12, Closing</b><code>.slide.closing</code></div>
+      <div class="slide closing on-dark">
+        <div class="slide-inner">
+          <div class="photo-bg"><img src="assets/imagery/trifork-aarhus-2.jpg" alt="" /></div>
+          <h1>Thank you.</h1>
+          <div class="person">
+            <div class="role">PARTNER</div>
+            <div class="name">Anna Bjerg</div>
+            <div class="contact">
+              <span>anna.bjerg@trifork.com</span>
+              <span>+45 12 34 56 78</span>
+            </div>
+          </div>
+          <div class="s-logo"><img src="assets/logo/Trifork_logo_neg_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="slide-meta"><b>12b, Closing, logo only</b><code>.slide.closing-logo</code></div>
+      <div class="slide closing-logo on-dark">
+        <div class="slide-inner">
+          <div class="photo-bg"><img src="assets/imagery/trifork-aarhus-2.jpg" alt="" /></div>
+          <div class="mark"><img src="assets/logo/Trifork_logo_neg_RGB.svg" alt="Trifork" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <a href="README.md">README</a>
+    <a href="brand.html">Brand</a>
+    <a href="type.html">Type</a>
+    <a href="colors.html">Colour</a>
+    <a href="spacing.html">Spacing</a>
+    <a href="iconography.html">Iconography</a>
+    <a href="components.html">Components</a>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  const tiers = [
+    { max: 140, klass: '' },
+    { max: 260, klass: 'is-long' },
+    { max: Infinity, klass: 'is-very-long' }
+  ];
+  document.querySelectorAll('[data-autosize-quote]').forEach(slide => {
+    const q = slide.querySelector('q');
+    if (!q) return;
+    const len = (q.textContent || '').trim().length;
+    const tier = tiers.find(t => len <= t.max);
+    slide.classList.remove('is-long', 'is-very-long');
+    if (tier.klass) slide.classList.add(tier.klass);
+  });
+})();
+</script>
+
+</body>
+</html>

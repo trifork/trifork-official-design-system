@@ -1,0 +1,17 @@
+/* Playground page — scoped to .playground-page */
+.playground-page .playground-intro__title {
+  font: 400 var(--tf-fs-h1)/1.05 var(--tf-font);
+  letter-spacing: var(--tf-tracking-tight);
+  color: var(--tf-text);
+  margin: 16px 0 24px;
+  max-width: 760px;
+}
+.playground-page .playground-intro__lead {
+  font: 400 var(--tf-fs-lead)/var(--tf-lh-normal) var(--tf-font);
+  color: var(--tf-text-body);
+  max-width: 720px;
+  margin: 0;
+}
+.playground-page .playground-section {
+  padding-top: 0;
+}

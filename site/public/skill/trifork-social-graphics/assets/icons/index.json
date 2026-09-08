@@ -1,0 +1,199 @@
+{
+  "generatedFrom": "content/brand-system.mjs",
+  "updated": "2026-06-09",
+  "source": "Lucide stand-ins for Streamline 3.0 Regular Line",
+  "color": "#3C4C54",
+  "stroke": "2px",
+  "icons": [
+    {
+      "file": "ai.svg",
+      "name": "AI",
+      "tags": [
+        "artificial intelligence",
+        "network",
+        "model"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/ai.svg"
+    },
+    {
+      "file": "arrow.svg",
+      "name": "Direction",
+      "tags": [
+        "arrow",
+        "navigation",
+        "next"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/arrow.svg"
+    },
+    {
+      "file": "box.svg",
+      "name": "Package",
+      "tags": [
+        "package",
+        "module",
+        "product"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/box.svg"
+    },
+    {
+      "file": "build.svg",
+      "name": "Build",
+      "tags": [
+        "build",
+        "tools",
+        "engineering"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/build.svg"
+    },
+    {
+      "file": "cloud-network.svg",
+      "name": "Cloud network",
+      "tags": [
+        "cloud",
+        "network",
+        "platform"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/cloud-network.svg"
+    },
+    {
+      "file": "compass.svg",
+      "name": "Compass",
+      "tags": [
+        "direction",
+        "strategy",
+        "navigation"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/compass.svg"
+    },
+    {
+      "file": "deal.svg",
+      "name": "Deal",
+      "tags": [
+        "agreement",
+        "partnership",
+        "commercial"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/deal.svg"
+    },
+    {
+      "file": "graph.svg",
+      "name": "Graph",
+      "tags": [
+        "data",
+        "growth",
+        "outcome"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/graph.svg"
+    },
+    {
+      "file": "lightbulb.svg",
+      "name": "Idea",
+      "tags": [
+        "idea",
+        "insight",
+        "innovation"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/lightbulb.svg"
+    },
+    {
+      "file": "mobile-fintech.svg",
+      "name": "Mobile fintech",
+      "tags": [
+        "mobile",
+        "fintech",
+        "payments"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/mobile-fintech.svg"
+    },
+    {
+      "file": "rocket.svg",
+      "name": "Launch",
+      "tags": [
+        "launch",
+        "ship",
+        "start"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/rocket.svg"
+    },
+    {
+      "file": "run.svg",
+      "name": "Run",
+      "tags": [
+        "operation",
+        "delivery",
+        "movement"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/run.svg"
+    },
+    {
+      "file": "settings.svg",
+      "name": "Settings",
+      "tags": [
+        "settings",
+        "configuration",
+        "operations"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/settings.svg"
+    },
+    {
+      "file": "smart-home.svg",
+      "name": "Smart home",
+      "tags": [
+        "building",
+        "home",
+        "iot"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/smart-home.svg"
+    },
+    {
+      "file": "software.svg",
+      "name": "Software",
+      "tags": [
+        "software",
+        "code",
+        "application"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/software.svg"
+    },
+    {
+      "file": "sprint.svg",
+      "name": "Sprint",
+      "tags": [
+        "agile",
+        "delivery",
+        "iteration"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/sprint.svg"
+    },
+    {
+      "file": "switch.svg",
+      "name": "Switch",
+      "tags": [
+        "toggle",
+        "change",
+        "control"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/switch.svg"
+    },
+    {
+      "file": "trophy.svg",
+      "name": "Outcome",
+      "tags": [
+        "outcome",
+        "achievement",
+        "result"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/trophy.svg"
+    },
+    {
+      "file": "watch.svg",
+      "name": "Watch",
+      "tags": [
+        "time",
+        "wearable",
+        "monitoring"
+      ],
+      "url": "https://brand.trifork.com/system/assets/icons/watch.svg"
+    }
+  ]
+}

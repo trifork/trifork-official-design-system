@@ -1,0 +1,156 @@
+/* =============================================================
+   Trifork Design System — site chrome
+   tokens.css is the source of truth for design tokens.
+   This file is layout/site scaffolding only.
+   ============================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  /* The Trifork system is strictly light by design (white / blue-100 / ink
+     backgrounds are brand-defined). Opt out of browser auto-dark-mode so the
+     palette renders as specified on dark-mode devices. */
+  color-scheme: light;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--tf-bg);
+  color: var(--tf-text);
+  font-family: var(--tf-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- App shell ---------- */
+.tf-app {
+  display: grid;
+  grid-template-columns: 264px 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- Side nav ---------- */
+.tf-sidenav {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid var(--tf-rule);
+  background: var(--tf-bg);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.tf-sidenav__brand {
+  display: flex;
+  justify-content: center;
+}
+.tf-sidenav__brand img { height: 18px; }
+
+.tf-sidenav__group { display: flex; flex-direction: column; gap: 4px; }
+.tf-sidenav__group-label {
+  font: 500 var(--tf-fs-label)/1 var(--tf-font);
+  letter-spacing: var(--tf-tracking-label);
+  color: var(--tf-text-muted);
+  text-transform: uppercase;
+  padding: 0 12px 8px;
+}
+
+.tf-sidenav__link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--tf-r-sm);
+  font: 500 15px/1.2 var(--tf-font);
+  color: var(--tf-text);
+  transition: background 160ms ease-out, color 160ms ease-out;
+}
+.tf-sidenav__link:hover { background: var(--tf-bg-soft); color: var(--tf-text); }
+.tf-sidenav__link[data-active="true"] {
+  background: var(--tf-bg-soft);
+  color: var(--tf-text);
+}
+.tf-sidenav__link-sub {
+  font: 400 12px/1.3 var(--tf-font);
+  color: var(--tf-text-muted);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.tf-sidenav__foot {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--tf-rule);
+  font: 400 12px/1.5 var(--tf-font);
+  color: var(--tf-text-muted);
+}
+.tf-sidenav__foot a:hover { color: var(--tf-accent); }
+
+/* ---------- Main column ---------- */
+.tf-main {
+  min-width: 0;
+  background: var(--tf-bg);
+}
+
+.tf-pageheader {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 28px 64px;
+  border-bottom: 1px solid var(--tf-rule);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(140%) blur(10px);
+}
+.tf-pageheader .wordmark img { height: 22px; }
+
+.tf-page {
+  padding: 0 64px 96px;
+  max-width: 1280px;
+}
+
+/* shared page section style — supersedes per-page .section duplicates */
+.tf-section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--tf-rule);
+}
+.tf-section:last-of-type { border-bottom: 0; }
+
+.tf-section-title {
+  font: 500 var(--tf-fs-h2)/1.1 var(--tf-font);
+  margin: 0 0 12px;
+  letter-spacing: var(--tf-tracking-tight-2);
+  color: var(--tf-text);
+}
+
+/* on small screens, collapse the side-nav into a top strip */
+@media (max-width: 880px) {
+  .tf-app { grid-template-columns: 1fr; }
+  .tf-sidenav {
+    position: static;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 20px;
+    border-right: 0;
+    border-bottom: 1px solid var(--tf-rule);
+  }
+  .tf-sidenav__brand { padding-bottom: 0; border-bottom: 0; margin-right: 16px; }
+  .tf-sidenav__group { flex-direction: row; flex-wrap: wrap; }
+  .tf-sidenav__group-label { display: none; }
+  .tf-sidenav__link { padding: 6px 12px; border-radius: var(--tf-r-pill); }
+  .tf-sidenav__link-sub { display: none; }
+  .tf-sidenav__foot { display: none; }
+  .tf-pageheader { padding: 16px 24px; }
+  .tf-page { padding: 0 24px 64px; }
+}

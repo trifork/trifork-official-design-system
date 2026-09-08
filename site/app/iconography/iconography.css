@@ -1,0 +1,130 @@
+/* Iconography page — scoped to .iconography-page */
+.iconography-page .lead {
+  font: 400 22px/1.45 var(--tf-font);
+  color: var(--tf-text-body);
+  max-width: 820px;
+  margin: 0 0 32px;
+}
+
+/* Standardise: every icon renders centred in a 64px square at 64px height,
+   so apparent stroke weight is governed by the SVG's own units, not its bbox. */
+.iconography-page .grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.iconography-page .tile {
+  padding: 32px 16px 20px;
+  border-radius: var(--tf-r-md);
+  background: var(--tf-bg-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.iconography-page .tile .icon {
+  width: 64px;
+  height: 64px;
+  color: var(--tf-ink-950);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconography-page .tile .icon img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.iconography-page .tile .name {
+  font-size: 14px;
+  color: var(--tf-text-body);
+}
+
+.iconography-page .sizes {
+  display: flex;
+  gap: 32px;
+  align-items: flex-end;
+  padding: 32px;
+  background: var(--tf-bg-soft);
+  border-radius: var(--tf-r-lg);
+}
+.iconography-page .size-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--tf-ink-950);
+}
+.iconography-page .size-demo small {
+  color: var(--tf-text-body);
+  font-size: 12px;
+}
+.iconography-page .size-demo img { object-fit: contain; }
+
+.iconography-page .pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.iconography-page .pair > div {
+  padding: 32px;
+  border-radius: var(--tf-r-md);
+  background: var(--tf-bg-soft);
+}
+.iconography-page .pair h4 {
+  font: 500 11px/1 var(--tf-font);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+.iconography-page .pair .demo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  min-height: 80px;
+}
+.iconography-page .pair .demo img { width: 48px; height: 48px; }
+.iconography-page .pair p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--tf-text-body);
+  margin: 8px 0 0;
+}
+.iconography-page .pair .text {
+  font: 500 18px/1.25 var(--tf-font);
+  color: var(--tf-text);
+}
+
+.iconography-page .weight-callout {
+  margin-top: 16px;
+  padding: 24px 28px;
+  background: var(--tf-bg-soft);
+  border-radius: var(--tf-r-md);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: center;
+}
+.iconography-page .weight-callout .number {
+  font: 500 56px/1 var(--tf-font);
+  color: var(--tf-ink-950);
+  letter-spacing: -0.02em;
+}
+.iconography-page .weight-callout p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--tf-text-body);
+}
+.iconography-page .weight-callout p b {
+  color: var(--tf-ink-950);
+  font-weight: 500;
+}
+
+@media (max-width: 880px) {
+  .iconography-page .grid { grid-template-columns: repeat(2, 1fr); }
+  .iconography-page .pair { grid-template-columns: 1fr; }
+  .iconography-page .sizes { flex-wrap: wrap; gap: 16px; }
+  .iconography-page .weight-callout { grid-template-columns: 1fr; }
+}

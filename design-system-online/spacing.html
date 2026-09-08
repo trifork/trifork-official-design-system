@@ -1,0 +1,139 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Spacing" subtitle="8 px scale, radii, slide chrome" -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Trifork. Spacing</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  html, body { margin: 0; background: var(--tf-bg); color: var(--tf-text); font-family: var(--tf-font); }
+  .page { padding: 80px; max-width: 1280px; margin: 0 auto; }
+  .topline { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 32px; border-bottom: 1px solid var(--tf-rule); }
+  .wordmark img { height: 28px; }
+  section { padding: 56px 0; border-bottom: 1px solid var(--tf-rule); }
+  section:last-of-type { border-bottom: 0; }
+  h2.section-title { font: 500 40px/1.1 var(--tf-font); margin: 0 0 12px; letter-spacing: -0.01em; }
+  .lead { font: 400 22px/1.45 var(--tf-font); color: var(--tf-text-body); max-width: 820px; margin: 0 0 24px; }
+  .row { display: grid; grid-template-columns: 220px 80px 1fr; gap: 24px; align-items: center; padding: 12px 0; border-top: 1px solid var(--tf-rule); }
+  .row:first-of-type { border-top: 0; }
+  .row b { font-weight: 500; font-size: 16px; }
+  .row code { color: var(--tf-text-body); font-size: 13px; }
+  .row .px { color: var(--tf-text-body); font-size: 14px; text-align: right; }
+  .bar { height: 16px; background: var(--tf-orange-100); border-left: 3px solid var(--tf-accent); }
+
+  .radii { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .radii > div { padding: 24px; border-radius: var(--tf-r-md); background: var(--tf-bg-soft); display: flex; flex-direction: column; gap: 12px; }
+  .radii .swatch { aspect-ratio: 1.6/1; background: var(--tf-blue-900); }
+  .radii small { font-size: 12px; color: var(--tf-text-body); }
+  .radii b { font-size: 16px; font-weight: 500; }
+
+  .slide-frame { aspect-ratio: 16/9; background: var(--tf-bg); border: 1px solid var(--tf-rule); border-radius: var(--tf-r-lg); position: relative; overflow: hidden; }
+  .slide-frame .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, transparent calc((100% - 64px*11) / 12 + 64px / 12), rgba(255,102,0,0.08) calc((100% - 64px*11) / 12 + 64px / 12));
+  }
+  .slide-frame .margin {
+    position: absolute; inset: 0;
+    border: 4.16% solid rgba(255,102,0,0.06);
+    box-sizing: border-box;
+  }
+  .slide-frame .label { position: absolute; top: 4.16%; left: 4.16%; font-size: 14px; letter-spacing: 0.6em; color: var(--tf-accent); }
+  .slide-frame .corner { position: absolute; bottom: 4.16%; right: 4.16%; display: flex; gap: 16px; align-items: baseline; font-size: 12px; color: var(--tf-text-body); }
+  .slide-frame .corner img { height: 14px; }
+  .slide-frame .pagenum { position: absolute; bottom: 4.16%; left: 4.16%; font-size: 12px; color: var(--tf-text-body); }
+  .slide-frame .content { position: absolute; left: 4.16%; right: 4.16%; top: 14%; bottom: 14%; display: flex; flex-direction: column; gap: 12px; }
+  .slide-frame .ph { background: rgba(44,58,66,0.05); border-radius: var(--tf-r-md); }
+  .slide-frame .ph.h { height: 36px; width: 60%; }
+  .slide-frame .ph.b { height: 14px; width: 80%; }
+  .slide-frame .ph.b.short { width: 50%; }
+
+  .nav { display: flex; gap: 16px; flex-wrap: wrap; padding-top: 32px; }
+  .nav a { font-size: 14px; color: var(--tf-text-body); text-decoration: none; padding: 10px 16px; border: 1px solid var(--tf-rule); border-radius: var(--tf-r-pill); }
+  .nav a:hover { border-color: var(--tf-accent); color: var(--tf-accent); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topline">
+    <div class="tf-label-spaced">SPACING</div>
+    <div class="wordmark"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+  </div>
+
+  <section>
+    <h2 class="section-title">Eight, all the way down.</h2>
+    <p class="lead">Every gap, padding, and offset is a multiple of 8 px. The rhythm is calm because the maths is simple.</p>
+
+    <div class="row"><b>--tf-s-1</b><span class="px">4 px</span><div class="bar" style="width: 4px;"></div></div>
+    <div class="row"><b>--tf-s-2</b><span class="px">8 px</span><div class="bar" style="width: 8px;"></div></div>
+    <div class="row"><b>--tf-s-3</b><span class="px">16 px</span><div class="bar" style="width: 16px;"></div></div>
+    <div class="row"><b>--tf-s-4</b><span class="px">24 px</span><div class="bar" style="width: 24px;"></div></div>
+    <div class="row"><b>--tf-s-5</b><span class="px">32 px</span><div class="bar" style="width: 32px;"></div></div>
+    <div class="row"><b>--tf-s-6</b><span class="px">48 px</span><div class="bar" style="width: 48px;"></div></div>
+    <div class="row"><b>--tf-s-7</b><span class="px">64 px</span><div class="bar" style="width: 64px;"></div></div>
+    <div class="row"><b>--tf-s-8, slide outer margin</b><span class="px">80 px</span><div class="bar" style="width: 80px;"></div></div>
+    <div class="row"><b>--tf-s-9</b><span class="px">120 px</span><div class="bar" style="width: 120px;"></div></div>
+    <div class="row"><b>--tf-s-10</b><span class="px">160 px</span><div class="bar" style="width: 160px;"></div></div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Corners</h2>
+    <p class="lead">12 px on small elements, 24 px on large surfaces, full pill on actions and tags. The transition between 12 and 24 happens at the 200 px width threshold.</p>
+    <div class="radii">
+      <div>
+        <div class="swatch" style="border-radius: 8px;"></div>
+        <b>--tf-r-sm · 8 px</b>
+        <small>Pills, chips, inline badges, very small icons backings.</small>
+      </div>
+      <div>
+        <div class="swatch" style="border-radius: 12px;"></div>
+        <b>--tf-r-md · 12 px</b>
+        <small>Default for elements ≤ 199 px wide. Buttons, inputs, small cards.</small>
+      </div>
+      <div>
+        <div class="swatch" style="border-radius: 24px;"></div>
+        <b>--tf-r-lg · 24 px</b>
+        <small>Default for surfaces &gt; 200 px. Photo containers, large cards, modals.</small>
+      </div>
+      <div>
+        <div class="swatch" style="border-radius: 999px;"></div>
+        <b>--tf-r-pill</b>
+        <small>Action buttons, tags, status indicators.</small>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Slide chrome</h2>
+    <p class="lead">A 1920 × 1080 slide with an 80 px outer margin (4.16% of width). The slide label sits top-left in tracked orange; the page number and Trifork wordmark sit bottom-right.</p>
+    <div class="slide-frame">
+      <div class="margin"></div>
+      <div class="label">LABEL</div>
+      <div class="content">
+        <div class="ph h"></div>
+        <div class="ph b"></div>
+        <div class="ph b"></div>
+        <div class="ph b short"></div>
+      </div>
+      <div class="pagenum">12</div>
+      <div class="corner">
+        <span>presentation label</span>
+        <img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" />
+      </div>
+    </div>
+  </section>
+
+  <div class="nav">
+    <a href="README.md">README</a>
+    <a href="brand.html">Brand</a>
+    <a href="type.html">Type</a>
+    <a href="colors.html">Colour</a>
+    <a href="iconography.html">Iconography</a>
+    <a href="components.html">Components</a>
+    <a href="slide-kit.html">Slide kit</a>
+  </div>
+
+</div>
+</body>
+</html>

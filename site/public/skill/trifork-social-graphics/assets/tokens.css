@@ -1,0 +1,196 @@
+/* =============================================================
+   Trifork Design System, Tokens
+   ============================================================= */
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/Poppins-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/Poppins-Italic.ttf") format("truetype");
+}
+
+:root {
+  /* ---------- Core palette ---------- */
+  /* Blue, foundation. 900 anchors titles & ink; 100/50 are calm canvases. */
+  --tf-blue-900: #3C4C54;
+  --tf-blue-800: #5B717F;
+  --tf-blue-700: #7997A9;
+  --tf-blue-600: #88AABE;
+  --tf-blue-500: #97BDD3;
+  --tf-blue-400: #A1C4D7;
+  --tf-blue-300: #ACCADC;
+  --tf-blue-200: #C1D7E5;
+  --tf-blue-100: #D5E5ED;     /* Canvas tint */
+  --tf-blue-50:  #EAF2F6;     /* Soft background */
+
+  /* Orange, accent. 500 is the brand voice; everything else supports. */
+  --tf-orange-900: #662900;
+  --tf-orange-800: #993D00;
+  --tf-orange-700: #CC5200;
+  --tf-orange-600: #E55C00;
+  --tf-orange-500: #FF6600;   /* Brand accent */
+  --tf-orange-400: #FF751A;
+  --tf-orange-300: #FF8533;
+  --tf-orange-200: #FFA366;
+  --tf-orange-100: #FFD1B2;
+  --tf-orange-50:  #FFE8D9;
+
+  /* Neutral ink, 11 steps. 950 is darkest (titles), 50 lightest (rules). */
+  --tf-ink-950: #2C3A42;
+  --tf-ink-900: #414E55;
+  --tf-ink-800: #566168;      /* Body text */
+  --tf-ink-700: #6B757B;
+  --tf-ink-600: #80898E;
+  --tf-ink-500: #959CA0;
+  --tf-ink-400: #ABB0B3;
+  --tf-ink-300: #C0C4C6;
+  --tf-ink-200: #D5D8D9;
+  --tf-ink-100: #EAEBEC;
+  --tf-ink-50:  #F4F5F6;
+  --tf-white:   #FFFFFF;
+
+  /* ---------- Semantic ---------- */
+  --tf-bg:           var(--tf-white);
+  --tf-bg-soft:      var(--tf-blue-50);
+  --tf-bg-canvas:    var(--tf-blue-100);
+  --tf-bg-deep:      var(--tf-ink-950);
+  --tf-text:         var(--tf-ink-950);
+  --tf-text-body:    var(--tf-ink-800);
+  --tf-text-muted:   var(--tf-ink-500);
+  --tf-text-on-deep: var(--tf-white);
+  --tf-accent:       var(--tf-orange-500);
+  --tf-rule:         var(--tf-ink-100);
+  --tf-rule-strong:  var(--tf-ink-300);
+
+  /* ---------- Type ---------- */
+  /* Poppins is the only family. The generic sans-serif at the end is a
+     last-resort fallback for the moment before the @font-face file loads;
+     no named system or web fonts are permitted in the stack. */
+  --tf-font: "Poppins", sans-serif;
+
+  /* Scale tuned for 1920×1080 slide canvas */
+  --tf-fs-display: 96px;     /* Cover title - Regular */
+  --tf-fs-h1:      72px;     /* Section title - Regular */
+  --tf-fs-h2:      40px;     /* Slide title - Medium */
+  --tf-fs-h3:      28px;     /* Small headline - Medium */
+  --tf-fs-h4:      22px;
+  --tf-fs-lead:    28px;     /* Slide deck */
+  --tf-fs-body-xl: 24px;
+  --tf-fs-body-lg: 22px;
+  --tf-fs-body:    20px;     /* Body floor for slides */
+  --tf-fs-body-sm: 18px;
+  --tf-fs-caption: 16px;
+  --tf-fs-label:   13px;     /* Tracked label, Medium */
+
+  --tf-lh-tight:  1.05;
+  --tf-lh-snug:   1.15;
+  --tf-lh-normal: 1.35;
+  --tf-lh-relaxed:1.55;
+
+  --tf-tracking-label: 0.16em;
+  --tf-tracking-tight: -0.02em;
+  --tf-tracking-tight-2: -0.01em;
+
+  /* ---------- Spacing (8px base) ---------- */
+  --tf-s-1:  4px;
+  --tf-s-2:  8px;
+  --tf-s-3:  16px;
+  --tf-s-4:  24px;
+  --tf-s-5:  32px;
+  --tf-s-6:  48px;
+  --tf-s-7:  64px;
+  --tf-s-8:  80px;     /* Slide outer margin */
+  --tf-s-9:  120px;
+  --tf-s-10: 160px;
+
+  /* ---------- Radius ---------- */
+  --tf-r-sm: 8px;
+  --tf-r-md: 12px;     /* Default for elements ≤ 199px */
+  --tf-r-lg: 24px;     /* Default for elements > 199px */
+  --tf-r-xl: 32px;
+  --tf-r-pill: 999px;
+
+  /* ---------- Slide chrome ---------- */
+  --slide-w: 1920px;
+  --slide-h: 1080px;
+  --slide-pad: 80px;
+}
+
+/* ---------- Base type roles ---------- */
+.tf-display {
+  font: 400 var(--tf-fs-display)/var(--tf-lh-tight) var(--tf-font);
+  letter-spacing: var(--tf-tracking-tight);
+  color: var(--tf-text);
+}
+.tf-h1 {
+  font: 400 var(--tf-fs-h1)/1.1 var(--tf-font);
+  letter-spacing: var(--tf-tracking-tight);
+  color: var(--tf-text);
+}
+.tf-h2 {
+  font: 500 var(--tf-fs-h2)/1.2 var(--tf-font);
+  letter-spacing: var(--tf-tracking-tight-2);
+  color: var(--tf-text);
+}
+.tf-h3 {
+  font: 500 var(--tf-fs-h3)/1.25 var(--tf-font);
+  color: var(--tf-text);
+}
+.tf-h4 {
+  font: 500 var(--tf-fs-h4)/1.3 var(--tf-font);
+  color: var(--tf-text);
+}
+.tf-lead {
+  font: 400 var(--tf-fs-lead)/var(--tf-lh-normal) var(--tf-font);
+  color: var(--tf-text-body);
+}
+.tf-body {
+  font: 400 var(--tf-fs-body)/var(--tf-lh-relaxed) var(--tf-font);
+  color: var(--tf-text-body);
+  text-wrap: pretty;
+}
+.tf-body-sm {
+  font: 400 var(--tf-fs-body-sm)/var(--tf-lh-relaxed) var(--tf-font);
+  color: var(--tf-text-body);
+}
+.tf-caption {
+  font: 400 var(--tf-fs-caption)/var(--tf-lh-normal) var(--tf-font);
+  color: var(--tf-text-muted);
+}
+.tf-label {
+  font: 500 var(--tf-fs-label)/1 var(--tf-font);
+  letter-spacing: var(--tf-tracking-label);
+  color: var(--tf-accent);
+  text-transform: uppercase;
+}
+.tf-label-spaced {
+  /* Slide top-left brand label - always uppercase, orange or blue */
+  font: 500 var(--tf-fs-label)/1 var(--tf-font);
+  letter-spacing: var(--tf-tracking-label);
+  color: var(--tf-accent);
+  text-transform: uppercase;
+}
+.tf-label-spaced.is-blue {
+  color: var(--tf-blue-900);
+}
+.tf-eyebrow {
+  font: 500 12px/1 var(--tf-font);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tf-accent);
+}

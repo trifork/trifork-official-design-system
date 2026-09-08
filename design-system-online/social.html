@@ -1,0 +1,238 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="social" subtitle="LinkedIn social-post system — anatomy, formats, backgrounds, 8 templates × 3 layouts, live playground" -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Trifork. Social posts</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  html, body { margin: 0; background: var(--tf-bg); color: var(--tf-text); font-family: var(--tf-font); }
+  .page { padding: 80px; max-width: 1280px; margin: 0 auto; }
+  .topline { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 32px; border-bottom: 1px solid var(--tf-rule); }
+  .wordmark img { height: 28px; }
+
+  section { padding: 64px 0; border-bottom: 1px solid var(--tf-rule); }
+  section:last-of-type { border-bottom: 0; }
+
+  h1.intro-title {
+    font: 400 64px/1.1 var(--tf-font);
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+    color: var(--tf-text);
+    max-width: 880px;
+    text-wrap: pretty;
+  }
+  h2.section-title {
+    font: 500 40px/1.1 var(--tf-font);
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .section-eyebrow {
+    font: 500 13px/1 var(--tf-font);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--tf-accent);
+    margin-bottom: 16px;
+  }
+  .lead {
+    font: 400 22px/1.5 var(--tf-font);
+    color: var(--tf-text-body);
+    max-width: 820px;
+    margin: 0 0 40px;
+    text-wrap: pretty;
+  }
+  .section-head { margin-bottom: 40px; }
+
+  /* Rules grid */
+  .rules { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 48px; margin-top: 16px; }
+  .rule { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 16px 0; border-top: 1px solid var(--tf-rule); }
+  .rule:first-of-type, .rules > .rule:nth-of-type(2) { border-top: 0; }
+  .rule .n { font: 500 13px/1 var(--tf-font); color: var(--tf-orange-500); letter-spacing: 0.04em; padding-top: 2px; }
+  .rule b { font: 500 16px/1.4 var(--tf-font); display: block; margin-bottom: 4px; }
+  .rule p { font: 400 14px/1.55 var(--tf-font); color: var(--tf-text-body); margin: 0; }
+
+  /* Layout descriptors */
+  .layouts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 16px; }
+  .layout-card {
+    background: var(--tf-bg-soft);
+    border-radius: 24px;
+    padding: 24px;
+  }
+  .layout-card h4 { font: 500 18px/1.3 var(--tf-font); margin: 16px 0 8px; }
+  .layout-card p { font: 400 14px/1.55 var(--tf-font); color: var(--tf-text-body); margin: 0; }
+
+  /* Schematic SVG for layouts */
+  .schematic { aspect-ratio: 1/1; background: var(--tf-ink-950); border-radius: 12px; padding: 24px; position: relative; box-sizing: border-box; }
+  .schematic .eb { height: 8px; background: var(--tf-orange-500); border-radius: 2px; width: 35%; position: absolute; top: 24px; left: 24px; }
+  .schematic .ttl { background: var(--tf-white); border-radius: 4px; opacity: 0.95; position: absolute; }
+  .schematic .mt { background: var(--tf-white); border-radius: 2px; opacity: 0.5; height: 8px; }
+
+  /* Footer nav */
+  .nav { display: flex; gap: 16px; flex-wrap: wrap; padding-top: 32px; }
+  .nav a { font-size: 14px; color: var(--tf-text-body); text-decoration: none; padding: 10px 16px; border: 1px solid var(--tf-rule); border-radius: 999px; }
+  .nav a:hover { border-color: var(--tf-accent); color: var(--tf-accent); }
+
+  /* Avoid list defaults */
+  ol, ul { padding: 0; margin: 0; }
+
+  /* Reset button defaults */
+  button { font-family: inherit; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topline">
+    <div class="tf-label-spaced">SOCIAL POSTS</div>
+    <div class="wordmark"><svg height="28" viewBox="0 0 495 52" xmlns="http://www.w3.org/2000/svg" aria-label="Trifork"><g fill-rule="evenodd"><path d="m0 .133h62.132v12.51h-22.912v37.8h-16.306v-37.8h-22.914z" transform="translate(0 1)" fill="#2C3A42"></path><path d="m85.567 25.873h26.954c4.406 0 6.023-1.668 6.023-5.283v-1.664c0-4.451-2.352-5.283-7.492-5.283h-25.485zm-16.304-24.74h49.207c12.558 0 15.937 5.906 15.937 14.941v3.196c0 6.744-1.615 10.701-9.109 12.371v.138c4.848.834 8.889 2.852 8.889 11.119v8.545h-16.304v-6.043c0-5.281-1.616-7.021-6.686-7.021h-25.63v13.064h-16.304z" fill="#2C3A42"></path><path d="m146.312 51.444h16.302v-50.311h-16.302z" fill="#2C3A42"></path><path d="m174.513 1.133h55.523v12.092h-39.217v9.384h37.382v11.672h-37.382v17.162h-16.306z" fill="#2C3A42"></path><path d="m255.453 28.998c0 7.297 1.616 10.078 9.327 10.078h20.857c7.715 0 9.327-2.781 9.327-10.078v-5.418c0-6.254-1.612-10.076-10.204-10.076h-19.098c-8.593 0-10.209 3.822-10.209 10.076zm-16.742-10.213c0-14.732 8.738-18.205 23.428-18.205h26.143c14.689 0 23.429 3.473 23.429 18.205v15.008c0 14.734-8.74 18.207-23.429 18.207h-26.143c-14.69 0-23.428-3.473-23.428-18.207z" fill="#2C3A42"></path><path d="m337.866 25.873h26.951c4.41 0 6.021-1.668 6.021-5.283v-1.664c0-4.451-2.35-5.283-7.488-5.283h-25.484zm-16.307-24.74h49.206c12.563 0 15.938 5.906 15.938 14.941v3.196c0 6.744-1.615 10.701-9.105 12.371v.138c4.847.834 8.888 2.852 8.888 11.119v8.545h-16.308v-6.043c0-5.281-1.615-7.021-6.682-7.021h-25.63v13.064h-16.307z" fill="#2C3A42"></path><path d="m397.728 1.133h16.299v18.486h7.643l20.56-18.486h22.182l-28.789 24.601 32.168 25.709h-23.063l-23.501-19.314h-7.2v19.314h-16.299z" fill="#2C3A42"></path><path d="m478.816 51.444h15.422v-14.176h-15.422z" fill="#FF6600"></path></g></svg></div>
+  </div>
+
+  <section>
+    <h1 class="intro-title">A small kit of templates for LinkedIn — events, releases, cases, and the occasional pull quote.</h1>
+    <p class="lead">Social posts use the same restrained palette and Poppins type as everything else in the system. The grammar is narrower: one eyebrow, one title, one or two lines of metadata, and a flat background. There is no orange in the title, no gradient over the photo, no exclamation marks anywhere.</p>
+  </section>
+
+  <!-- Live playground -->
+  <section>
+    <div class="section-head">
+      <div class="section-eyebrow">Playground</div>
+      <h2 class="section-title">Drop in real copy. Build a carousel. Download.</h2>
+      <p class="lead">Edit any field; the title autosizes to fit. Add pages with ＋ to build a swipeable carousel, reorder them, then export — a single page as a PNG, or the whole carousel as a zip of numbered images, all at full LinkedIn resolution.</p>
+    </div>
+    <div id="mount-playground" data-screen-label="Playground"></div>
+  </section>
+
+  <!-- Anatomy -->
+  <section>
+    <div class="section-head">
+      <div class="section-eyebrow">Anatomy</div>
+      <h2 class="section-title">Four parts, in fixed positions.</h2>
+      <p class="lead">A post is an eyebrow, a title, a metadata block, and an optional logo. Every layout and card type in this kit is a rearrangement of those four pieces — nothing else.</p>
+    </div>
+    <div id="mount-anatomy"></div>
+  </section>
+
+  <!-- Formats -->
+  <section>
+    <div class="section-head">
+      <div class="section-eyebrow">Formats</div>
+      <h2 class="section-title">Four canvases.</h2>
+      <p class="lead">Pick the format that fits the channel. Same content adapts; the title’s size-tier and the inner padding adjust automatically.</p>
+    </div>
+    <div id="mount-formats"></div>
+  </section>
+
+  <!-- Backgrounds -->
+  <section>
+    <div class="section-head">
+      <div class="section-eyebrow">Backgrounds</div>
+      <h2 class="section-title">Three modes. No others.</h2>
+      <p class="lead">Ink for announcements, light for reflection, photo for the moments that earn one. Photo always sits under a flat ink-950 overlay (no gradients) — enough to keep white text legible while the image still reads.</p>
+    </div>
+    <div id="mount-backgrounds"></div>
+  </section>
+
+  <!-- Eyebrow rules -->
+  <section>
+    <div class="section-head">
+      <div class="section-eyebrow">Eyebrow</div>
+      <h2 class="section-title">The eyebrow names the post type.</h2>
+      <p class="lead">ALL CAPS, Poppins Medium, tracking 0.16em. Two to four words at most. Use the same eyebrow text consistently across a campaign so the audience learns the signal.</p>
+    </div>
+    <div class="rules">
+      <div class="rule"><span class="n">A</span><div><b>Orange on ink and light surfaces.</b><p>Default eyebrow colour. Same orange as the rest of the design system — <code style="font-family: ui-monospace, monospace; font-size: 12px;">--tf-orange-500</code>.</p></div></div>
+      <div class="rule"><span class="n">B</span><div><b>White over photos.</b><p>When the post sits over a photograph with the standard 90% ink overlay, the eyebrow flips to white. Orange would compete with the image; white sits cleanly.</p></div></div>
+      <div class="rule"><span class="n">C</span><div><b>One eyebrow per post.</b><p>Never two eyebrows stacked. If the post needs to carry two signals (e.g. "CASE · AVIATION"), separate them with an interpunct, not a line break.</p></div></div>
+      <div class="rule"><span class="n">D</span><div><b>Never use the eyebrow for content.</b><p>"WE'RE HIRING SENIOR ENGINEERS IN AARHUS" is not an eyebrow — that’s a title. The eyebrow names what the post is, not what it says.</p></div></div>
+    </div>
+  </section>
+
+  <!-- Title sizing -->
+  <section>
+    <div class="section-head">
+      <div class="section-eyebrow">Title sizing</div>
+      <h2 class="section-title">Auto-fit, in tiers.</h2>
+      <p class="lead">Titles drop one size tier per length band. Tier 1 (largest) for short, punchy lines; Tier 6 (smallest) for editorial-length sentences. The tiers are predefined per format so a designer never types a font size.</p>
+    </div>
+    <div id="mount-sizing"></div>
+  </section>
+
+  <!-- Layouts -->
+  <section>
+    <div class="section-head">
+      <div class="section-eyebrow">Layouts</div>
+      <h2 class="section-title">Title top, center, or bottom.</h2>
+      <p class="lead">Three vertical anchors — that is the whole layout system. The eyebrow always pins to the top-left and metadata always to the bottom; the layout only decides where the title sits between them.</p>
+    </div>
+    <div id="mount-layouts"></div>
+  </section>
+
+  <!-- Always-avoid -->
+  <section>
+    <div class="section-head">
+      <div class="section-eyebrow">Always avoid</div>
+      <h2 class="section-title">The short list of don’ts.</h2>
+    </div>
+    <div class="rules">
+      <div class="rule"><span class="n">×</span><div><b>Orange anywhere inside the title.</b><p>No orange words, no orange full stops. Orange is reserved for the eyebrow, the quote glyph, the stat number, list markers, and speaker company labels.</p></div></div>
+      <div class="rule"><span class="n">×</span><div><b>Gradients on photo overlays.</b><p>The overlay is a flat ink-950 tint, edge to edge. Never a fade.</p></div></div>
+      <div class="rule"><span class="n">×</span><div><b>ALL CAPS in the title.</b><p>Sentence case only. Capitals are for the eyebrow and proper nouns.</p></div></div>
+      <div class="rule"><span class="n">×</span><div><b>Multiple eyebrows or sub-titles.</b><p>One label, one title. If you need more, write a shorter title or split into two posts.</p></div></div>
+      <div class="rule"><span class="n">×</span><div><b>Emoji and exclamation marks.</b><p>The post tone is calm and confident. Specifics over adjectives. No "!", no "🚀".</p></div></div>
+      <div class="rule"><span class="n">×</span><div><b>Title Case headlines.</b><p>"AI Enablement: Boost Your Business" → "AI Enablement: Boost your business." Sentence case throughout.</p></div></div>
+      <div class="rule"><span class="n">×</span><div><b>Stock-photo handshakes.</b><p>Real photography from Trifork offices and engagements. People at work, architecture, on-site.</p></div></div>
+      <div class="rule"><span class="n">×</span><div><b>The logo by default.</b><p>LinkedIn already shows the company avatar above the post. Add the wordmark only when the post will be reposted out of feed context.</p></div></div>
+    </div>
+  </section>
+
+  <!-- Carousels -->
+  <section>
+    <div class="section-head">
+      <div class="section-eyebrow">Carousels</div>
+      <h2 class="section-title">One story, swiped across pages.</h2>
+      <p class="lead">LinkedIn carousels let a post unfold over several frames. Keep one idea per page, hold the format constant across the set, and open with a hook page that earns the swipe. Build them in the playground and export the whole set at once.</p>
+    </div>
+    <div id="mount-carousel"></div>
+  </section>
+
+  <!-- Template gallery -->
+  <section>
+    <div class="section-head">
+      <div class="section-eyebrow">Card types</div>
+      <h2 class="section-title">Six post types, three variations each.</h2>
+      <p class="lead">Event, quote, single stat, job opening, news, and case story. A starting point, not a cage — mix layout, background, and treatment freely; the rules above keep the result coherent.</p>
+    </div>
+    <div id="mount-gallery"></div>
+  </section>
+
+  <!-- Footer nav -->
+  <section style="border-bottom: 0;">
+    <div class="nav">
+      <a href="README.md">README</a>
+      <a href="brand.html">Brand</a>
+      <a href="type.html">Type</a>
+      <a href="colors.html">Colours</a>
+      <a href="spacing.html">Spacing</a>
+      <a href="iconography.html">Iconography</a>
+      <a href="components.html">Components</a>
+      <a href="slide-kit.html">Slide kit</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- React + Babel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.13/dist/html-to-image.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<script type="text/babel" src="social-templates.jsx"></script>
+<script type="text/babel" src="social-presets.jsx"></script>
+<script type="text/babel" src="social-playground.jsx"></script>
+<script type="text/babel" src="social-app.jsx"></script>
+
+</body>
+</html>

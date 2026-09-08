@@ -1,0 +1,555 @@
+body:has(.slide-kit-page) { background: var(--tf-ink-100); }
+
+.slide-kit-page .intro { max-width: 880px; margin-bottom: 56px; }
+.slide-kit-page .intro h1 { font: 400 56px/1.1 var(--tf-font); margin: 0 0 16px; letter-spacing: -0.02em; }
+.slide-kit-page .intro p { font: 400 22px/1.45 var(--tf-font); color: var(--tf-text-body); margin: 0; }
+
+.slide-kit-page .deck { display: flex; flex-direction: column; gap: 56px; }
+.slide-kit-page .slide-meta {
+  display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px;
+  font-size: 13px; color: var(--tf-text-body);
+}
+.slide-kit-page .slide-meta b { color: var(--tf-text); font-weight: 500; font-size: 16px; letter-spacing: -0.005em; }
+.slide-kit-page .slide-meta code { font-size: 12px; background: var(--tf-white); padding: 4px 10px; border-radius: var(--tf-r-sm); border: 1px solid var(--tf-rule); }
+
+/* =============================================================
+   Slide surface + chrome system
+   All chrome and header values are proportional (cqw = 1% of the
+   1920px slide width) so they hold at any rendered size. Measured
+   from the Trifork presentation template.
+   ============================================================= */
+.slide-kit-page .slide {
+  aspect-ratio: 16/9;
+  background: var(--tf-blue-100);
+  --tf-rule: var(--tf-blue-200);
+  border-radius: var(--tf-r-md);
+  overflow: hidden;
+  box-shadow: 0 24px 60px -32px rgba(44,58,66,0.25), 0 1px 0 rgba(0,0,0,0.04);
+  position: relative;
+  container-type: inline-size;
+
+  /* ---- chrome / header spec ---- */
+  --pad: 4.1667cqw;        /* 80px outer margin (label, footer, logo) */
+  --head-indent: 7.5cqw;   /* 144px — left edge of description & body */
+  --fs-label: 0.73cqw;     /* ~14px tracked label */
+  --fs-title: 4.17cqw;     /* ~80px standard content title */
+  --fs-lede: 1.46cqw;      /* ~28px description / lede */
+  --fs-body: 1.25cqw;      /* ~24px body copy */
+  --fs-foot: 0.83cqw;      /* ~16px footer */
+  --title-top: 8cqw;       /* title baseline band ~154px */
+  --lede-top: 15cqw;       /* description top ~288px */
+
+  --c-label: var(--tf-orange-500);
+  --c-title: var(--tf-ink-950);
+  --c-lede:  var(--tf-ink-800);
+  --c-body:  var(--tf-ink-800);
+  --c-foot:  var(--tf-ink-600);
+  --c-foot-sep: var(--tf-blue-300);
+}
+.slide-kit-page .slide.on-dark {
+  --tf-rule: rgba(255, 255, 255, 0.30);
+  --c-title: var(--tf-white);
+  --c-lede:  rgba(255, 255, 255, 0.82);
+  --c-body:  rgba(255, 255, 255, 0.82);
+  --c-foot:  rgba(255, 255, 255, 0.60);
+  --c-foot-sep: rgba(255, 255, 255, 0.30);
+}
+.slide-kit-page .slide-inner { position: absolute; inset: 0; }
+
+/* Flat ink overlay for photos — a real element (not ::after) so it imports as a layer. */
+.slide-kit-page .overlay { position: absolute; inset: 0; pointer-events: none; background: rgba(44, 58, 66, 0.90); }
+
+/* ---- Label: top-left, orange, tracked caps ---- */
+.slide-kit-page .s-label {
+  position: absolute; top: var(--pad); left: var(--pad);
+  font: 500 var(--fs-label)/1 var(--tf-font);
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-label);
+}
+
+/* ---- Footer: bottom-left, "page / slide-name" ---- */
+.slide-kit-page .s-foot {
+  position: absolute; bottom: var(--pad); left: var(--pad);
+  display: flex; align-items: baseline; gap: 0.8cqw;
+  font: 400 var(--fs-foot)/1 var(--tf-font); color: var(--c-foot);
+  font-variant-numeric: tabular-nums;
+}
+.slide-kit-page .s-foot .page { color: var(--c-foot); }
+.slide-kit-page .s-foot .sep  { color: var(--c-foot-sep); }
+.slide-kit-page .s-foot .deck { color: var(--c-foot); }
+
+/* ---- Wordmark: bottom-right ---- */
+.slide-kit-page .s-logo {
+  position: absolute; bottom: var(--pad); right: var(--pad);
+  display: flex; align-items: center; height: 0.72cqw;
+}
+.slide-kit-page .s-logo img { height: 100%; width: auto; display: block; }
+
+/* ---- Standard content header: title + description ---- */
+.slide-kit-page .s-title,
+.slide-kit-page .agenda h2,
+.slide-kit-page .text-slide h2,
+.slide-kit-page .nums h2,
+.slide-kit-page .two-col h2,
+.slide-kit-page .cards-slide h2,
+.slide-kit-page .case-slide h2,
+.slide-kit-page .title-bullets h2 {
+  position: absolute; left: var(--pad); right: var(--pad); top: var(--title-top);
+  margin: 0; font: 400 var(--fs-title)/1.05 var(--tf-font);
+  letter-spacing: -0.022em; color: var(--c-title); max-width: 84cqw;
+}
+.slide-kit-page .nums .lede,
+.slide-kit-page .two-col .lede,
+.slide-kit-page .cards-slide .lede,
+.slide-kit-page .title-bullets .lede {
+  position: absolute; left: var(--head-indent); right: var(--pad); top: var(--lede-top);
+  margin: 0; font: 400 var(--fs-lede)/1.4 var(--tf-font);
+  color: var(--c-lede); max-width: 50cqw; text-wrap: pretty;
+}
+
+/* =============================================================
+   Covers
+   ============================================================= */
+/* ---- Section separators: light / dark / photo. Centred big title, full chrome. ---- */
+.slide-kit-page .separator { background: var(--tf-blue-100); }
+.slide-kit-page .separator.on-dark { background: var(--tf-ink-950); }
+.slide-kit-page .separator .photo-bg { position: absolute; inset: 0; }
+.slide-kit-page .separator .photo-bg img { width: 100%; height: 100%; object-fit: cover; }
+.slide-kit-page .separator .label-block {
+  position: absolute; left: var(--pad); top: var(--pad);
+  font: 500 var(--fs-label)/1 var(--tf-font); letter-spacing: 0.16em;
+  color: var(--tf-orange-500); text-transform: uppercase;
+}
+.slide-kit-page .separator h1 {
+  position: absolute; left: var(--pad); right: var(--pad); top: 22.9cqw;
+  font: 400 7.3cqw/1 var(--tf-font); letter-spacing: -0.022em; margin: 0;
+  color: var(--c-title); max-width: 84cqw;
+}
+.slide-kit-page .separator .lede {
+  position: absolute; left: var(--pad); right: var(--pad); top: 33cqw;
+  font: 400 var(--fs-lede)/1.4 var(--tf-font); color: var(--c-lede); max-width: 56cqw; margin: 0;
+}
+
+/* ---- Cover: image card (primary). Logo sits inside the card; no standard footer. ---- */
+.slide-kit-page .cover-card { background: var(--tf-blue-100); color: var(--tf-text); }
+.slide-kit-page .cover-card .photo-card {
+  position: absolute; top: 3.33cqw; left: 3.33cqw; right: 3.33cqw; bottom: 17cqw;
+  border-radius: 4cqw; overflow: hidden; background: var(--tf-ink-950);
+}
+.slide-kit-page .cover-card .photo-card > img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.slide-kit-page .cover-card .card-mark {
+  position: absolute; top: 4cqw; right: 4cqw; z-index: 2;
+  height: 1.45cqw; display: flex; align-items: center;
+}
+.slide-kit-page .cover-card .card-mark img { height: 100%; width: auto; display: block; }
+.slide-kit-page .cover-card .photo-card h1 {
+  position: absolute; left: 4cqw; right: 4cqw; bottom: 5cqw; z-index: 2;
+  font: 400 7.3cqw/1.0 var(--tf-font); letter-spacing: -0.022em; margin: 0;
+  color: var(--tf-white); max-width: 80%;
+}
+.slide-kit-page .cover-card .lower-left {
+  position: absolute; bottom: var(--pad); left: var(--pad);
+  font: 400 var(--fs-foot)/1 var(--tf-font); color: var(--c-foot);
+  display: flex; align-items: baseline; gap: 0.8cqw;
+}
+.slide-kit-page .cover-card .lower-left .sep { color: var(--c-foot-sep); }
+.slide-kit-page .cover-card .lower-right {
+  position: absolute; bottom: var(--pad); right: var(--pad);
+  max-width: 42cqw;
+  font: 400 var(--fs-lede)/1.45 var(--tf-font); color: var(--c-lede);
+  margin: 0; text-wrap: pretty;
+}
+
+/* ---- Cover: split. Logo top-left, label+title+description left, image bleeding off right. ---- */
+.slide-kit-page .cover-split { background: var(--tf-blue-100); color: var(--tf-text); }
+.slide-kit-page .cover-split .s-logo { top: var(--pad); left: var(--pad); right: auto; bottom: auto; height: 1.15cqw; }
+.slide-kit-page .cover-split .left-col {
+  position: absolute; left: var(--pad); right: 52cqw;
+  top: 50%; transform: translateY(-50%);
+}
+.slide-kit-page .cover-split .label-block {
+  font: 500 var(--fs-label)/1 var(--tf-font); letter-spacing: 0.16em;
+  color: var(--tf-orange-500); text-transform: uppercase; margin: 0 0 1.5cqw;
+}
+.slide-kit-page .cover-split h1 {
+  font: 400 5cqw/1.04 var(--tf-font); letter-spacing: -0.022em;
+  margin: 0 0 2cqw; color: var(--c-title); text-wrap: balance;
+}
+.slide-kit-page .cover-split .lede {
+  font: 400 var(--fs-lede)/1.5 var(--tf-font); color: var(--c-lede);
+  margin: 0 0 0 3.33cqw; max-width: 36cqw; text-wrap: pretty;
+}
+.slide-kit-page .cover-split .lower-left {
+  position: absolute; bottom: var(--pad); left: var(--pad);
+  font: 400 var(--fs-foot)/1 var(--tf-font); color: var(--c-foot);
+  display: flex; align-items: baseline; gap: 0.8cqw;
+}
+.slide-kit-page .cover-split .lower-left .sep { color: var(--c-foot-sep); }
+.slide-kit-page .cover-split .image-card {
+  position: absolute; top: 0; bottom: 4.2cqw; right: 0; left: 50.8cqw;
+  border-radius: 0 0 0 4cqw; overflow: hidden; background: var(--tf-ink-950);
+}
+.slide-kit-page .cover-split .image-card img { width: 100%; height: 100%; object-fit: cover; }
+
+/* =============================================================
+   Title + description + bullets — master modelled on node 54:1611
+   ============================================================= */
+.slide-kit-page .title-bullets { background: var(--tf-blue-100); }
+.slide-kit-page .title-bullets .s-bullets {
+  position: absolute; left: var(--head-indent); right: var(--pad); top: 21cqw;
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 1.6cqw;
+}
+.slide-kit-page .title-bullets .s-bullets li {
+  display: grid; grid-template-columns: 3.125cqw 1fr; gap: 1.6cqw; align-items: start;
+  font: 400 1.35cqw/1.4 var(--tf-font); color: var(--c-body); text-wrap: pretty;
+}
+.slide-kit-page .title-bullets .s-bullets .dash {
+  height: 2px; width: 100%; background: var(--tf-orange-500); margin-top: 0.62cqw; align-self: start;
+}
+
+/* =============================================================
+   Agenda
+   ============================================================= */
+.slide-kit-page .agenda ol { list-style: none; padding: 0; margin: 0;
+  position: absolute; top: 11cqw; left: 48cqw; right: var(--pad); }
+.slide-kit-page .agenda li {
+  display: grid; grid-template-columns: 4.5cqw 1fr; gap: 2cqw; align-items: baseline;
+  padding: 1.4cqw 0; border-top: 1px solid var(--tf-rule);
+  font: 400 1.7cqw/1.2 var(--tf-font); color: var(--c-title);
+}
+.slide-kit-page .agenda li:last-child { border-bottom: 1px solid var(--tf-rule); }
+.slide-kit-page .agenda li b { color: var(--tf-orange-500); font-weight: 400; font-variant-numeric: tabular-nums; }
+
+/* =============================================================
+   Section starter
+   ============================================================= */
+.slide-kit-page .section-start { background: var(--tf-ink-950); color: var(--tf-white); }
+.slide-kit-page .section-start .num {
+  position: absolute; top: 10cqw; left: var(--pad);
+  font: 400 12cqw/1 var(--tf-font); color: var(--tf-orange-500); letter-spacing: -0.04em;
+}
+.slide-kit-page .section-start h1 {
+  position: absolute; left: var(--pad); right: var(--pad); top: 27cqw;
+  font: 400 5cqw/1 var(--tf-font); color: var(--tf-white); letter-spacing: -0.022em; margin: 0;
+}
+.slide-kit-page .section-start p {
+  position: absolute; left: var(--head-indent); right: 30cqw; top: 37cqw;
+  font: 400 var(--fs-lede)/1.45 var(--tf-font); color: rgba(255,255,255,0.78); margin: 0; max-width: 50cqw;
+}
+
+/* =============================================================
+   Title + body paragraphs
+   ============================================================= */
+.slide-kit-page .text-slide .body {
+  position: absolute; left: var(--head-indent); right: var(--pad); top: var(--lede-top);
+  max-width: 72cqw; display: flex; flex-direction: column; gap: 1.1cqw;
+}
+.slide-kit-page .text-slide .body p { font: 400 var(--fs-body)/1.55 var(--tf-font); color: var(--c-body); margin: 0; }
+
+/* =============================================================
+   Large image
+   ============================================================= */
+.slide-kit-page .image-slide { background: var(--tf-ink-950); }
+.slide-kit-page .image-slide .frame { position: absolute; inset: 0; }
+.slide-kit-page .image-slide .frame img { width: 100%; height: 100%; object-fit: cover; }
+.slide-kit-page .image-slide .caption {
+  position: absolute; bottom: 8cqw; left: var(--pad); right: var(--pad);
+  color: var(--tf-white);
+  font: 400 2.2cqw/1.2 var(--tf-font); letter-spacing: -0.018em;
+  max-width: 70cqw;
+}
+
+/* =============================================================
+   Numeric callouts
+   ============================================================= */
+.slide-kit-page .nums .group-label {
+  position: absolute; top: 29cqw; left: var(--head-indent);
+  font: 500 var(--fs-label)/1 var(--tf-font); letter-spacing: 0.16em; color: var(--tf-orange-500); text-transform: uppercase;
+}
+.slide-kit-page .nums .grid {
+  position: absolute; left: var(--head-indent); right: var(--pad); top: 33cqw;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5cqw;
+}
+.slide-kit-page .nums .item { display: flex; flex-direction: column; gap: 0.5cqw; }
+.slide-kit-page .nums .num {
+  font: 400 5cqw/1 var(--tf-font); color: var(--c-title); letter-spacing: -0.04em;
+}
+.slide-kit-page .nums .label { font: 400 1cqw/1.35 var(--tf-font); color: var(--c-body); }
+
+/* =============================================================
+   Two columns
+   ============================================================= */
+.slide-kit-page .two-col .cols { position: absolute; left: var(--head-indent); right: var(--pad); top: 24cqw; display: grid; grid-template-columns: 1fr 1fr; gap: 4cqw; }
+.slide-kit-page .two-col .col h3 { font: 500 1.6cqw/1.2 var(--tf-font); margin: 0 0 0.8cqw; color: var(--c-title); letter-spacing: -0.01em; }
+.slide-kit-page .two-col .col p { font: 400 1.15cqw/1.55 var(--tf-font); color: var(--c-body); margin: 0 0 0.7cqw; }
+
+/* =============================================================
+   Card grid
+   ============================================================= */
+.slide-kit-page .cards-slide { background: var(--tf-blue-100); }
+.slide-kit-page .cards-slide .grid { position: absolute; left: var(--pad); right: var(--pad); top: 23cqw; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2cqw 2cqw; }
+.slide-kit-page .cards-slide .card { display: flex; flex-direction: column; padding: 1.4cqw 1.4cqw 1.6cqw; background: var(--tf-white); border-radius: var(--tf-r-md); border-top: 0; }
+.slide-kit-page .cards-slide .card h3 { font: 500 1.4cqw/1.25 var(--tf-font); margin: 0 0 0.7cqw; letter-spacing: -0.01em; color: var(--c-title); }
+.slide-kit-page .cards-slide .card p { font: 400 1cqw/1.5 var(--tf-font); color: var(--c-body); margin: 0; }
+
+/* =============================================================
+   Quote
+   ============================================================= */
+.slide-kit-page .quote-slide { background: var(--tf-blue-100); color: var(--tf-text); }
+.slide-kit-page .quote-slide .quote-block {
+  position: absolute; left: var(--head-indent); right: var(--head-indent);
+  top: 11cqw; bottom: 17cqw;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.slide-kit-page .quote-slide q {
+  font: 400 3cqw/1.3 var(--tf-font); letter-spacing: -0.022em; color: var(--c-title);
+  quotes: none; max-width: 73cqw; display: block; margin: 0; text-wrap: pretty;
+}
+.slide-kit-page .quote-slide.is-long q { font-size: 2.4cqw; line-height: 1.32; }
+.slide-kit-page .quote-slide.is-very-long q { font-size: 1.9cqw; line-height: 1.4; }
+.slide-kit-page .quote-slide .attr {
+  position: absolute; left: var(--head-indent); right: var(--head-indent); bottom: 9cqw;
+  display: flex; align-items: center; gap: 1.25cqw;
+}
+.slide-kit-page .quote-slide .attr .portrait {
+  flex: 0 0 5.2cqw; width: 5.2cqw; height: 5.2cqw;
+  border-radius: 50%; overflow: hidden; background: var(--tf-blue-200);
+}
+.slide-kit-page .quote-slide .attr .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slide-kit-page .quote-slide .attr .who { display: flex; flex-direction: column; }
+.slide-kit-page .quote-slide .attr b { display: block; font: 500 1.6cqw/1.2 var(--tf-font); color: var(--c-title); margin-bottom: 0.4cqw; }
+.slide-kit-page .quote-slide .attr span { font: 400 1cqw/1.4 var(--tf-font); color: var(--c-foot); }
+
+/* =============================================================
+   Customer case
+   ============================================================= */
+.slide-kit-page .case-slide .photo {
+  position: absolute; top: var(--lede-top); left: var(--pad); width: 42cqw; aspect-ratio: 4/3;
+  border-radius: var(--tf-r-md); overflow: hidden;
+}
+.slide-kit-page .case-slide .photo img { width: 100%; height: 100%; object-fit: cover; }
+.slide-kit-page .case-slide .meta { position: absolute; top: var(--lede-top); left: 50cqw; right: var(--pad); display: flex; flex-direction: column; gap: 1.2cqw; }
+.slide-kit-page .case-slide .meta .row { display: grid; grid-template-columns: 8cqw 1fr; gap: 1cqw; padding: 1cqw 0; border-top: 1px solid var(--tf-rule); align-items: baseline; }
+.slide-kit-page .case-slide .meta .row:last-of-type { border-bottom: 1px solid var(--tf-rule); }
+.slide-kit-page .case-slide .meta .key { font: 500 0.78cqw/1.2 var(--tf-font); color: var(--tf-text-muted); letter-spacing: 0.16em; text-transform: uppercase; }
+.slide-kit-page .case-slide .meta .val { font: 400 1.3cqw/1.3 var(--tf-font); color: var(--c-title); }
+.slide-kit-page .case-slide .meta .lede { font: 400 1.2cqw/1.5 var(--tf-font); color: var(--c-body); margin-top: 1cqw; }
+
+/* =============================================================
+   Closing
+   ============================================================= */
+.slide-kit-page .closing { background: var(--tf-ink-950); color: var(--tf-white); }
+.slide-kit-page .closing .photo-bg { position: absolute; inset: 0; }
+.slide-kit-page .closing .photo-bg img { width: 100%; height: 100%; object-fit: cover; }
+.slide-kit-page .closing h1 {
+  position: absolute; left: var(--pad); right: var(--pad); top: 50%; transform: translateY(-50%);
+  font: 400 8cqw/1 var(--tf-font); letter-spacing: -0.025em; margin: 0;
+  color: var(--tf-white);
+}
+.slide-kit-page .closing .person {
+  position: absolute; left: var(--pad); right: var(--pad); bottom: 11cqw;
+  display: flex; flex-direction: column;
+}
+.slide-kit-page .closing .role {
+  font: 500 var(--fs-label)/1 var(--tf-font); letter-spacing: 0.16em;
+  color: var(--tf-orange-500); text-transform: uppercase; margin: 0 0 0.6cqw;
+}
+.slide-kit-page .closing .name {
+  font: 400 1.9cqw/1.2 var(--tf-font); color: var(--tf-white); margin: 0 0 0.8cqw;
+}
+.slide-kit-page .closing .contact {
+  font: 400 1.15cqw/1.4 var(--tf-font); color: rgba(255,255,255,0.7);
+  display: flex; gap: 2cqw;
+}
+
+.slide-kit-page .closing-logo { background: var(--tf-ink-950); color: var(--tf-white); }
+.slide-kit-page .closing-logo .photo-bg { position: absolute; inset: 0; }
+.slide-kit-page .closing-logo .photo-bg img { width: 100%; height: 100%; object-fit: cover; }
+.slide-kit-page .closing-logo .mark {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 14.5cqw;
+}
+.slide-kit-page .closing-logo .mark img { width: 100%; height: auto; display: block; }
+
+/* =============================================================
+   Columns — icons / images / numbers (2-5 columns)
+   One layout, three adornments. Set the column count with
+   style="--cols:N" on .grid (default 4; 2-5 supported, 5 only when
+   copy is short). No rules between columns.
+   ============================================================= */
+.slide-kit-page .columns h2 {
+  position: absolute; left: var(--pad); right: var(--pad); top: var(--title-top);
+  margin: 0; font: 400 var(--fs-title)/1.05 var(--tf-font);
+  letter-spacing: -0.022em; color: var(--c-title); max-width: 84cqw;
+}
+.slide-kit-page .columns .lede {
+  position: absolute; left: var(--head-indent); right: var(--pad); top: var(--lede-top);
+  margin: 0; font: 400 var(--fs-lede)/1.4 var(--tf-font);
+  color: var(--c-lede); max-width: 60cqw; text-wrap: pretty;
+}
+.slide-kit-page .columns .grid {
+  position: absolute; left: var(--head-indent); right: var(--head-indent); top: 25cqw;
+  display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); gap: 3.33cqw;
+}
+.slide-kit-page .columns .col { display: flex; flex-direction: column; }
+.slide-kit-page .columns .col .ico { height: 3cqw; margin-bottom: 1.6cqw; color: var(--tf-blue-900); }
+.slide-kit-page .columns .col .ico svg { height: 100%; width: auto; display: block; }
+.slide-kit-page .columns.on-dark .col .ico { color: rgba(255, 255, 255, 0.9); }
+.slide-kit-page .columns .col .thumb {
+  aspect-ratio: 4 / 3; margin-bottom: 1.4cqw;
+  border-radius: var(--tf-r-md); overflow: hidden; background: var(--tf-blue-200);
+}
+.slide-kit-page .columns .col .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slide-kit-page .columns .col .n {
+  font: 400 3.33cqw/1.15 var(--tf-font); color: var(--tf-orange-500);
+  letter-spacing: -0.03em; margin-bottom: 1.67cqw;
+}
+.slide-kit-page .columns .col h3 {
+  font: 500 1.5cqw/1.2 var(--tf-font); margin: 0 0 0.7cqw;
+  color: var(--c-title); letter-spacing: -0.01em;
+}
+.slide-kit-page .columns .col p { font: 400 1.05cqw/1.5 var(--tf-font); color: var(--c-body); margin: 0; }
+
+/* ---- Card grid: optional icon on each card; variable card count ---- */
+.slide-kit-page .cards-slide .grid { grid-template-columns: repeat(var(--cols, 3), 1fr); }
+.slide-kit-page .cards-slide.has-icons .card { padding: 2cqw 1.8cqw 2.2cqw; }
+.slide-kit-page .cards-slide .card .ico { height: 2.8cqw; margin-bottom: 1.4cqw; color: var(--tf-blue-900); }
+.slide-kit-page .cards-slide .card .ico svg { height: 100%; width: auto; display: block; }
+
+/* ---- Orange-dash list (sanctioned list marker; used in splits) ---- */
+.slide-kit-page .dash-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.2cqw; }
+.slide-kit-page .dash-list li {
+  display: grid; grid-template-columns: 2.6cqw 1fr; gap: 1.2cqw; align-items: start;
+  font: 400 1.2cqw/1.45 var(--tf-font); color: var(--c-body); text-wrap: pretty;
+}
+.slide-kit-page .dash-list .dash { height: 2px; width: 100%; background: var(--tf-orange-500); margin-top: 0.7cqw; align-self: start; }
+
+/* =============================================================
+   Content + image / image + content (side by side)
+   .split             = content left, image right
+   .split.is-reversed = image left, content right (label + title
+   move to sit above the content on the right)
+   ============================================================= */
+.slide-kit-page .split { background: var(--tf-blue-100); }
+.slide-kit-page .split h2 {
+  position: absolute; left: var(--pad); right: 50cqw; top: var(--title-top);
+  margin: 0; font: 400 var(--fs-title)/1.05 var(--tf-font);
+  letter-spacing: -0.022em; color: var(--c-title);
+}
+.slide-kit-page .split .body {
+  position: absolute; left: var(--head-indent); right: 50cqw; top: 19cqw;
+  display: flex; flex-direction: column; gap: 1.4cqw;
+}
+.slide-kit-page .split .body .lede { margin: 0; font: 400 var(--fs-lede)/1.45 var(--tf-font); color: var(--c-lede); }
+.slide-kit-page .split .figure {
+  position: absolute; top: 3.75cqw; right: 3.75cqw; bottom: 7.7cqw; left: 58.23cqw;
+  border-radius: var(--tf-r-lg); overflow: hidden; background: var(--tf-blue-200);
+}
+.slide-kit-page .split .figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slide-kit-page .split.is-reversed .figure { left: 3.75cqw; right: 58.23cqw; }
+.slide-kit-page .split.is-reversed .s-label { left: 45.9cqw; }
+.slide-kit-page .split.is-reversed h2 { left: 45.9cqw; right: var(--pad); }
+.slide-kit-page .split.is-reversed .body { left: 49.3cqw; right: var(--pad); }
+
+/* =============================================================
+   Title + content (large title left, body paragraphs right)
+   ============================================================= */
+.slide-kit-page .title-content { background: var(--tf-blue-100); }
+.slide-kit-page .title-content h2 {
+  position: absolute; left: var(--pad); right: 52cqw; top: var(--title-top);
+  margin: 0; font: 400 5cqw/1.04 var(--tf-font); letter-spacing: -0.022em; color: var(--c-title);
+}
+.slide-kit-page .title-content .body {
+  position: absolute; left: 52cqw; right: var(--pad); top: var(--title-top);
+  display: flex; flex-direction: column; gap: 1cqw;
+}
+.slide-kit-page .title-content .body p { margin: 0; font: 400 var(--fs-body)/1.55 var(--tf-font); color: var(--c-body); }
+
+/* =============================================================
+   Large statement (centred title + lede) — the one centred layout
+   ============================================================= */
+.slide-kit-page .statement { background: var(--tf-blue-100); }
+.slide-kit-page .statement .block {
+  position: absolute; left: 10cqw; right: 10cqw; top: 50%; transform: translateY(-50%);
+  text-align: center;
+}
+.slide-kit-page .statement h2 { margin: 0 0 1.6cqw; font: 400 4.6cqw/1.1 var(--tf-font); letter-spacing: -0.022em; color: var(--c-title); }
+.slide-kit-page .statement .lede { margin: 0 auto; max-width: 62cqw; font: 400 1.6cqw/1.4 var(--tf-font); color: var(--c-lede); }
+
+/* =============================================================
+   Agenda — large list variant (numbered, no rules)
+   ============================================================= */
+.slide-kit-page .agenda-list { background: var(--tf-blue-100); }
+.slide-kit-page .agenda-list ol {
+  list-style: none; margin: 0; padding: 0;
+  position: absolute; left: var(--pad); right: var(--pad); top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 0.8cqw;
+}
+.slide-kit-page .agenda-list li { display: grid; grid-template-columns: 4cqw 1fr; gap: 1.4cqw; align-items: start; }
+.slide-kit-page .agenda-list .n {
+  font: 400 0.95cqw/1 var(--tf-font); color: var(--tf-orange-500);
+  letter-spacing: 0.04em; font-variant-numeric: tabular-nums; padding-top: 0.7cqw;
+}
+.slide-kit-page .agenda-list .t { font: 400 2.4cqw/1.1 var(--tf-font); color: var(--c-title); letter-spacing: -0.022em; }
+
+/* =============================================================
+   Auto-layout content column
+   Title, lede, and the content block stack and FLOW: a multi-line title
+   pushes the description (and everything below) down, with consistent
+   spacing, so content never overlaps or feels cramped. Used by the
+   vertical-stack content slides via a .flow wrapper in the markup; the
+   content block carries a .block class. These rules are intentionally last
+   so they win over the legacy absolute positions on the same elements.
+   ============================================================= */
+.slide-kit-page .flow {
+  position: absolute; top: var(--title-top); left: var(--pad); right: var(--pad); bottom: 8cqw;
+  display: flex; flex-direction: column;
+  /* fallbacks; per-layout overrides set the real values */
+  --flow-indent: 3.33cqw; --block-ml: 3.33cqw; --block-mr: 0cqw;
+}
+.slide-kit-page .flow > h2 { position: static; margin: 0; max-width: 84cqw; }
+.slide-kit-page .flow > .lede,
+.slide-kit-page .flow > .group-label {
+  position: static; top: auto; left: auto; right: auto;
+  margin: 2cqw 0 0 var(--flow-indent); max-width: 56cqw;
+}
+.slide-kit-page .flow > .block {
+  position: static; top: auto; left: auto; right: auto;
+  margin: 3cqw var(--block-mr) 0 var(--block-ml);
+}
+/* Per-layout horizontal placement of the content block. */
+.slide-kit-page .columns { --flow-indent: 3.33cqw; --block-ml: 3.33cqw; --block-mr: 3.33cqw; }
+.slide-kit-page .cards-slide { --flow-indent: 3.33cqw; --block-ml: 0cqw; --block-mr: 0cqw; }
+.slide-kit-page .nums,
+.slide-kit-page .two-col,
+.slide-kit-page .text-slide,
+.slide-kit-page .title-bullets { --flow-indent: 3.33cqw; --block-ml: 3.33cqw; --block-mr: 0cqw; }
+
+/* Grid-based content (columns, cards, callouts, two columns): centre the block
+   in the available space below the description; every box stretches to equal
+   height (grid stretch) with its content top-anchored, so the icons, numbers,
+   and titles line up across the row and only the description bottoms stagger
+   slightly when copy lengths differ. */
+.slide-kit-page .columns .flow > .block,
+.slide-kit-page .cards-slide .flow > .block,
+.slide-kit-page .nums .flow > .block,
+.slide-kit-page .two-col .flow > .block {
+  margin-top: auto; margin-bottom: auto;
+}
+.slide-kit-page .columns .col,
+.slide-kit-page .cards-slide .card,
+.slide-kit-page .nums .item,
+.slide-kit-page .two-col .col {
+  display: flex; flex-direction: column; justify-content: flex-start;
+}
+
+/* Splits flow their content column (title + lede + list) on one half. */
+.slide-kit-page .split { --flow-indent: 3.33cqw; --block-ml: 3.33cqw; --block-mr: 0cqw; }
+.slide-kit-page .split .flow { right: 50cqw; }
+.slide-kit-page .split.is-reversed .flow { left: 45.9cqw; right: var(--pad); }
+
+/* Covers: deck name and year sit slightly larger; covers never show a page number. */
+.slide-kit-page .cover-card .lower-left,
+.slide-kit-page .cover-split .lower-left { font-size: 1.05cqw; }

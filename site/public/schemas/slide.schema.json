@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://brand.trifork.com/system/schemas/slide.schema.json",
+  "title": "Trifork slide specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "layout",
+    "background"
+  ],
+  "properties": {
+    "layout": {
+      "enum": [
+        "cover-card",
+        "cover-split",
+        "separator",
+        "separator-dark",
+        "separator-photo",
+        "agenda",
+        "section-start",
+        "title-bullets",
+        "text-slide",
+        "image-slide",
+        "numeric-callouts",
+        "two-columns",
+        "card-grid",
+        "quote",
+        "customer-case",
+        "columns-icons",
+        "columns-images",
+        "columns-numbered",
+        "card-grid-icons",
+        "split-content",
+        "split-image",
+        "title-content",
+        "statement",
+        "agenda-list",
+        "closing",
+        "closing-logo"
+      ]
+    },
+    "background": {
+      "enum": [
+        "light",
+        "dark"
+      ]
+    },
+    "width": {
+      "const": 1920
+    },
+    "height": {
+      "const": 1080
+    },
+    "outerMargin": {
+      "const": 80
+    },
+    "label": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "lede": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "page": {
+      "type": "string"
+    },
+    "deckName": {
+      "type": "string"
+    },
+    "photoSrc": {
+      "type": "string",
+      "format": "uri"
+    },
+    "photoOverlay": {
+      "const": "rgba(44, 58, 66, 0.90)"
+    },
+    "showLogo": {
+      "type": "boolean"
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

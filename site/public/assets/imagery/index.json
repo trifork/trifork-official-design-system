@@ -1,0 +1,95 @@
+{
+  "generatedFrom": "content/brand-system.mjs",
+  "updated": "2026-06-09",
+  "rule": "Use real Trifork photography. Do not use items where allowed is false in final work.",
+  "images": [
+    {
+      "file": "trifork-aarhus-1.jpg",
+      "label": "Aarhus building",
+      "kind": "real Trifork photography",
+      "allowed": true,
+      "recommendedFor": [
+        "office",
+        "architecture",
+        "news",
+        "case"
+      ],
+      "crop": "center",
+      "url": "https://brand.trifork.com/system/assets/imagery/trifork-aarhus-1.jpg"
+    },
+    {
+      "file": "trifork-aarhus-2.jpg",
+      "label": "Aarhus office",
+      "kind": "real Trifork photography",
+      "allowed": true,
+      "recommendedFor": [
+        "office",
+        "people at work",
+        "slides"
+      ],
+      "crop": "center",
+      "url": "https://brand.trifork.com/system/assets/imagery/trifork-aarhus-2.jpg"
+    },
+    {
+      "file": "trifork-aarhus-3.jpg",
+      "label": "Aarhus interior",
+      "kind": "real Trifork photography",
+      "allowed": true,
+      "recommendedFor": [
+        "interior",
+        "case",
+        "carousel"
+      ],
+      "crop": "center",
+      "url": "https://brand.trifork.com/system/assets/imagery/trifork-aarhus-3.jpg"
+    },
+    {
+      "file": "trifork-aarhus-4.jpg",
+      "label": "Aarhus exterior",
+      "kind": "real Trifork photography",
+      "allowed": true,
+      "recommendedFor": [
+        "architecture",
+        "stat",
+        "cover"
+      ],
+      "crop": "center",
+      "url": "https://brand.trifork.com/system/assets/imagery/trifork-aarhus-4.jpg"
+    },
+    {
+      "file": "trifork-people-1.jpg",
+      "label": "People at work",
+      "kind": "real Trifork photography",
+      "allowed": true,
+      "recommendedFor": [
+        "people",
+        "jobs",
+        "quotes"
+      ],
+      "crop": "center 20%",
+      "url": "https://brand.trifork.com/system/assets/imagery/trifork-people-1.jpg"
+    },
+    {
+      "file": "trifork-stock-1.jpg",
+      "label": "Speaker placeholder",
+      "kind": "placeholder",
+      "allowed": false,
+      "recommendedFor": [],
+      "note": "Do not use in final generated work. Replace with real Trifork photography or a named speaker image.",
+      "url": "https://brand.trifork.com/system/assets/imagery/trifork-stock-1.jpg"
+    },
+    {
+      "file": "trifork-vision-pro.png",
+      "label": "Vision Pro case image",
+      "kind": "product/case imagery",
+      "allowed": true,
+      "recommendedFor": [
+        "case",
+        "aviation",
+        "training"
+      ],
+      "crop": "center",
+      "url": "https://brand.trifork.com/system/assets/imagery/trifork-vision-pro.png"
+    }
+  ]
+}

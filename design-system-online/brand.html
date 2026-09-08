@@ -1,0 +1,142 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Brand" subtitle="Voice, editorial principles, naming" -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Trifork. Brand</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  html, body { margin: 0; background: var(--tf-bg); color: var(--tf-text); font-family: var(--tf-font); }
+  .page { padding: 80px; max-width: 1280px; margin: 0 auto; }
+  .topline { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 32px; border-bottom: 1px solid var(--tf-rule); }
+  .wordmark { display: flex; align-items: baseline; gap: 4px; }
+  .wordmark img { height: 28px; }
+  section { padding: 64px 0; border-bottom: 1px solid var(--tf-rule); }
+  section:last-of-type { border-bottom: 0; }
+  h2.section-title { font: 500 40px/1.1 var(--tf-font); margin: 0 0 12px; letter-spacing: -0.01em; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: start; }
+  .swatch { display: flex; flex-direction: column; gap: 8px; }
+  .swatch-block { height: 88px; border-radius: var(--tf-r-md); border: 1px solid var(--tf-rule); }
+  .swatch-meta { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; color: var(--tf-text-body); }
+  .swatch-meta b { color: var(--tf-text); font-weight: 500; }
+  ul.bare { list-style: none; padding: 0; margin: 0; }
+  ul.bare li { padding: 10px 0; border-bottom: 1px solid var(--tf-rule); display: flex; justify-content: space-between; gap: 24px; font-size: 16px; }
+  ul.bare li:last-child { border-bottom: 0; }
+  ul.bare li span:first-child { color: var(--tf-text); font-weight: 500; }
+  ul.bare li span:last-child { color: var(--tf-text-body); text-align: right; max-width: 60%; }
+  /* Quote sits in ink 950 (the default light-bg text colour). Orange is never
+     used to emphasise a phrase inside a title or a paragraph; emphasis is via
+     position, weight, or an adjacent label. */
+  .voice-quote { font: 500 36px/1.2 var(--tf-font); letter-spacing: -0.01em; color: var(--tf-text); margin: 0; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .pair > div { padding: 24px; border-radius: var(--tf-r-md); border: 1px solid var(--tf-rule); background: var(--tf-bg-soft); }
+  .pair h4 { font: 500 14px/1 var(--tf-font); letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 12px; }
+  .pair.do h4 { color: var(--tf-accent); }
+  .pair.dont h4 { color: var(--tf-ink-400); }
+  .pair p { font-size: 16px; line-height: 1.55; color: var(--tf-text); margin: 0; }
+  .nav { display: flex; gap: 16px; flex-wrap: wrap; padding-top: 32px; }
+  .nav a { font-size: 14px; color: var(--tf-text-body); text-decoration: none; padding: 10px 16px; border: 1px solid var(--tf-rule); border-radius: var(--tf-r-pill); }
+  .nav a:hover { border-color: var(--tf-accent); color: var(--tf-accent); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topline">
+    <div class="tf-label-spaced">BRAND</div>
+    <div class="wordmark"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+  </div>
+
+  <section>
+    <h2 class="section-title">A calm, considered technology brand.</h2>
+    <p class="tf-lead" style="max-width: 880px;">Trifork builds software for industries where reliability matters: finance, healthcare, aviation, smart buildings. Our brand reflects that. Ordered, precise, quietly confident. We let the work speak.</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Voice</h2>
+    <div class="grid-2">
+      <div>
+        <p class="voice-quote">We are technologists and consultants. We do not sell, we explain.</p>
+      </div>
+      <div>
+        <ul class="bare">
+          <li><span>Register</span><span>Calm, structured, expert</span></li>
+          <li><span>Person</span><span>"We" when inside, "Trifork" externally</span></li>
+          <li><span>Locale</span><span>UK English (colour, organisation)</span></li>
+          <li><span>Sentences</span><span>Short. Concrete.</span></li>
+          <li><span>Adjectives</span><span>Sparse, never superlative</span></li>
+          <li><span>Punctuation</span><span>Oxford comma. No em-dashes. No exclamations.</span></li>
+          <li><span>People we work with</span><span>Partners or customers, never "clients"</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Editorial principles</h2>
+    <div class="grid-3" style="margin-top: 32px;">
+      <div>
+        <h3 class="tf-h4" style="margin: 0 0 12px;">Earn attention with precision.</h3>
+        <p class="tf-body-sm" style="margin: 0;">A specific number, a named technology, a real customer outcome. Specifics outperform adjectives every time.</p>
+      </div>
+      <div>
+        <h3 class="tf-h4" style="margin: 0 0 12px;">Make the complex feel orderly.</h3>
+        <p class="tf-body-sm" style="margin: 0;">Our subjects, distributed systems and regulated industries, are inherently dense. We sequence ideas so a reader always knows where they are.</p>
+      </div>
+      <div>
+        <h3 class="tf-h4" style="margin: 0 0 12px;">Show our hands.</h3>
+        <p class="tf-body-sm" style="margin: 0;">Photography is of real Trifork people, in real workspaces. We don't dress up our offices and we don't use stock imagery of strangers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Voice, in practice</h2>
+    <div class="pair" style="margin-top: 24px;">
+      <div class="pair">
+        <div>
+          <h4 style="color: var(--tf-accent);">We write</h4>
+          <p>"We rebuilt the customer's settlement engine on Kubernetes over fourteen months. Throughput tripled; the on-call rotation halved."</p>
+        </div>
+        <div>
+          <h4 style="color: var(--tf-ink-400);">We avoid</h4>
+          <p>"We're proud to have partnered with a leading bank to deliver a revolutionary, world-class settlement platform that's transforming financial services!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Naming</h2>
+    <ul class="bare">
+      <li><span>Wordmark</span><span>Trifork (the dot in the wordmark is the orange accent)</span></li>
+      <li><span>Sub-brands</span><span>Trifork [Domain]. For example, Trifork Smart Building, Trifork Labs</span></li>
+      <li><span>Products</span><span>Title Case, no Trifork prefix in body copy after first mention</span></li>
+      <li><span>Capitalisation</span><span>Sentence case for headlines and slide titles</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">Vocabulary</h2>
+    <ul class="bare">
+      <li><span>The people we serve</span><span>"Customers" for commercial relationships, "partners" for joint ventures and Trifork Labs collaborations. Never "clients".</span></li>
+      <li><span>The work itself</span><span>"Engagement" or "programme", not "project". "Build" or "platform", not "solution".</span></li>
+      <li><span>Our people</span><span>"The team", "engineers", "consultants". Never "resources".</span></li>
+      <li><span>Punctuation</span><span>No em-dashes. Use commas, colons, or new sentences instead.</span></li>
+    </ul>
+  </section>
+
+  <div class="nav">
+    <a href="README.md">README</a>
+    <a href="type.html">Type</a>
+    <a href="colors.html">Colour</a>
+    <a href="spacing.html">Spacing</a>
+    <a href="iconography.html">Iconography</a>
+    <a href="components.html">Components</a>
+    <a href="slide-kit.html">Slide kit</a>
+  </div>
+
+</div>
+</body>
+</html>

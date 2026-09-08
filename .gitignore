@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+site/.next/
+site/out/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / local settings
+.vscode/
+*.local.json

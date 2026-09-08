@@ -1,0 +1,31 @@
+{
+  "generatedFrom": "content/brand-system.mjs",
+  "updated": "2026-06-09",
+  "version": "1.3.0",
+  "skills": [
+    {
+      "name": "trifork-brand-core",
+      "title": "Trifork Brand Core",
+      "description": "Trifork brand foundations: brand voice and tone of voice, Poppins typography, the ink/blue/orange palette, logo usage, spacing, iconography, components, and do/don't rules. The base every other Trifork skill builds on.",
+      "whenToUse": "Use whenever you create or edit any Trifork artefact, or answer any question about Trifork brand: colour, logo usage, tone of voice, typography, spacing, icons, or components. Load this first for any Trifork work, including inside a Trifork project when Trifork is not named explicitly.",
+      "skill": "trifork-brand-core/SKILL.md",
+      "zip": "trifork-brand-core.zip"
+    },
+    {
+      "name": "trifork-presentations",
+      "title": "Trifork Presentations",
+      "description": "Trifork presentation and slide system: the 1920x1080 slide kit (covers, agenda, columns, cards, content and image splits, large statement, quote, customer case, closing), storytelling structure, and agenda, case-study, and product-pitch formats for PowerPoint and Google Slides.",
+      "whenToUse": "Use whenever you create or edit a presentation, slide deck, pitch, keynote, or .pptx in a Trifork context, including building a product pitch, an agenda, or a customer case-study deck.",
+      "skill": "trifork-presentations/SKILL.md",
+      "zip": "trifork-presentations.zip"
+    },
+    {
+      "name": "trifork-social-graphics",
+      "title": "Trifork Social Graphics",
+      "description": "Trifork social and event graphics: LinkedIn and event post formats, aspect ratios (1:1, 4:5, 1.91:1, 9:16), image style, short-copy rules, the six post variants (event, quote, stat, job, news, case), carousels, and PNG and zip export conventions.",
+      "whenToUse": "Use whenever you create or edit a social post, LinkedIn graphic, event card, quote card, stat card, job post, or carousel in a Trifork context.",
+      "skill": "trifork-social-graphics/SKILL.md",
+      "zip": "trifork-social-graphics.zip"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "trifork-design-system",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build:ai": "node scripts/build-ai-assets.mjs",
+    "build:skill": "npm run build:ai",
+    "lint:brand": "node scripts/lint-brand.mjs",
+    "prebuild": "npm run build:ai && npm run lint:brand",
+    "build": "next build",
+    "postbuild": "node scripts/clean-export.mjs",
+    "start": "next start",
+    "lint": "npm run lint:brand"
+  },
+  "dependencies": {
+    "next": "^15.5.19",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "html-to-image": "1.11.13",
+    "jszip": "3.10.1",
+    "sharp": "0.34.5"
+  }
+}

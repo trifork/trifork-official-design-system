@@ -1,0 +1,199 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Colors" subtitle="Three ramps: neutral 11-step, blue 10-step, orange 10-step" -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Trifork. Colour</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  html, body { margin: 0; background: var(--tf-bg); color: var(--tf-text); font-family: var(--tf-font); }
+  .page { padding: 80px; max-width: 1280px; margin: 0 auto; }
+  .topline { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 32px; border-bottom: 1px solid var(--tf-rule); }
+  .wordmark img { height: 28px; }
+  section { padding: 56px 0; border-bottom: 1px solid var(--tf-rule); }
+  section:last-of-type { border-bottom: 0; }
+  h2.section-title { font: 500 40px/1.2 var(--tf-font); margin: 0 0 12px; letter-spacing: -0.01em; }
+  .lead { font: 400 22px/1.45 var(--tf-font); color: var(--tf-text-body); max-width: 820px; margin: 0 0 32px; }
+
+  .hero-pair { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+  .hero-pair .big { aspect-ratio: 16/9; border-radius: var(--tf-r-lg); display: flex; flex-direction: column; justify-content: space-between; padding: 32px; }
+  .hero-pair .big.ink { background: var(--tf-ink-950); color: var(--tf-white); }
+  .hero-pair .stack { display: grid; grid-template-rows: 1fr 1fr; gap: 24px; }
+  .hero-pair .stack > div { border-radius: var(--tf-r-lg); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+  .accent { background: var(--tf-orange-500); color: var(--tf-white); }
+  .canvas { background: var(--tf-blue-100); color: var(--tf-blue-900); }
+  .meta-row { display: flex; justify-content: space-between; font-size: 13px; opacity: 0.85; }
+  .meta-row b { font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; font-size: 11px; }
+  .name { font: 500 28px/1.15 var(--tf-font); letter-spacing: -0.01em; }
+
+  .scale { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: start; padding: 40px 0; border-top: 1px solid var(--tf-rule); }
+  .scale:first-of-type { border-top: 0; }
+  .scale h3 { font: 500 28px/1.2 var(--tf-font); margin: 0 0 8px; letter-spacing: -0.01em; }
+  .scale .sub { font: 500 11px/1 var(--tf-font); letter-spacing: 0.16em; text-transform: uppercase; color: var(--tf-text-muted); margin: 0 0 12px; }
+  .scale p { font-size: 14px; line-height: 1.55; color: var(--tf-text-body); margin: 0; }
+
+  .ramp { display: grid; gap: 8px; }
+  .ramp.r-11 { grid-template-columns: repeat(11, 1fr); }
+  .ramp.r-10 { grid-template-columns: repeat(10, 1fr); }
+  .ramp .sw { aspect-ratio: 1/1.35; border-radius: var(--tf-r-md); display: flex; flex-direction: column; justify-content: space-between; padding: 10px; font-size: 10px; line-height: 1.3; border: 1px solid rgba(0,0,0,0.04); }
+  .ramp .sw .step { font-weight: 500; font-size: 13px; letter-spacing: -0.01em; }
+  .ramp .sw .hex { font-feature-settings: "tnum"; font-size: 10px; opacity: 0.85; }
+
+  .usage { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 24px; }
+  .usage > div { padding: 24px; border-radius: var(--tf-r-md); border: 1px solid var(--tf-rule); }
+  .usage h4 { font: 500 16px/1.25 var(--tf-font); margin: 0 0 8px; }
+  .usage p { font-size: 14px; line-height: 1.55; color: var(--tf-text-body); margin: 0; }
+  .usage .chip { display: inline-block; width: 18px; height: 18px; border-radius: 4px; vertical-align: -3px; margin-right: 6px; border: 1px solid rgba(0,0,0,0.08); }
+
+  .nav { display: flex; gap: 16px; flex-wrap: wrap; padding-top: 32px; }
+  .nav a { font-size: 14px; color: var(--tf-text-body); text-decoration: none; padding: 10px 16px; border: 1px solid var(--tf-rule); border-radius: var(--tf-r-pill); }
+  .nav a:hover { border-color: var(--tf-accent); color: var(--tf-accent); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topline">
+    <div class="tf-label-spaced">COLOUR</div>
+    <div class="wordmark"><img src="assets/logo/Trifork_logo_RGB.svg" alt="Trifork" /></div>
+  </div>
+
+  <section>
+    <h2 class="section-title">Three ramps. One accent.</h2>
+    <p class="lead">A neutral spine carries titles, body and chrome. A blue ramp gives calm, atmospheric backgrounds &mdash; never compete-with-content territory. Orange is the brand voice, used once per slide, never as wallpaper.</p>
+
+    <div class="hero-pair">
+      <div class="big ink">
+        <div class="meta-row"><b>Foundation</b><span>Neutral 950</span></div>
+        <div>
+          <div class="name">Trifork ink</div>
+          <div class="meta-row" style="margin-top: 8px;"><span>#2C3A42</span><span>RGB 44 &middot; 58 &middot; 66</span></div>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="accent">
+          <div class="meta-row"><b>Accent</b><span>Orange 500</span></div>
+          <div>
+            <div class="name" style="font-size: 22px;">Trifork orange</div>
+            <div class="meta-row" style="margin-top: 6px;"><span>#FF6600</span></div>
+          </div>
+        </div>
+        <div class="canvas">
+          <div class="meta-row"><b>Canvas</b><span>Blue 100</span></div>
+          <div>
+            <div class="name" style="font-size: 22px;">Sky tint</div>
+            <div class="meta-row" style="margin-top: 6px;"><span>#D5E5ED</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Scales</h2>
+
+    <div class="scale">
+      <div>
+        <p class="sub">11 steps</p>
+        <h3>Neutral</h3>
+        <p>The default voice. 950 anchors titles and ink, 800 sets body, 100/50 are rules and surfaces. Use this scale before reaching for blue.</p>
+      </div>
+      <div class="ramp r-11">
+        <div class="sw" style="background: #2C3A42; color: #fff;"><span class="step">950</span><span class="hex">#2C3A42</span></div>
+        <div class="sw" style="background: #414E55; color: #fff;"><span class="step">900</span><span class="hex">#414E55</span></div>
+        <div class="sw" style="background: #566168; color: #fff;"><span class="step">800</span><span class="hex">#566168</span></div>
+        <div class="sw" style="background: #6B757B; color: #fff;"><span class="step">700</span><span class="hex">#6B757B</span></div>
+        <div class="sw" style="background: #80898E; color: #fff;"><span class="step">600</span><span class="hex">#80898E</span></div>
+        <div class="sw" style="background: #959CA0; color: #fff;"><span class="step">500</span><span class="hex">#959CA0</span></div>
+        <div class="sw" style="background: #ABB0B3; color: #2C3A42;"><span class="step">400</span><span class="hex">#ABB0B3</span></div>
+        <div class="sw" style="background: #C0C4C6; color: #2C3A42;"><span class="step">300</span><span class="hex">#C0C4C6</span></div>
+        <div class="sw" style="background: #D5D8D9; color: #2C3A42;"><span class="step">200</span><span class="hex">#D5D8D9</span></div>
+        <div class="sw" style="background: #EAEBEC; color: #2C3A42;"><span class="step">100</span><span class="hex">#EAEBEC</span></div>
+        <div class="sw" style="background: #F4F5F6; color: #2C3A42;"><span class="step">50</span><span class="hex">#F4F5F6</span></div>
+      </div>
+    </div>
+
+    <div class="scale">
+      <div>
+        <p class="sub">10 steps</p>
+        <h3>Blue</h3>
+        <p>Atmospheric, never primary. 100/50 are calm slide canvases; 800/900 are reserved for diagrams, technical illustrations and section starters where ink would feel too neutral.</p>
+      </div>
+      <div class="ramp r-10">
+        <div class="sw" style="background: #3C4C54; color: #fff;"><span class="step">900</span><span class="hex">#3C4C54</span></div>
+        <div class="sw" style="background: #5B717F; color: #fff;"><span class="step">800</span><span class="hex">#5B717F</span></div>
+        <div class="sw" style="background: #7997A9; color: #fff;"><span class="step">700</span><span class="hex">#7997A9</span></div>
+        <div class="sw" style="background: #88AABE; color: #fff;"><span class="step">600</span><span class="hex">#88AABE</span></div>
+        <div class="sw" style="background: #97BDD3; color: #2C3A42;"><span class="step">500</span><span class="hex">#97BDD3</span></div>
+        <div class="sw" style="background: #A1C4D7; color: #2C3A42;"><span class="step">400</span><span class="hex">#A1C4D7</span></div>
+        <div class="sw" style="background: #ACCADC; color: #2C3A42;"><span class="step">300</span><span class="hex">#ACCADC</span></div>
+        <div class="sw" style="background: #C1D7E5; color: #2C3A42;"><span class="step">200</span><span class="hex">#C1D7E5</span></div>
+        <div class="sw" style="background: #D5E5ED; color: #2C3A42;"><span class="step">100</span><span class="hex">#D5E5ED</span></div>
+        <div class="sw" style="background: #EAF2F6; color: #2C3A42;"><span class="step">50</span><span class="hex">#EAF2F6</span></div>
+      </div>
+    </div>
+
+    <div class="scale">
+      <div>
+        <p class="sub">10 steps</p>
+        <h3>Orange</h3>
+        <p>Accent only. 500 is the brand voice &mdash; the dot in the wordmark, one number, one underline. 50/100 are permitted as soft fills behind illustration. The dark end (700&ndash;900) is for type set on orange backgrounds.</p>
+      </div>
+      <div class="ramp r-10">
+        <div class="sw" style="background: #662900; color: #fff;"><span class="step">900</span><span class="hex">#662900</span></div>
+        <div class="sw" style="background: #993D00; color: #fff;"><span class="step">800</span><span class="hex">#993D00</span></div>
+        <div class="sw" style="background: #CC5200; color: #fff;"><span class="step">700</span><span class="hex">#CC5200</span></div>
+        <div class="sw" style="background: #E55C00; color: #fff;"><span class="step">600</span><span class="hex">#E55C00</span></div>
+        <div class="sw" style="background: #FF6600; color: #fff;"><span class="step">500</span><span class="hex">#FF6600</span></div>
+        <div class="sw" style="background: #FF751A; color: #fff;"><span class="step">400</span><span class="hex">#FF751A</span></div>
+        <div class="sw" style="background: #FF8533; color: #fff;"><span class="step">300</span><span class="hex">#FF8533</span></div>
+        <div class="sw" style="background: #FFA366; color: #2C3A42;"><span class="step">200</span><span class="hex">#FFA366</span></div>
+        <div class="sw" style="background: #FFD1B2; color: #2C3A42;"><span class="step">100</span><span class="hex">#FFD1B2</span></div>
+        <div class="sw" style="background: #FFE8D9; color: #2C3A42;"><span class="step">50</span><span class="hex">#FFE8D9</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Usage</h2>
+    <div class="usage">
+      <div>
+        <h4><span class="chip" style="background: #FF6600;"></span>Orange 500, sparingly</h4>
+        <p>The slide label, one numeric callout, the dot in the wordmark, or a single underline. Never as a large fill behind body copy. Never tinting iconography.</p>
+      </div>
+      <div>
+        <h4><span class="chip" style="background: #2C3A42;"></span>Neutral 950, anchor</h4>
+        <p>All titles, all icons, primary body emphasis. Used as a full-bleed background for cover slides and section starters.</p>
+      </div>
+      <div>
+        <h4><span class="chip" style="background: #566168;"></span>Neutral 800, body</h4>
+        <p>Default body text colour on white. Switches to white on neutral 950 backgrounds.</p>
+      </div>
+      <div>
+        <h4><span class="chip" style="background: #D5E5ED;"></span>Blue 100, calm canvas</h4>
+        <p>Background for content slides that need a softer feel than white. Never paired with orange 500 as a flat fill, too high-contrast.</p>
+      </div>
+      <div>
+        <h4><span class="chip" style="background: #FFE8D9;"></span>Orange 50, soft fill</h4>
+        <p>Permitted behind illustration, callout cards, or framing devices where a warm tone reads better than blue.</p>
+      </div>
+      <div>
+        <h4><span class="chip" style="background: #FFFFFF; border-color: #ddd;"></span>White, default</h4>
+        <p>The default slide background and primary surface for body copy.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="nav">
+    <a href="README.md">README</a>
+    <a href="brand.html">Brand</a>
+    <a href="type.html">Type</a>
+    <a href="spacing.html">Spacing</a>
+    <a href="iconography.html">Iconography</a>
+    <a href="components.html">Components</a>
+    <a href="slide-kit.html">Slide kit</a>
+  </div>
+
+</div>
+</body>
+</html>

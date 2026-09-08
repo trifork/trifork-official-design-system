@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://brand.trifork.com/system/schemas/social-post.schema.json",
+  "title": "Trifork social post payload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "pages"
+  ],
+  "properties": {
+    "format": {
+      "enum": [
+        "1:1",
+        "4:5",
+        "1.91:1",
+        "9:16"
+      ]
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "variant",
+          "layout",
+          "bg"
+        ],
+        "properties": {
+          "variant": {
+            "enum": [
+              "event",
+              "quote",
+              "stat",
+              "job",
+              "news",
+              "case"
+            ]
+          },
+          "layout": {
+            "enum": [
+              "top",
+              "center",
+              "bottom"
+            ]
+          },
+          "bg": {
+            "enum": [
+              "ink",
+              "light",
+              "photo"
+            ]
+          },
+          "eyebrow": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          },
+          "meta": {
+            "type": "array",
+            "maxItems": 2,
+            "items": {
+              "type": "string"
+            }
+          },
+          "metaRows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "label",
+                "value"
+              ],
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "positions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "speakers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "company": {
+                  "type": "string"
+                },
+                "avatar": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          },
+          "statNumber": {
+            "type": "string"
+          },
+          "statUnit": {
+            "type": "string"
+          },
+          "statLabel": {
+            "type": "string"
+          },
+          "statColor": {
+            "enum": [
+              "orange",
+              "blue",
+              "neutral"
+            ]
+          },
+          "quoteName": {
+            "type": "string"
+          },
+          "quoteRole": {
+            "type": "string"
+          },
+          "quoteAvatar": {
+            "type": "string",
+            "format": "uri"
+          },
+          "photoSrc": {
+            "type": "string",
+            "format": "uri"
+          },
+          "photoPos": {
+            "type": "string"
+          },
+          "eyebrowColor": {
+            "enum": [
+              "auto",
+              "orange",
+              "white",
+              "ink"
+            ]
+          },
+          "showLogo": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "generatedFrom": "content/slide-templates.mjs",
+  "updated": "2026-06-09",
+  "previews": [
+    {
+      "id": "cover-card",
+      "layoutId": "cover-card",
+      "canonical": true,
+      "file": "cover-card.png",
+      "sourceTemplate": "../slide-templates/cover-card.html"
+    },
+    {
+      "id": "cover-split",
+      "layoutId": "cover-split",
+      "canonical": true,
+      "file": "cover-split.png",
+      "sourceTemplate": "../slide-templates/cover-split.html"
+    },
+    {
+      "id": "separator",
+      "layoutId": "separator",
+      "canonical": true,
+      "file": "separator.png",
+      "sourceTemplate": "../slide-templates/separator.html"
+    },
+    {
+      "id": "separator-dark",
+      "layoutId": "separator-dark",
+      "canonical": true,
+      "file": "separator-dark.png",
+      "sourceTemplate": "../slide-templates/separator-dark.html"
+    },
+    {
+      "id": "separator-photo",
+      "layoutId": "separator-photo",
+      "canonical": true,
+      "file": "separator-photo.png",
+      "sourceTemplate": "../slide-templates/separator-photo.html"
+    },
+    {
+      "id": "agenda",
+      "layoutId": "agenda",
+      "canonical": true,
+      "file": "agenda.png",
+      "sourceTemplate": "../slide-templates/agenda.html"
+    },
+    {
+      "id": "section-start",
+      "layoutId": "section-start",
+      "canonical": true,
+      "file": "section-start.png",
+      "sourceTemplate": "../slide-templates/section-start.html"
+    },
+    {
+      "id": "title-bullets",
+      "layoutId": "title-bullets",
+      "canonical": true,
+      "file": "title-bullets.png",
+      "sourceTemplate": "../slide-templates/title-bullets.html"
+    },
+    {
+      "id": "text-slide",
+      "layoutId": "text-slide",
+      "canonical": true,
+      "file": "text-slide.png",
+      "sourceTemplate": "../slide-templates/text-slide.html"
+    },
+    {
+      "id": "image-slide",
+      "layoutId": "image-slide",
+      "canonical": true,
+      "file": "image-slide.png",
+      "sourceTemplate": "../slide-templates/image-slide.html"
+    },
+    {
+      "id": "numeric-callouts",
+      "layoutId": "numeric-callouts",
+      "canonical": true,
+      "file": "numeric-callouts.png",
+      "sourceTemplate": "../slide-templates/numeric-callouts.html"
+    },
+    {
+      "id": "two-columns",
+      "layoutId": "two-columns",
+      "canonical": true,
+      "file": "two-columns.png",
+      "sourceTemplate": "../slide-templates/two-columns.html"
+    },
+    {
+      "id": "card-grid",
+      "layoutId": "card-grid",
+      "canonical": true,
+      "file": "card-grid.png",
+      "sourceTemplate": "../slide-templates/card-grid.html"
+    },
+    {
+      "id": "quote",
+      "layoutId": "quote",
+      "canonical": true,
+      "file": "quote.png",
+      "sourceTemplate": "../slide-templates/quote.html"
+    },
+    {
+      "id": "quote-long",
+      "layoutId": "quote",
+      "canonical": false,
+      "file": "quote-long.png",
+      "sourceTemplate": "../slide-templates/quote-long.html"
+    },
+    {
+      "id": "customer-case",
+      "layoutId": "customer-case",
+      "canonical": true,
+      "file": "customer-case.png",
+      "sourceTemplate": "../slide-templates/customer-case.html"
+    },
+    {
+      "id": "columns-icons",
+      "layoutId": "columns-icons",
+      "canonical": true,
+      "file": "columns-icons.png",
+      "sourceTemplate": "../slide-templates/columns-icons.html"
+    },
+    {
+      "id": "columns-images",
+      "layoutId": "columns-images",
+      "canonical": true,
+      "file": "columns-images.png",
+      "sourceTemplate": "../slide-templates/columns-images.html"
+    },
+    {
+      "id": "columns-numbered",
+      "layoutId": "columns-numbered",
+      "canonical": true,
+      "file": "columns-numbered.png",
+      "sourceTemplate": "../slide-templates/columns-numbered.html"
+    },
+    {
+      "id": "card-grid-icons",
+      "layoutId": "card-grid-icons",
+      "canonical": true,
+      "file": "card-grid-icons.png",
+      "sourceTemplate": "../slide-templates/card-grid-icons.html"
+    },
+    {
+      "id": "split-content",
+      "layoutId": "split-content",
+      "canonical": true,
+      "file": "split-content.png",
+      "sourceTemplate": "../slide-templates/split-content.html"
+    },
+    {
+      "id": "split-image",
+      "layoutId": "split-image",
+      "canonical": true,
+      "file": "split-image.png",
+      "sourceTemplate": "../slide-templates/split-image.html"
+    },
+    {
+      "id": "title-content",
+      "layoutId": "title-content",
+      "canonical": true,
+      "file": "title-content.png",
+      "sourceTemplate": "../slide-templates/title-content.html"
+    },
+    {
+      "id": "statement",
+      "layoutId": "statement",
+      "canonical": true,
+      "file": "statement.png",
+      "sourceTemplate": "../slide-templates/statement.html"
+    },
+    {
+      "id": "agenda-list",
+      "layoutId": "agenda-list",
+      "canonical": true,
+      "file": "agenda-list.png",
+      "sourceTemplate": "../slide-templates/agenda-list.html"
+    },
+    {
+      "id": "closing",
+      "layoutId": "closing",
+      "canonical": true,
+      "file": "closing.png",
+      "sourceTemplate": "../slide-templates/closing.html"
+    },
+    {
+      "id": "closing-logo",
+      "layoutId": "closing-logo",
+      "canonical": true,
+      "file": "closing-logo.png",
+      "sourceTemplate": "../slide-templates/closing-logo.html"
+    }
+  ]
+}

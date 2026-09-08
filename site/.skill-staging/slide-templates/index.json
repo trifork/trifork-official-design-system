@@ -1,0 +1,571 @@
+{
+  "generatedFrom": "content/slide-templates.mjs",
+  "updated": "2026-06-09",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "outerMargin": 80
+  },
+  "css": "https://brand.trifork.com/system/templates/slides/trifork-slide.css",
+  "rule": "Start from these templates. Preserve the structure and CSS. Replace only named data-slot content.",
+  "templates": [
+    {
+      "id": "cover-card",
+      "layoutId": "cover-card",
+      "canonical": true,
+      "title": "01, Cover",
+      "code": ".slide.cover-card",
+      "background": "light",
+      "description": "Primary cover with a large rounded photo card and no standard footer.",
+      "slots": [
+        "photo",
+        "logo",
+        "title",
+        "deck",
+        "year",
+        "summary"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/cover-card.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/cover-card.png"
+    },
+    {
+      "id": "cover-split",
+      "layoutId": "cover-split",
+      "canonical": true,
+      "title": "02, Cover, split",
+      "code": ".slide.cover-split",
+      "background": "light",
+      "description": "Split cover with top-left wordmark, centred left copy, and a photo bleeding from the right.",
+      "slots": [
+        "logo",
+        "label",
+        "title",
+        "lede",
+        "photo",
+        "deck",
+        "year"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/cover-split.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/cover-split.png"
+    },
+    {
+      "id": "separator",
+      "layoutId": "separator",
+      "canonical": true,
+      "title": "03, Separator",
+      "code": ".slide.separator",
+      "background": "light",
+      "description": "Light section separator with large centred title and standard slide chrome.",
+      "slots": [
+        "label",
+        "title",
+        "lede",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/separator.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/separator.png"
+    },
+    {
+      "id": "separator-dark",
+      "layoutId": "separator-dark",
+      "canonical": true,
+      "title": "03b, Separator, dark",
+      "code": ".slide.separator.on-dark",
+      "background": "dark",
+      "description": "Dark section separator with large centred title and standard slide chrome.",
+      "slots": [
+        "label",
+        "title",
+        "lede",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/separator-dark.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/separator-dark.png"
+    },
+    {
+      "id": "separator-photo",
+      "layoutId": "separator-photo",
+      "canonical": true,
+      "title": "03c, Separator, photo",
+      "code": ".slide.separator.on-dark",
+      "background": "dark",
+      "description": "Photo section separator with flat 90 percent ink overlay and standard slide chrome.",
+      "slots": [
+        "photo",
+        "label",
+        "title",
+        "lede",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/separator-photo.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/separator-photo.png"
+    },
+    {
+      "id": "agenda",
+      "layoutId": "agenda",
+      "canonical": true,
+      "title": "04, Agenda",
+      "code": ".slide.agenda",
+      "background": "light",
+      "description": "Agenda layout with title on the left and numbered agenda rows on the right.",
+      "slots": [
+        "label",
+        "title",
+        "agendaItems",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/agenda.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/agenda.png"
+    },
+    {
+      "id": "section-start",
+      "layoutId": "section-start",
+      "canonical": true,
+      "title": "05, Section starter",
+      "code": ".slide.section-start",
+      "background": "dark",
+      "description": "Dark section starter with large orange section number.",
+      "slots": [
+        "label",
+        "sectionNumber",
+        "title",
+        "body",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/section-start.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/section-start.png"
+    },
+    {
+      "id": "title-bullets",
+      "layoutId": "title-bullets",
+      "canonical": true,
+      "title": "06, Title, description and bullets",
+      "code": ".slide.title-bullets",
+      "background": "light",
+      "description": "Title, lede, and four structured bullet rows with orange dash markers.",
+      "slots": [
+        "label",
+        "title",
+        "lede",
+        "bullets",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/title-bullets.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/title-bullets.png"
+    },
+    {
+      "id": "text-slide",
+      "layoutId": "text-slide",
+      "canonical": true,
+      "title": "07, Title and body",
+      "code": ".slide.text-slide",
+      "background": "light",
+      "description": "Editorial text slide with title and three body paragraphs.",
+      "slots": [
+        "label",
+        "title",
+        "body",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/text-slide.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/text-slide.png"
+    },
+    {
+      "id": "image-slide",
+      "layoutId": "image-slide",
+      "canonical": true,
+      "title": "08, Large image",
+      "code": ".slide.image-slide",
+      "background": "dark",
+      "description": "Full-bleed image slide with flat 90 percent ink overlay, caption, and dark chrome.",
+      "slots": [
+        "photo",
+        "caption",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/image-slide.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/image-slide.png"
+    },
+    {
+      "id": "numeric-callouts",
+      "layoutId": "numeric-callouts",
+      "canonical": true,
+      "title": "09, Numeric callouts",
+      "code": ".slide.nums",
+      "background": "light",
+      "description": "Four-column metric slide with large Regular-weight numbers.",
+      "slots": [
+        "label",
+        "title",
+        "lede",
+        "groupLabel",
+        "metrics",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/numeric-callouts.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/numeric-callouts.png"
+    },
+    {
+      "id": "two-columns",
+      "layoutId": "two-columns",
+      "canonical": true,
+      "title": "10, Two columns",
+      "code": ".slide.two-col",
+      "background": "light",
+      "description": "Two-column content slide with a title and lede above the columns.",
+      "slots": [
+        "label",
+        "title",
+        "lede",
+        "columns",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/two-columns.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/two-columns.png"
+    },
+    {
+      "id": "card-grid",
+      "layoutId": "card-grid",
+      "canonical": true,
+      "title": "11, Card grid",
+      "code": ".slide.cards-slide",
+      "background": "light",
+      "description": "Six-card capability grid on a light slide.",
+      "slots": [
+        "label",
+        "title",
+        "lede",
+        "cards",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/card-grid.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/card-grid.png"
+    },
+    {
+      "id": "quote",
+      "layoutId": "quote",
+      "canonical": true,
+      "title": "12, Quote",
+      "code": ".slide.quote-slide",
+      "background": "light",
+      "description": "Customer quote with attribution. Portrait is optional — omit the .portrait element for name and role alone. Size scales with length: default class for short quotes, .is-long for medium, .is-very-long for long.",
+      "slots": [
+        "label",
+        "quote",
+        "portrait",
+        "name",
+        "role",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/quote.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/quote.png"
+    },
+    {
+      "id": "quote-long",
+      "layoutId": "quote",
+      "canonical": false,
+      "title": "12b, Quote, long variant",
+      "code": ".slide.quote-slide.is-very-long",
+      "background": "light",
+      "description": "Longest quote tier (.is-very-long), sized down for a long quote. Portrait is optional — omit the .portrait element to show name and role alone.",
+      "slots": [
+        "label",
+        "quote",
+        "portrait",
+        "name",
+        "role",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/quote-long.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/quote-long.png"
+    },
+    {
+      "id": "customer-case",
+      "layoutId": "customer-case",
+      "canonical": true,
+      "title": "13, Customer case",
+      "code": ".slide.case-slide",
+      "background": "light",
+      "description": "Customer case slide with image, metadata rows, and case lede.",
+      "slots": [
+        "label",
+        "title",
+        "photo",
+        "metadata",
+        "lede",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/customer-case.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/customer-case.png"
+    },
+    {
+      "id": "columns-icons",
+      "layoutId": "columns-icons",
+      "canonical": true,
+      "title": "14, Columns — icons",
+      "code": ".slide.columns",
+      "background": "light",
+      "description": "Two to five columns, each with a line icon, a Medium title, and body copy. Set the count with style=\"--cols:N\" on .grid (default 4).",
+      "slots": [
+        "label",
+        "title",
+        "lede",
+        "columns",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/columns-icons.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/columns-icons.png"
+    },
+    {
+      "id": "columns-images",
+      "layoutId": "columns-images",
+      "canonical": true,
+      "title": "15, Columns — images",
+      "code": ".slide.columns",
+      "background": "light",
+      "description": "Column layout with a rounded image above each Medium title and body. Two to five columns via style=\"--cols:N\".",
+      "slots": [
+        "label",
+        "title",
+        "lede",
+        "columns",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/columns-images.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/columns-images.png"
+    },
+    {
+      "id": "columns-numbered",
+      "layoutId": "columns-numbered",
+      "canonical": true,
+      "title": "16, Columns — numbered",
+      "code": ".slide.columns",
+      "background": "light",
+      "description": "Column layout with a large orange step number above each Medium title and body. Two to five columns via style=\"--cols:N\".",
+      "slots": [
+        "label",
+        "title",
+        "columns",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/columns-numbered.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/columns-numbered.png"
+    },
+    {
+      "id": "card-grid-icons",
+      "layoutId": "card-grid-icons",
+      "canonical": true,
+      "title": "17, Card grid — icons",
+      "code": ".slide.cards-slide.has-icons",
+      "background": "light",
+      "description": "White cards with an optional line icon, a Medium title, and body copy. Card count is flexible via style=\"--cols:N\".",
+      "slots": [
+        "label",
+        "title",
+        "lede",
+        "cards",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/card-grid-icons.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/card-grid-icons.png"
+    },
+    {
+      "id": "split-content",
+      "layoutId": "split-content",
+      "canonical": true,
+      "title": "18, Content + image",
+      "code": ".slide.split",
+      "background": "light",
+      "description": "Content on the left (lede plus an orange-dash list), a rounded image bleeding down the right.",
+      "slots": [
+        "label",
+        "title",
+        "lede",
+        "bullets",
+        "photo",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/split-content.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/split-content.png"
+    },
+    {
+      "id": "split-image",
+      "layoutId": "split-image",
+      "canonical": true,
+      "title": "19, Image + content",
+      "code": ".slide.split.is-reversed",
+      "background": "light",
+      "description": "Mirror of content + image: a rounded image bleeds down the left, content sits on the right.",
+      "slots": [
+        "photo",
+        "label",
+        "title",
+        "lede",
+        "bullets",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/split-image.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/split-image.png"
+    },
+    {
+      "id": "title-content",
+      "layoutId": "title-content",
+      "canonical": true,
+      "title": "20, Title + content",
+      "code": ".slide.title-content",
+      "background": "light",
+      "description": "A large title held on the left against running body copy on the right. For a single substantive point with explanation.",
+      "slots": [
+        "label",
+        "title",
+        "body",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/title-content.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/title-content.png"
+    },
+    {
+      "id": "statement",
+      "layoutId": "statement",
+      "canonical": true,
+      "title": "21, Large statement",
+      "code": ".slide.statement",
+      "background": "light",
+      "description": "A single centred statement with a supporting line. The one layout where text is centred.",
+      "slots": [
+        "label",
+        "statement",
+        "lede",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/statement.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/statement.png"
+    },
+    {
+      "id": "agenda-list",
+      "layoutId": "agenda-list",
+      "canonical": true,
+      "title": "22, Agenda — list",
+      "code": ".slide.agenda-list",
+      "background": "light",
+      "description": "A larger, header-free agenda: orange step numbers beside section titles, filling the slide. No rules.",
+      "slots": [
+        "agendaItems",
+        "footer",
+        "logo"
+      ],
+      "usesHostedPhotography": false,
+      "offlineFallback": "Fully usable offline with bundled tokens, logos, and CSS.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/agenda-list.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/agenda-list.png"
+    },
+    {
+      "id": "closing",
+      "layoutId": "closing",
+      "canonical": true,
+      "title": "23, Closing",
+      "code": ".slide.closing",
+      "background": "dark",
+      "description": "Photo-backed thank-you slide with contact details and bottom-right wordmark.",
+      "slots": [
+        "photo",
+        "title",
+        "role",
+        "name",
+        "contact",
+        "logo"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/closing.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/closing.png"
+    },
+    {
+      "id": "closing-logo",
+      "layoutId": "closing-logo",
+      "canonical": true,
+      "title": "23b, Closing, logo only",
+      "code": ".slide.closing-logo",
+      "background": "dark",
+      "description": "Photo-backed final slide with centred negative Trifork wordmark.",
+      "slots": [
+        "photo",
+        "logo"
+      ],
+      "usesHostedPhotography": true,
+      "offlineFallback": "Large photography is hosted only. If hosted images cannot load, keep the layout, logo, typography, and ink or light background.",
+      "templateUrl": "https://brand.trifork.com/system/templates/slides/closing-logo.html",
+      "previewUrl": "https://brand.trifork.com/system/visuals/slide-kit/closing-logo.png"
+    }
+  ]
+}

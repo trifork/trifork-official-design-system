@@ -1,0 +1,227 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "social-app.jsx",
+              "social-playground.jsx",
+              "social-presets.jsx",
+              "social-templates.jsx"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Poppins))/i]",
+        "message": "Font not provided by the design system. Available: Poppins."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--slide-h",
+      "--slide-pad",
+      "--slide-w",
+      "--tf-accent",
+      "--tf-bg",
+      "--tf-bg-canvas",
+      "--tf-bg-deep",
+      "--tf-bg-soft",
+      "--tf-blue-100",
+      "--tf-blue-200",
+      "--tf-blue-300",
+      "--tf-blue-400",
+      "--tf-blue-50",
+      "--tf-blue-500",
+      "--tf-blue-600",
+      "--tf-blue-700",
+      "--tf-blue-800",
+      "--tf-blue-900",
+      "--tf-font",
+      "--tf-fs-body",
+      "--tf-fs-body-lg",
+      "--tf-fs-body-sm",
+      "--tf-fs-body-xl",
+      "--tf-fs-caption",
+      "--tf-fs-display",
+      "--tf-fs-h1",
+      "--tf-fs-h2",
+      "--tf-fs-h3",
+      "--tf-fs-h4",
+      "--tf-fs-label",
+      "--tf-fs-lead",
+      "--tf-ink-100",
+      "--tf-ink-200",
+      "--tf-ink-300",
+      "--tf-ink-400",
+      "--tf-ink-50",
+      "--tf-ink-500",
+      "--tf-ink-600",
+      "--tf-ink-700",
+      "--tf-ink-800",
+      "--tf-ink-900",
+      "--tf-ink-950",
+      "--tf-lh-normal",
+      "--tf-lh-relaxed",
+      "--tf-lh-snug",
+      "--tf-lh-tight",
+      "--tf-orange-100",
+      "--tf-orange-200",
+      "--tf-orange-300",
+      "--tf-orange-400",
+      "--tf-orange-50",
+      "--tf-orange-500",
+      "--tf-orange-600",
+      "--tf-orange-700",
+      "--tf-orange-800",
+      "--tf-orange-900",
+      "--tf-r-lg",
+      "--tf-r-md",
+      "--tf-r-pill",
+      "--tf-r-sm",
+      "--tf-r-xl",
+      "--tf-rule",
+      "--tf-rule-strong",
+      "--tf-s-1",
+      "--tf-s-10",
+      "--tf-s-2",
+      "--tf-s-3",
+      "--tf-s-4",
+      "--tf-s-5",
+      "--tf-s-6",
+      "--tf-s-7",
+      "--tf-s-8",
+      "--tf-s-9",
+      "--tf-text",
+      "--tf-text-body",
+      "--tf-text-muted",
+      "--tf-text-on-deep",
+      "--tf-tracking-label",
+      "--tf-tracking-tight",
+      "--tf-tracking-tight-2",
+      "--tf-white"
+    ],
+    "tokenKinds": {
+      "--tf-blue-900": "color",
+      "--tf-blue-800": "color",
+      "--tf-blue-700": "color",
+      "--tf-blue-600": "color",
+      "--tf-blue-500": "color",
+      "--tf-blue-400": "color",
+      "--tf-blue-300": "color",
+      "--tf-blue-200": "color",
+      "--tf-blue-100": "color",
+      "--tf-blue-50": "color",
+      "--tf-orange-900": "color",
+      "--tf-orange-800": "color",
+      "--tf-orange-700": "color",
+      "--tf-orange-600": "color",
+      "--tf-orange-500": "color",
+      "--tf-orange-400": "color",
+      "--tf-orange-300": "color",
+      "--tf-orange-200": "color",
+      "--tf-orange-100": "color",
+      "--tf-orange-50": "color",
+      "--tf-ink-950": "color",
+      "--tf-ink-900": "color",
+      "--tf-ink-800": "color",
+      "--tf-ink-700": "color",
+      "--tf-ink-600": "color",
+      "--tf-ink-500": "color",
+      "--tf-ink-400": "color",
+      "--tf-ink-300": "color",
+      "--tf-ink-200": "color",
+      "--tf-ink-100": "color",
+      "--tf-ink-50": "color",
+      "--tf-white": "color",
+      "--tf-bg": "color",
+      "--tf-bg-soft": "color",
+      "--tf-bg-canvas": "color",
+      "--tf-bg-deep": "color",
+      "--tf-text": "font",
+      "--tf-text-body": "font",
+      "--tf-text-muted": "font",
+      "--tf-text-on-deep": "font",
+      "--tf-accent": "color",
+      "--tf-rule": "color",
+      "--tf-rule-strong": "color",
+      "--tf-font": "font",
+      "--tf-fs-display": "spacing",
+      "--tf-fs-h1": "spacing",
+      "--tf-fs-h2": "spacing",
+      "--tf-fs-h3": "spacing",
+      "--tf-fs-h4": "spacing",
+      "--tf-fs-lead": "spacing",
+      "--tf-fs-body-xl": "spacing",
+      "--tf-fs-body-lg": "spacing",
+      "--tf-fs-body": "spacing",
+      "--tf-fs-body-sm": "spacing",
+      "--tf-fs-caption": "spacing",
+      "--tf-fs-label": "spacing",
+      "--tf-lh-tight": "other",
+      "--tf-lh-snug": "other",
+      "--tf-lh-normal": "other",
+      "--tf-lh-relaxed": "other",
+      "--tf-tracking-label": "font",
+      "--tf-tracking-tight": "font",
+      "--tf-tracking-tight-2": "font",
+      "--tf-s-1": "spacing",
+      "--tf-s-2": "spacing",
+      "--tf-s-3": "spacing",
+      "--tf-s-4": "spacing",
+      "--tf-s-5": "spacing",
+      "--tf-s-6": "spacing",
+      "--tf-s-7": "spacing",
+      "--tf-s-8": "spacing",
+      "--tf-s-9": "spacing",
+      "--tf-s-10": "spacing",
+      "--tf-r-sm": "spacing",
+      "--tf-r-md": "spacing",
+      "--tf-r-lg": "spacing",
+      "--tf-r-xl": "spacing",
+      "--tf-r-pill": "spacing",
+      "--slide-w": "spacing",
+      "--slide-h": "spacing",
+      "--slide-pad": "spacing"
+    },
+    "fontFamilies": [
+      "Poppins"
+    ]
+  }
+}

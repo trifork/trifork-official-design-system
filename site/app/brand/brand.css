@@ -1,0 +1,106 @@
+/* Brand page — scoped to .brand-page */
+.brand-page .grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.brand-page .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.brand-page ul.bare { list-style: none; padding: 0; margin: 0; }
+.brand-page ul.bare li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--tf-rule);
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 16px;
+}
+.brand-page ul.bare li:last-child { border-bottom: 0; }
+.brand-page ul.bare li span:first-child { color: var(--tf-text); font-weight: 500; }
+.brand-page ul.bare li span:last-child {
+  color: var(--tf-text-body);
+  text-align: right;
+  max-width: 60%;
+}
+
+/* Quote sits in ink 950 — orange is never used to emphasise a phrase. */
+.brand-page .voice-quote {
+  font: 500 36px/1.2 var(--tf-font);
+  letter-spacing: -0.01em;
+  color: var(--tf-text);
+  margin: 0;
+}
+
+.brand-page .pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.brand-page .pair > div {
+  padding: 24px;
+  border-radius: var(--tf-r-md);
+  border: 1px solid var(--tf-rule);
+  background: var(--tf-bg-soft);
+}
+.brand-page .pair h4 {
+  font: 500 14px/1 var(--tf-font);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+.brand-page .pair p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--tf-text);
+  margin: 0;
+}
+
+/* Wordmark do / don't demos */
+.brand-page .wordmark-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px;
+  border-radius: var(--tf-r-md);
+  margin-bottom: 12px;
+}
+.brand-page .wordmark-demo:last-of-type { margin-bottom: 0; }
+.brand-page .wordmark-demo img { height: 28px; display: block; }
+.brand-page .wordmark-demo--light { background: var(--tf-white); border: 1px solid var(--tf-rule); }
+.brand-page .wordmark-demo--dark { background: var(--tf-ink-950); }
+.brand-page .wordmark-demo--wrong {
+  background: var(--tf-white);
+  border: 1px solid var(--tf-rule);
+  position: relative;
+  overflow: hidden;
+}
+.brand-page .wordmark-demo--wrong span {
+  font: 500 28px/1 var(--tf-font);
+  color: var(--tf-ink-400);
+  letter-spacing: -0.01em;
+}
+.brand-page .wordmark-demo--wrong::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 50%;
+  height: 1px;
+  background: var(--tf-ink-400);
+  transform: rotate(-8deg);
+}
+
+@media (max-width: 880px) {
+  .brand-page .grid-2,
+  .brand-page .grid-3,
+  .brand-page .pair {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
