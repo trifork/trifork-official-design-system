@@ -84,6 +84,8 @@ Keep chrome (eyebrow label, footer) at an **8 pt floor** for legibility even if 
 
 **Footer.** Page number + deck name + year, separated by thin slashes (e.g. `3  /  Tiris Messenger  /  2026`), set in a muted neutral, flush with the content left edge. The Trifork wordmark sits bottom-right; its dot is the only orange in the chrome.
 
+**Export markers.** Keep two markup attributes intact when generating a `.pptx` from these templates, or reproduce their effect manually if authoring from scratch: eyebrow/label text (slide label, footer, section numbers) is single-line (`white-space: nowrap`) so its text box sizes to the content instead of an exporter-guessed width that wraps it; rounded photo containers (cover photo card, split image card, case-study photo, figure, portrait, thumb) carry `data-om-raster` so the exporter embeds them as a flattened image with the rounding intact, instead of flattening to a native rectangle shape.
+
 ## Files
 
 | File | What it is |

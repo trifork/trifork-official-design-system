@@ -160,6 +160,18 @@ The installed skill contains matching offline templates and compact previews in
 replaceable areas with `data-slot`; AI tools should preserve the supplied CSS
 and DOM structure and replace only those slot contents.
 
+Two attributes in the template markup exist purely for PPTX export and must be
+preserved (never removed or added elsewhere without matching the CSS):
+
+- `white-space: nowrap` on eyebrow/label elements (`.s-label`, `.label-block`,
+  footer text, section numbers, `.nums .num`, `.case-slide .meta .key`,
+  `.closing .role`) — keeps these single-line so the exporter sizes the text
+  box to the content instead of guessing a width and wrapping it.
+- `data-om-raster` on rounded photo containers (`.photo-card`, `.image-card`,
+  `.case-slide .photo`, `.figure`, `.portrait`, `.thumb`) — tells the exporter
+  to embed the container as a flattened image so the corner radius survives,
+  instead of falling back to a native rectangle shape.
+
 Preview PNGs are generated during `npm run build` from the shared slide template
 source and resized for the skill package. The build does not require browser
 automation or network access.

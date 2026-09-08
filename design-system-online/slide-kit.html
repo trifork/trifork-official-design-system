@@ -47,6 +47,9 @@
   .s-label {
     position: absolute; top: 50px; left: 50px;
     font: 500 0.75cqw/1 var(--tf-font); letter-spacing: 0.16em; color: var(--tf-orange-500); text-transform: uppercase;
+    /* Single-line eyebrow: never wrap, so a PPTX export sizes the text box to
+       the content instead of guessing a width and wrapping it. */
+    white-space: nowrap;
   }
   /* Footer text (page number + deck name) on the left.
      Mirrors the logo's offset on the opposite side: same distance from bottom & left edges. */
@@ -54,6 +57,7 @@
     position: absolute; bottom: 50px; left: 50px;
     display: flex; align-items: center; gap: 1.6cqw;
     font: 400 0.7cqw/1 var(--tf-font); color: var(--tf-text-body);
+    white-space: nowrap;
   }
   .s-foot .left { display: flex; align-items: baseline; gap: 1.6cqw; }
   .s-foot .left .page { color: var(--tf-text); font-weight: 400; font-variant-numeric: tabular-nums; }
@@ -80,6 +84,7 @@
   .cover .label-block {
     position: absolute; left: 4cqw; top: 11cqw;
     font: 500 0.75cqw/1.6 var(--tf-font); letter-spacing: 0.16em; color: var(--tf-orange-500); text-transform: uppercase;
+    white-space: nowrap;
   }
   .cover h1 {
     position: absolute; left: 4cqw; right: 4cqw; top: 16cqw;
@@ -102,6 +107,7 @@
   .cover-photo .label-block {
     position: absolute; left: 4cqw; top: 11cqw;
     font: 500 0.75cqw/1 var(--tf-font); letter-spacing: 0.16em; color: var(--tf-orange-500); text-transform: uppercase;
+    white-space: nowrap;
   }
   .cover-photo h1 {
     position: absolute; left: 4cqw; right: 4cqw; top: 16cqw;
@@ -146,6 +152,7 @@
     position: absolute; bottom: 50px; left: 50px;
     font: 400 1cqw/1 var(--tf-font); color: var(--tf-text);
     display: flex; align-items: center; gap: 1.2cqw;
+    white-space: nowrap;
   }
   .cover-card .lower-left .sep { color: var(--tf-ink-400); }
   .cover-card .lower-right {
@@ -172,6 +179,7 @@
     font: 500 0.75cqw/1 var(--tf-font); letter-spacing: 0.16em;
     color: var(--tf-orange-500); text-transform: uppercase;
     margin: 0 0 24px;
+    white-space: nowrap;
   }
   .cover-split h1 {
     font: 400 5.4cqw/1.04 var(--tf-font); letter-spacing: -0.022em;
@@ -208,6 +216,7 @@
   .section-start .num {
     position: absolute; top: 11cqw; left: 4cqw;
     font: 400 12cqw/1 var(--tf-font); color: var(--tf-orange-500); letter-spacing: -0.04em;
+    white-space: nowrap;
   }
   .section-start h1 {
     position: absolute; left: 4cqw; right: 4cqw; top: 28cqw;
@@ -251,6 +260,7 @@
   .nums .group-label {
     position: absolute; top: 30cqw; left: 4cqw;
     font: 500 0.85cqw/1 var(--tf-font); letter-spacing: 0.16em; color: var(--tf-orange-500); text-transform: uppercase;
+    white-space: nowrap;
   }
   .nums .grid {
     position: absolute; left: 4cqw; right: 4cqw; top: 36cqw;
@@ -261,6 +271,7 @@
      content rows do not share a header line. */
   .nums .num {
     font: 400 5cqw/1 var(--tf-font); color: var(--tf-text); letter-spacing: -0.04em;
+    white-space: nowrap;
   }
   .nums .label { font: 400 1cqw/1.35 var(--tf-font); color: var(--tf-text); }
 
@@ -319,7 +330,7 @@
   .case-slide .meta { position: absolute; top: calc(150px + 4.35cqw); left: 50cqw; right: 4cqw; display: flex; flex-direction: column; gap: 1.2cqw; }
   .case-slide .meta .row { display: grid; grid-template-columns: 8cqw 1fr; gap: 1cqw; padding: 1cqw 0; border-top: 1px solid var(--tf-rule); align-items: baseline; }
   .case-slide .meta .row:last-of-type { border-bottom: 1px solid var(--tf-rule); }
-  .case-slide .meta .key { font: 500 0.78cqw/1.2 var(--tf-font); color: var(--tf-text-muted); letter-spacing: 0.16em; text-transform: uppercase; }
+  .case-slide .meta .key { font: 500 0.78cqw/1.2 var(--tf-font); color: var(--tf-text-muted); letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
   .case-slide .meta .val { font: 400 1.3cqw/1.3 var(--tf-font); color: var(--tf-text); }
   .case-slide .meta .lede { font: 400 1.2cqw/1.5 var(--tf-font); color: var(--tf-text); margin-top: 1cqw; }
 
@@ -348,6 +359,7 @@
     font: 500 0.85cqw/1 var(--tf-font); letter-spacing: 0.16em;
     color: rgba(255,255,255,0.80); text-transform: uppercase;
     margin: 0 0 0.5cqw;
+    white-space: nowrap;
   }
   .closing .name {
     font: 400 1.9cqw/1.2 var(--tf-font); color: var(--tf-white);
@@ -434,7 +446,7 @@
       <div class="slide-meta"><b>02b, Cover, image card</b><code>.slide.cover-card</code></div>
       <div class="slide cover-card">
         <div class="slide-inner">
-          <div class="photo-card">
+          <div class="photo-card" data-om-raster>
             <img src="assets/imagery/trifork-people-1.jpg" alt="" />
             <div class="card-mark"><img src="assets/logo/Trifork_logo_neg_RGB.svg" alt="Trifork" /></div>
             <h1>Presentation title.</h1>
@@ -459,7 +471,7 @@
             <h1>Banking infrastructure that holds.</h1>
             <p class="lede">How we re-platformed Nordic Bank's settlement engine, fourteen months from kickoff, without a single missed window.</p>
           </div>
-          <div class="image-card"><img src="assets/imagery/trifork-aarhus-4.jpg" alt="" /></div>
+          <div class="image-card" data-om-raster><img src="assets/imagery/trifork-aarhus-4.jpg" alt="" /></div>
           <div class="s-foot">
             <div class="left">
               <span class="page">01</span>
@@ -642,7 +654,7 @@
             <q>Trifork's team understood our regulatory environment from the first workshop. We shipped the first release a quarter ahead of plan, and the platform now belongs to us, not to a vendor.</q>
           </div>
           <div class="attr">
-            <div class="portrait"><img src="assets/imagery/trifork-people-1.jpg" alt="" /></div>
+            <div class="portrait" data-om-raster><img src="assets/imagery/trifork-people-1.jpg" alt="" /></div>
             <div class="who">
               <b>Mette Lindholm</b>
               <span>Head of Platform, Nordic Bank</span>
@@ -668,7 +680,7 @@
             <q>What I value about Trifork isn't just that they shipped the platform on schedule, it's that they shipped a platform our own engineers could pick up and run with on day one. The runbooks were written, the alerts were tuned, and the operating model was already proven by the time the contract closed. That's a different kind of engagement, and it's the only kind that survives a regulator's stress test.</q>
           </div>
           <div class="attr">
-            <div class="portrait"><img src="assets/imagery/trifork-people-1.jpg" alt="" /></div>
+            <div class="portrait" data-om-raster><img src="assets/imagery/trifork-people-1.jpg" alt="" /></div>
             <div class="who">
               <b>Mette Lindholm</b>
               <span>Head of Platform, Nordic Bank</span>
@@ -691,7 +703,7 @@
         <div class="slide-inner">
           <div class="s-label">CASE STUDY</div>
           <h2>Nordic Bank, settlement.</h2>
-          <div class="photo"><img src="assets/imagery/trifork-aarhus-3.jpg" alt="" /></div>
+          <div class="photo" data-om-raster><img src="assets/imagery/trifork-aarhus-3.jpg" alt="" /></div>
           <div class="meta">
             <div class="row"><div class="key">Industry</div><div class="val">Capital markets</div></div>
             <div class="row"><div class="key">Engagement</div><div class="val">14 months, platform team of 11</div></div>

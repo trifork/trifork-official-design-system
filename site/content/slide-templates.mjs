@@ -96,11 +96,19 @@ function chrome(paths, page, name = DECK, dark = false) {
   return `${foot(page, name)}${logo(paths, dark)}`;
 }
 
+// Container classes that carry a corner radius (cards, figures, the customer-
+// case photo). PPTX export flattens a rounded div + <img> to a native
+// rectangle, so these get `data-om-raster` to force export as a single
+// rounded image instead. Full-bleed containers (photo-bg, frame) have no
+// radius and export fine natively, so they are left off this list.
+const RASTER_CONTAINER_CLASSES = new Set(["image-card", "photo", "figure"]);
+
 function photo(paths, file, className, overlay = false, slot = "photo") {
   // The ink overlay is a real element (not a CSS ::after) so it imports into
   // Figma and other design tools as its own layer.
   const overlayEl = overlay ? `<div class="overlay" aria-hidden="true"></div>` : "";
-  return `<div class="${escapeAttr(className)}" data-slot="${escapeAttr(slot)}" data-offline-fallback="Large photography is hosted only. If this image cannot load, keep the layout and use the ink or light background."><img src="${escapeAttr(paths.image(file))}" alt="" onerror="this.style.display='none'">${overlayEl}</div>`;
+  const rasterAttr = RASTER_CONTAINER_CLASSES.has(className) ? " data-om-raster" : "";
+  return `<div class="${escapeAttr(className)}"${rasterAttr} data-slot="${escapeAttr(slot)}" data-offline-fallback="Large photography is hosted only. If this image cannot load, keep the layout and use the ink or light background."><img src="${escapeAttr(paths.image(file))}" alt="" onerror="this.style.display='none'">${overlayEl}</div>`;
 }
 
 function list(items, renderItem) {
@@ -114,7 +122,8 @@ function lineIcon() {
 }
 
 function thumb(paths, file) {
-  return `<div class="thumb"><img src="${escapeAttr(paths.image(file))}" alt="" onerror="this.style.display='none'"></div>`;
+  // Rounded column thumbnail — see RASTER_CONTAINER_CLASSES above.
+  return `<div class="thumb" data-om-raster><img src="${escapeAttr(paths.image(file))}" alt="" onerror="this.style.display='none'"></div>`;
 }
 
 const common = {
@@ -144,7 +153,7 @@ export const slideTemplates = [
     render(paths) {
       return `
         <div class="slide-inner">
-          <div class="photo-card" data-slot="photo" data-offline-fallback="Large photography is hosted only. If this image cannot load, keep the ink card and overlay.">
+          <div class="photo-card" data-om-raster data-slot="photo" data-offline-fallback="Large photography is hosted only. If this image cannot load, keep the ink card and overlay.">
             <img src="${escapeAttr(paths.image("trifork-people-1.jpg"))}" alt="" onerror="this.style.display='none'">
             <div class="overlay" aria-hidden="true"></div>
             <div class="card-mark" data-slot="logo"><img src="${escapeAttr(paths.logo(LOGO_LIGHT))}" alt="Trifork"></div>
@@ -524,7 +533,7 @@ export const slideTemplates = [
           ${label("CUSTOMER VOICE")}
           <div class="quote-block" data-slot="quote"><q>“Trifork's team understood our regulatory environment from the first workshop. We shipped the first release a quarter ahead of plan, and the platform now belongs to us, not to a vendor.”</q></div>
           <div class="attr" data-slot="attribution">
-            <div class="portrait" data-slot="portrait"><img src="${escapeAttr(paths.image("trifork-people-1.jpg"))}" alt="" onerror="this.style.display='none'"></div>
+            <div class="portrait" data-om-raster data-slot="portrait"><img src="${escapeAttr(paths.image("trifork-people-1.jpg"))}" alt="" onerror="this.style.display='none'"></div>
             <div class="who"><b data-slot="name">Mette Lindholm</b><span data-slot="role">Head of Platform, Nordic Bank</span></div>
           </div>
           ${chrome(paths, "12")}
@@ -549,7 +558,7 @@ export const slideTemplates = [
           ${label("CUSTOMER VOICE")}
           <div class="quote-block" data-slot="quote"><q>“What I value about Trifork is not just that they shipped the platform on schedule, it is that they shipped a platform our own engineers could pick up and run with on day one. The runbooks were written, the alerts were tuned, and the operating model was already proven by the time the contract closed. That is a different kind of engagement, and it is the only kind that survives a regulator's stress test.”</q></div>
           <div class="attr" data-slot="attribution">
-            <div class="portrait" data-slot="portrait"><img src="${escapeAttr(paths.image("trifork-people-1.jpg"))}" alt="" onerror="this.style.display='none'"></div>
+            <div class="portrait" data-om-raster data-slot="portrait"><img src="${escapeAttr(paths.image("trifork-people-1.jpg"))}" alt="" onerror="this.style.display='none'"></div>
             <div class="who"><b data-slot="name">Mette Lindholm</b><span data-slot="role">Head of Platform, Nordic Bank</span></div>
           </div>
           ${chrome(paths, "12")}

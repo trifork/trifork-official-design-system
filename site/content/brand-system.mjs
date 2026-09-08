@@ -123,6 +123,8 @@ export const brandSystem = {
       "Use a variety of layouts across a deck and avoid repeating the same layout on consecutive slides.",
       "Keep decks visual: use image-based slides (cover-card or cover-photo, image-slide, columns-images, content and image splits, customer-case) so a photographic or visual slide appears every few slides, not only text.",
       "Use the logo asset for the standalone Trifork wordmark; keep its 495:52 (about 9.52:1) aspect ratio. Scale by one dimension and let the other follow. Never stretch, squeeze, retype, or recolour it.",
+      "Eyebrow and label text (slide label, footer, section numbers, group labels, stat numbers, table-row keys, role labels) is single-line: never wrap it. In the HTML templates this is `white-space: nowrap`; when exporting to PPTX, size the text box to the content instead of letting the exporter guess a width and wrap it.",
+      "Rounded photo containers (cover photo card, split image card, case-study photo, figure, portrait, thumb) carry `data-om-raster` in the HTML templates. Preserve this marker: it tells PPTX export to embed the container as a flattened image so the corner radius survives, instead of falling back to a native rectangle shape.",
     ],
   },
 
