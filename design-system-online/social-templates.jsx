@@ -128,13 +128,18 @@ function MetaRows({ rows, color, format }) {
 function PositionsList({ items, color, format }) {
   if (!items || !items.filter(Boolean).length) return null;
   const fs = format === '1.91:1' ? 26 : format === '9:16' ? 46 : 38;
+  // Line bullet, not a glyph: a short orange rule, matching the sanctioned
+  // dash-list marker used across the system (slide-kit.css .dash-list /
+  // .s-bullets .dash). Never a dot or a chevron character.
+  const dashW = format === '1.91:1' ? 28 : format === '9:16' ? 48 : 40;
+  const dashTop = format === '1.91:1' ? 13 : format === '9:16' ? 23 : 19;
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: format === '1.91:1' ? 16 : 28 }}>
       {items.filter(Boolean).map((p, i) => (
-        <div key={i} style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: format === '1.91:1' ? 18 : 28, alignItems: 'start' }}>
-          <span style={{
-            font: `500 ${fs}px/1.3 var(--tf-font)`, color: 'var(--tf-orange-500)',
-          }}>›</span>
+        <div key={i} style={{ display: 'grid', gridTemplateColumns: `${dashW}px 1fr`, gap: format === '1.91:1' ? 18 : 28, alignItems: 'start' }}>
+          <span aria-hidden="true" style={{
+            display: 'block', height: 2, width: '100%', marginTop: dashTop, background: 'var(--tf-orange-500)',
+          }} />
           <span style={{
             font: `400 ${fs}px/1.3 var(--tf-font)`, color: color || 'var(--tf-white)', textWrap: 'pretty',
           }}>{p}</span>

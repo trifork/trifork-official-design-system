@@ -19,7 +19,7 @@ When designing for Trifork, use this design system as the source of truth. The f
 - **Orange is not an emphasis tool.** Never colour part of a title or a phrase in a paragraph orange to draw the eye. Use weight, position, or a separate label instead.
 - **Title endings.** Sentence-case titles end with a black full stop (or none). Never end a title with an orange period.
 - **Multi-column slides** never use a horizontal rule above the columns, and no vertical rules between them either. Columns stand on their own; the title and lede establish the grouping. (A divider between a lede and a stat row is still a rule above a column row — don't.)
-- **Lists** use the numbered-list pattern: a Medium orange `01 02 03…` numeral in the left column, body text in ink, and a thin separator rule above each item (blue 200 on light, 30% white on dark). Never use orange dashes, dots, ticks, or any decorative glyph as a bullet marker — that is orange used as decoration, which the system forbids. See `.bullets` in `components.html`.
+- **Lists** use one of two sanctioned markers: the numbered pattern (a Medium orange `01 02 03…` numeral in the left column, body text in ink, and a thin separator rule above each item — blue 200 on light, 30% white on dark; see `.bullets` in `components.html`) or a line bullet (a short 2px orange rule per item, never a typed character; see `.dash-list`/`.s-bullets .dash` in `slide-kit.html`). Never use a dot, a tick, a chevron, an arrow, or any other decorative glyph as a bullet marker.
 - **Photography** is part of the identity, not optional. Use real photos from `assets/imagery/` on the cover, the closing, and at least one content slide. Any dark overlay is flat ink 950 at 90% (`rgba(44, 58, 66, 0.9)`). A deck with no imagery does not read as Trifork.
 - **Spacing:** 8 px base unit. Slide outer margin is 80 px on a 1920 × 1080 canvas.
 - **Radii:** 12 px ≤ 199 px wide; 24 px > 200 px wide; pill for actions.
@@ -70,7 +70,7 @@ Keep chrome (eyebrow label, footer) at an **8 pt floor** for legibility even if 
 
 **Closing.** Photo background + flat 90% ink-950 overlay, large title, then a person stack (Medium orange role label / name / contact). Negative (white) wordmark. **No page number, no footer, and no separator rule** on the closing slide.
 
-**Lists.** Numbered pattern only (orange Medium numeral + ink text + thin top rule per item). No dash/dot/tick markers. See *Lists* in Quick rules.
+**Lists.** Numbered pattern (orange Medium numeral + ink text + thin top rule per item) or a line bullet (a short orange rule, not a character). No dot/tick/chevron/arrow markers. See *Lists* in Quick rules.
 
 **Cards.** White fill on light slides, 10% black on dark slides. Corner radius is `--tf-r-md` **12 px** for slide cards — set it explicitly; do not leave PowerPoint's default rounded-rectangle radius, which is far too round.
 
@@ -114,7 +114,7 @@ Keep chrome (eyebrow label, footer) at an **8 pt floor** for legibility even if 
 - Title Case headlines (reserved for proper nouns).
 - US spellings.
 - Bold (700) anywhere — use Medium (500) for emphasis weight.
-- Orange dashes, dots, or ticks as list bullets; use the numbered list.
+- Dots, ticks, chevrons, or arrows as list bullets; use the numbered pattern or a line bullet (a short orange rule) instead.
 - Oversized type — slide titles at 40 pt+, ledes/body inflated past the scale table.
 - A deck with no photography, or an invented cover (e.g. a floating dark panel on a light slide).
 - Indenting a lede or content block away from the title's left edge.
