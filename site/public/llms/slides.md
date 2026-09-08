@@ -11,6 +11,7 @@ Generated from content/brand-system.mjs. Do not edit by hand.
 
 ## Rules
 - Slide backgrounds are only blue 100 (#D5E5ED) or ink 950 (#2C3A42). Never white.
+- The slide frame itself is square, never rounded. Corner radius is reserved for elements placed on the slide (cards, images, chrome) and never applied to the slide background or outer canvas. If a slide is later placed inside a rounded container (a browser gallery, a device frame), that rounding belongs to the container, not the template.
 - Photo overlays are flat ink 950 at 90 percent opacity: rgba(44, 58, 66, 0.90). No gradients and no other tints.
 - Cards are white on light slides and rgba(0, 0, 0, 0.10) on dark slides.
 - Line separators are blue 200 (#C1D7E5) on light slides and rgba(255, 255, 255, 0.30) on dark slides. Use rules sparingly, only to separate stacked list or table rows.
@@ -28,6 +29,8 @@ Generated from content/brand-system.mjs. Do not edit by hand.
 - Use a variety of layouts across a deck and avoid repeating the same layout on consecutive slides.
 - Keep decks visual: use image-based slides (cover-card or cover-photo, image-slide, columns-images, content and image splits, customer-case) so a photographic or visual slide appears every few slides, not only text.
 - Use the logo asset for the standalone Trifork wordmark; keep its 495:52 (about 9.52:1) aspect ratio. Scale by one dimension and let the other follow. Never stretch, squeeze, retype, or recolour it.
+- Eyebrow and label text (slide label, footer, section numbers, group labels, stat numbers, table-row keys, role labels) is single-line: never wrap it. In the HTML templates this is `white-space: nowrap`; when exporting to PPTX, size the text box to the content instead of letting the exporter guess a width and wrap it.
+- Rounded photo containers (cover photo card, split image card, case-study photo, figure, portrait, thumb) carry `data-om-raster` in the HTML templates. Preserve this marker: it tells PPTX export to embed the container as a flattened image so the corner radius survives, instead of falling back to a native rectangle shape.
 
 ## Layout IDs
 - cover-card
