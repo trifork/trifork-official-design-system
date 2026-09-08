@@ -244,9 +244,13 @@ function Frame({ pad, top, middle, bottom, justify }) {
       display: "flex", flexDirection: "column",
     }}>
       <div>{top}</div>
+      {/* paddingBottom is deliberately larger than paddingTop: when layout
+          is "bottom" the content hugs this edge, so this is the effective
+          gap between the title block and the meta/logo row beneath it and
+          needs real breathing room, not just a slack value. */}
       <div style={{
         flex: 1, minHeight: 0, display: "flex", flexDirection: "column",
-        justifyContent: justify, paddingTop: 32, paddingBottom: 24,
+        justifyContent: justify, paddingTop: 32, paddingBottom: 40,
       }}>{middle}</div>
       <div>{bottom}</div>
     </div>
@@ -255,12 +259,23 @@ function Frame({ pad, top, middle, bottom, justify }) {
 
 const JUSTIFY = { top: "flex-start", center: "center", bottom: "flex-end" };
 
+// Never render more than one logo on a card, and place it in the corner
+// that balances the title's weight: when the title is anchored to the
+// bottom (where it visually crowds the meta/logo row already), put the
+// logo up top instead; for "top" or "center" anchors (where the title sits
+// away from the bottom edge), keep the logo in its usual bottom corner.
+function logoSlots(showLogo, layout) {
+  const logoAtTop = showLogo && layout === "bottom";
+  return { logoAtTop, logoAtBottom: showLogo && !logoAtTop };
+}
+
 function DefaultContent({ format, layout, pad, eyebrow, eyebrowColor, title, titleColor, titleSizeOverride, body, meta, metaRows, positions, metaColor, showLogo, onDark }) {
   const ebSize = format === "1.91:1" ? 16 : format === "9:16" ? 32 : 24;
+  const { logoAtTop, logoAtBottom } = logoSlots(showLogo, layout);
   const top = (
     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 24 }}>
       <Eyebrow color={eyebrowColor} size={ebSize}>{eyebrow}</Eyebrow>
-      {showLogo && layout !== "bottom" ? <Logo negative={onDark} format={format} /> : null}
+      {logoAtTop ? <Logo negative={onDark} format={format} /> : null}
     </div>
   );
 
@@ -278,7 +293,7 @@ function DefaultContent({ format, layout, pad, eyebrow, eyebrowColor, title, tit
         {metaRows && metaRows.length ? <MetaRows rows={metaRows} color={metaColor} format={format} /> : null}
         <Meta items={meta} color={metaColor} format={format} />
       </div>
-      {showLogo ? <Logo negative={onDark} format={format} /> : null}
+      {logoAtBottom ? <Logo negative={onDark} format={format} /> : null}
     </div>
   );
 
@@ -289,11 +304,12 @@ function EventContent({ format, layout, pad, eyebrow, eyebrowColor, title, title
   const ebSize = format === "1.91:1" ? 16 : format === "9:16" ? 32 : 24;
   const hasSpeakers = speakers && speakers.filter(s => s && s.name).length > 0;
   const isLandscape = format === "1.91:1";
+  const { logoAtTop, logoAtBottom } = logoSlots(showLogo, layout);
 
   const top = (
     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 24 }}>
       <Eyebrow color={eyebrowColor} size={ebSize}>{eyebrow}</Eyebrow>
-      {showLogo && layout !== "bottom" ? <Logo negative={onDark} format={format} /> : null}
+      {logoAtTop ? <Logo negative={onDark} format={format} /> : null}
     </div>
   );
 
@@ -329,7 +345,7 @@ function EventContent({ format, layout, pad, eyebrow, eyebrowColor, title, title
         <MetaRows rows={metaRows} color={metaColor} format={format} />
         <Meta items={meta} color={metaColor} format={format} />
       </div>
-      {showLogo ? <Logo negative={onDark} format={format} /> : null}
+      {logoAtBottom ? <Logo negative={onDark} format={format} /> : null}
     </div>
   );
 
@@ -363,11 +379,13 @@ function QuoteContent({ format, layout, pad, eyebrow, eyebrowColor, title, title
   const ebSize = format === "1.91:1" ? 16 : format === "9:16" ? 32 : 24;
   const qSize = pickTitleSize(title, format, titleSizeOverride);
   const markSize = qSize * 1.5;
+  const { logoAtTop, logoAtBottom } = logoSlots(showLogo, layout);
+  const hasAttribution = attribution && (attribution.name || attribution.role);
 
   const top = (
     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 24 }}>
       <Eyebrow color={eyebrowColor} size={ebSize}>{eyebrow}</Eyebrow>
-      {showLogo ? <Logo negative={onDark} format={format} /> : null}
+      {logoAtTop ? <Logo negative={onDark} format={format} /> : null}
     </div>
   );
 
@@ -378,13 +396,22 @@ function QuoteContent({ format, layout, pad, eyebrow, eyebrowColor, title, title
     </div>
   );
 
-  const bottom = attribution && (attribution.name || attribution.role) ? (
+  const attributionBlock = hasAttribution ? (
     <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
       {attribution.avatar ? <Avatar name={attribution.name} src={attribution.avatar} size={format === "1.91:1" ? 64 : 96} onDark={onDark} /> : null}
       <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
         {attribution.name ? <div style={{ font: `500 ${format === "1.91:1" ? 26 : 34}px/1.2 var(--tf-font)`, color: metaColor }}>{attribution.name}</div> : null}
         {attribution.role ? <div style={{ font: `400 ${format === "1.91:1" ? 20 : 26}px/1.25 var(--tf-font)`, color: metaColor, opacity: 0.72 }}>{attribution.role}</div> : null}
       </div>
+    </div>
+  ) : null;
+
+  // Attribution and the balanced-bottom logo share this row (space-between
+  // pushes the logo to the far right even when there's no attribution).
+  const bottom = hasAttribution || logoAtBottom ? (
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 24 }}>
+      {attributionBlock || <div />}
+      {logoAtBottom ? <Logo negative={onDark} format={format} /> : null}
     </div>
   ) : null;
 
@@ -403,11 +430,12 @@ function StatContent({ format, layout, pad, eyebrow, eyebrowColor, number, unit,
   const unitSize = numSize * 0.30;
   const labelSize = format === "1.91:1" ? 30 : format === "9:16" ? 56 : 42;
   const figColor = statColorValue(statColor, bg);
+  const { logoAtTop, logoAtBottom } = logoSlots(showLogo, layout);
 
   const top = (
     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 24 }}>
       <Eyebrow color={eyebrowColor} size={ebSize}>{eyebrow}</Eyebrow>
-      {showLogo && layout !== "bottom" ? <Logo negative={onDark} format={format} /> : null}
+      {logoAtTop ? <Logo negative={onDark} format={format} /> : null}
     </div>
   );
 
@@ -424,7 +452,7 @@ function StatContent({ format, layout, pad, eyebrow, eyebrowColor, number, unit,
   const bottom = (
     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 24 }}>
       <Meta items={meta} color={metaColor} format={format} />
-      {showLogo ? <Logo negative={onDark} format={format} /> : null}
+      {logoAtBottom ? <Logo negative={onDark} format={format} /> : null}
     </div>
   );
 

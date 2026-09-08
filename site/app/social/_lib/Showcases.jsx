@@ -91,7 +91,7 @@ export function AnatomyDiagram() {
       </div>
       <ol style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 28 }}>
         <AnatomyItem n="01" name="Eyebrow label" desc="ALL CAPS, Poppins Medium, tracking 0.16em. Orange on dark / light; white over photo. Names the post type — never a sentence." />
-        <AnatomyItem n="02" name="Logo (optional)" desc="Off by default — the LinkedIn avatar already brands the post. Add the wordmark only when a post may travel out of feed context." />
+        <AnatomyItem n="02" name="Logo (optional)" desc="Off by default — the LinkedIn avatar already brands the post. Add the wordmark only when a post may travel out of feed context. Placement is automatic and never doubled: it sits in the corner opposite the title's anchor for visual balance." />
         <AnatomyItem n="03" name="Title" desc="Sentence case, Poppins Regular. Tracking −0.02em. Auto-sizes to text length within tier steps. Anchored top, center or bottom." />
         <AnatomyItem n="04" name="Metadata" desc="Date, time, location, roles, key/value rows. Poppins Medium, smaller scale. Always pinned to the bottom edge." />
       </ol>

@@ -125,6 +125,7 @@ export default function SocialPage() {
             <div className="rule"><span className="n">×</span><div><b>Title Case headlines.</b><p>“AI Enablement: Boost Your Business” → “AI Enablement: Boost your business.” Sentence case throughout.</p></div></div>
             <div className="rule"><span className="n">×</span><div><b>Stock-photo handshakes.</b><p>Real photography from Trifork offices and engagements. People at work, architecture, on-site.</p></div></div>
             <div className="rule"><span className="n">×</span><div><b>The logo by default.</b><p>LinkedIn already shows the company avatar above the post. Add the wordmark only when the post will be reposted out of feed context.</p></div></div>
+            <div className="rule"><span className="n">×</span><div><b>Two logos on one graphic.</b><p>Never more than one wordmark per card. Placement is automatic — it sits opposite the title’s vertical anchor for visual balance, not a corner you choose.</p></div></div>
           </div>
         </section>
 
