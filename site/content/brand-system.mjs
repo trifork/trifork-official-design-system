@@ -105,6 +105,7 @@ export const brandSystem = {
     ],
     rules: [
       "Slide backgrounds are only blue 100 (#D5E5ED) or ink 950 (#2C3A42). Never white.",
+      "The slide frame itself is square, never rounded. Corner radius is reserved for elements placed on the slide (cards, images, chrome) and never applied to the slide background or outer canvas. If a slide is later placed inside a rounded container (a browser gallery, a device frame), that rounding belongs to the container, not the template.",
       "Photo overlays are flat ink 950 at 90 percent opacity: rgba(44, 58, 66, 0.90). No gradients and no other tints.",
       "Cards are white on light slides and rgba(0, 0, 0, 0.10) on dark slides.",
       "Line separators are blue 200 (#C1D7E5) on light slides and rgba(255, 255, 255, 0.30) on dark slides. Use rules sparingly, only to separate stacked list or table rows.",

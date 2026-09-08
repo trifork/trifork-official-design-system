@@ -27,10 +27,13 @@
     background: var(--tf-blue-100);
     /* Line separators inside slides: blue-200 on light slides, 30% white on dark. */
     --tf-rule: var(--tf-blue-200);
+    /* GALLERY CHROME ONLY — border-radius and box-shadow here lift the slide
+       thumbnails off this documentation page. The slide frame itself is square
+       and flat: never reproduce this rounding or shadow inside a deck. If a
+       slide is placed in a rounded container elsewhere, that rounding belongs
+       to the container, not the template. */
     border-radius: var(--tf-r-md);
     overflow: hidden;
-    /* GALLERY CHROME ONLY — lifts the slide thumbnails off this documentation
-       page. Slides are flat: never reproduce this shadow inside a deck. */
     box-shadow: 0 24px 60px -32px rgba(44,58,66,0.25), 0 1px 0 rgba(0,0,0,0.04);
     position: relative;
     container-type: inline-size;

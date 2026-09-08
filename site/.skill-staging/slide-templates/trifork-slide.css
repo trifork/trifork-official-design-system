@@ -22,6 +22,11 @@ body:has(.slide-kit-page) { background: var(--tf-ink-100); }
   aspect-ratio: 16/9;
   background: var(--tf-blue-100);
   --tf-rule: var(--tf-blue-200);
+  /* GALLERY CHROME ONLY -- border-radius and box-shadow here lift the slide
+     thumbnails off this documentation page. The slide frame itself is square
+     and flat: real templates zero both out via `.slide-template-document
+     .slide-kit-page .slide` below. Never reproduce this rounding or shadow
+     inside a deck or template. */
   border-radius: var(--tf-r-md);
   overflow: hidden;
   box-shadow: 0 24px 60px -32px rgba(44,58,66,0.25), 0 1px 0 rgba(0,0,0,0.04);
@@ -571,6 +576,10 @@ body:has(.slide-kit-page) { background: var(--tf-ink-100); }
   padding: 0;
 }
 
+/* The slide frame is square and flat. This zeroes out the gallery-only
+   corner radius and shadow above so every standalone template (and every
+   generated preview/pptx) renders with a rectangular, flat background --
+   never rounded, regardless of how it is later displayed. */
 .slide-template-document .slide-kit-page .slide {
   width: 1920px;
   height: 1080px;

@@ -10,6 +10,7 @@ When designing for Trifork, use this design system as the source of truth. The f
 - **Title gap:** at least 32 px between a slide title and the next element below it (lede, body, columns, list, image). On the 1920 × 1080 design target every slide in the kit clears this; never sit a paragraph or content block flush under a title.
 - **Line separators on slides:** blue 200 (`--tf-blue-200`, `#C1D7E5`) on light slides; 30% white (`rgba(255, 255, 255, 0.3)`) on dark slides. No other rule colours inside slide content. Use rules sparingly — only to separate stacked list/table rows. Never put a rule under a title or sub-heading (that reads as an AI accent line), and never use a full-width rule as a section divider between blocks.
 - **No shadows.** The system is flat. Cards, lines, images, the logo, and text carry no drop shadow, glow, or bevel. (The soft `box-shadow` on `.slide` in `slide-kit.html` is gallery chrome for the documentation page only — it is not part of any slide and must never be reproduced inside a deck.)
+- **Square slide frame.** The slide background/outer canvas is never rounded — only individual elements on a slide (cards, images, chrome) take a corner radius. (The `border-radius` on `.slide` in `slide-kit.html` is the same gallery chrome as the shadow above: it lifts the thumbnail off the documentation page and must never be reproduced inside a deck. If a slide is embedded in a rounded container elsewhere, that rounding belongs to the container, not the template.)
 - **Image overlays:** any dark overlay over an image uses ink 950 at 90% opacity (`rgba(44, 58, 66, 0.9)`), flat — no gradients, no other tints.
 - **Cards on slides:** white surface (`--tf-white`) on light slides; 10% opaque black (`rgba(0, 0, 0, 0.1)`) on dark slides. No other card fills.
 - **Slide backgrounds:** only two colours. Light slides use `--tf-blue-100` (#D5E5ED). Dark slides use `--tf-ink-950` (#2C3A42). Never white. Never any other colour.
@@ -119,5 +120,6 @@ Keep chrome (eyebrow label, footer) at an **8 pt floor** for legibility even if 
 - Default PowerPoint card rounding instead of the explicit 12 px radius.
 - Shipping a `.pptx` without the Poppins fonts embedded.
 - Drop shadows, glows or bevels on cards, lines, images, text, or the logo — the system is flat.
+- Rounding the slide background/outer canvas — the slide frame is always square; corner radius belongs only to elements placed on the slide.
 - Rules under titles/sub-headings or full-width divider rules between content blocks.
 - Stretching or squeezing the logo off its 495 : 52 (≈9.52 : 1) aspect ratio.

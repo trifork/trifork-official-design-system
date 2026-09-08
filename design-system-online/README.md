@@ -60,7 +60,7 @@ This system is for designers and developers building Trifork-branded artefacts: 
 
 **Corners.** 12 px radius for elements ≤ 199 px wide; 24 px for anything larger. Pills are full-radius and reserved for actions and tags.
 
-**Depth.** The system is flat. We do not use drop shadows, glows, reflections, or bevels on cards, rules, images, text, or the logo — separation comes from colour, fill, and whitespace. (The soft shadow on `.slide` in the slide-kit page is gallery chrome for the documentation view only; slides themselves are flat.)
+**Depth.** The system is flat. We do not use drop shadows, glows, reflections, or bevels on cards, rules, images, text, or the logo — separation comes from colour, fill, and whitespace. The slide frame itself is also square, never rounded; corner radius only ever applies to elements placed on a slide (cards, images, chrome), never to the background or outer canvas. (The soft shadow and rounded corners on `.slide` in the slide-kit page are gallery chrome for the documentation view only; slides themselves are flat and square. If a slide is later placed inside a rounded container elsewhere, that rounding belongs to the container, not the template.)
 
 **Logo.** The Trifork wordmark holds a fixed 495 : 52 (≈ 9.52 : 1) aspect ratio. Scale it by one dimension and let the other follow; never stretch or squeeze it into a box of another ratio. The negative wordmark is used on dark surfaces, the RGB wordmark on light; the orange dot is never recoloured.
 

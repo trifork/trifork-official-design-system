@@ -1349,6 +1349,10 @@ export function slideTemplateCss(pageCss) {
   padding: 0;
 }
 
+/* The slide frame is square and flat. This zeroes out the gallery-only
+   corner radius and shadow from slide-kit.css so every standalone template
+   (and every generated preview/pptx) renders with a rectangular, flat
+   background — never rounded, regardless of how it is later displayed. */
 .slide-template-document .slide-kit-page .slide {
   width: 1920px;
   height: 1080px;
